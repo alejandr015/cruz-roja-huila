@@ -119,6 +119,41 @@ Route::get('/habeas-data', function () {
 })->name('habeas-data');
 
 // ============================================
+// FORMULARIOS PÚBLICOS CON PROTECCIÓN ANTI-SPAM
+// Límite: 3 envíos por hora por IP
+// ============================================
+Route::middleware('throttle.form:3,60')->group(function () {
+    
+    // Inscripciones a Cursos
+    Route::post('/inscripciones/cursos', [InscripcionCursoController::class, 'store'])
+        ->name('inscripciones.cursos.store');
+
+    // Técnicos Laborales
+    Route::post('/inscripciones/tecnicos', [InscripcionTecnicoController::class, 'store'])
+        ->name('inscripciones.tecnicos.store');
+
+    // Diplomados
+    Route::post('/inscripciones/diplomados', [InscripcionDiplomadoController::class, 'store'])
+        ->name('inscripciones.diplomados.store');
+
+    // Empresariales
+    Route::post('/inscripciones/empresariales', [InscripcionEmpresarialController::class, 'store'])
+        ->name('inscripciones.empresariales.store');
+
+    // Virtuales
+    Route::post('/inscripciones/virtuales', [InscripcionVirtualController::class, 'store'])
+        ->name('inscripciones.virtuales.store');
+
+    // Voluntariado
+    Route::post('/voluntariado', [VoluntariadoController::class, 'store'])
+        ->name('voluntariado.store');
+
+    // Contacto
+    Route::post('/contacto', [ContactoController::class, 'store'])
+        ->name('contacto.store');
+});
+
+// ============================================
 // PANEL DE ADMINISTRACIÓN (PRIVADO)
 // ============================================
 // Acceso: https://tudominio.com/admin/dashboard
