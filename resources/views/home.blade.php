@@ -1,0 +1,295 @@
+@extends('layouts.app')
+
+@section('title', 'Inicio - Cruz Roja Colombiana Seccional Huila')
+
+@section('content')
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <!-- Slide 1: Juntos Salvamos Vidas -->
+            <div class="carousel-item active">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%);">
+                    <div class="container">
+                        <div class="row align-items-center" style="min-height: 500px;">
+                            <div class="col-lg-6 text-white">
+                                <h1 class="display-3 fw-bold mb-4">Juntos Salvamos Vidas</h1>
+                                <p class="lead mb-4">Cruz Roja Colombiana Sede Huila trabaja cada día para servir a las comunidades más vulnerables del departamento.</p>
+                                <div class="d-flex gap-3">
+                                    <a href="{{ route('voluntariado') }}" class="btn btn-light btn-lg">Ser Voluntario</a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <i class="fa-solid fa-users-line" style="font-size: 15rem; opacity: 0.3; color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 2: Construcción de Paz -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #eef1f4ff 0%, #959494ff 100%);">
+                    <div class="container">
+                        <div class="row align-items-center" style="min-height: 500px;">
+                            <div class="col-lg-6 text-white">
+                                <h1 class="display-3 fw-bold mb-4">Construcción de Paz</h1>
+                                <p class="lead mb-4">Prevención del impacto humanitario del conflicto y la violencia mediante la promoción del DIH y los derechos humanos.</p>
+                                <a href="{{ route('prensa') }}" class="btn btn-danger btn-lg">Conocer más</a>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <i class="fa-solid fa-dove" style="font-size: 15rem; opacity: 0.3; color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 3: Capacítate con Nosotros -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #d0d8deff 0%, #ed3535ff 100%);">
+                    <div class="container">
+                        <div class="row align-items-center" style="min-height: 500px;">
+                            <div class="col-lg-6 text-white">
+                                <h1 class="display-3 fw-bold mb-4">Capacítate con Nosotros</h1>
+                                <p class="lead mb-4">Cursos de primeros auxilios, técnicos laborales y más. Aprende a salvar vidas.</p>
+                                <a href="{{ route('educacion') }}" class="btn btn-light btn-lg">Ver Cursos</a>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <i class="fas fa-graduation-cap" style="font-size: 15rem; opacity: 0.3; color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+</section>
+
+<!-- Servicios -->
+<section id="servicios" class="py-5">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Nuestros Servicios</h2>
+            <p class="lead text-muted">Trabajamos cada día para servir a la comunidad del Huila</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-kit-medical"></i>
+                    </div>
+                    <h5>Acción Humanitaria</h5>
+                    <p>Brindamos asistencia humanitaria oportuna y neutral.</p>
+                    <a href="{{ route('conocenos') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-child-reaching"></i>
+                    </div>
+                    <h5>Juventud</h5>
+                    <p>Juventud que actúa por la vida, la paz y la solidaridad.</p>
+                    <a href="{{ route('voluntariado.juventudes') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                    </div>
+                    <h5>Cursos</h5>
+                    <p>Aprende a actuar y salvar vidas.</p>
+                    <a href="{{ route('educacion.cursos') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Noticias y Eventos -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Últimas Noticias y Eventos</h2>
+            <p class="lead text-muted">Mantente informado sobre nuestras actividades</p>
+        </div>
+
+        <div class="row g-4">
+            @forelse($noticias ?? [] as $noticia)
+            <div class="col-md-4">
+                <div class="news-card">
+                    {{-- Imagen por defecto para TODAS las noticias de BD --}}
+                    <img src="{{ asset('img/placeholder-noticia.jpg') }}" class="card-img-top" alt="{{ $noticia->titulo }}">
+                    <div class="card-body">
+                        <span class="badge bg-{{ $noticia->categoria == 'evento' ? 'danger' : ($noticia->categoria == 'campana' ? 'success' : 'info') }} mb-2">
+                            {{ ucfirst($noticia->categoria) }}
+                        </span>
+                        <h5 class="card-title">{{ $noticia->titulo }}</h5>
+                        <p class="card-text">{{ Str::limit($noticia->contenido, 100) }}</p>
+                        <a href="{{ route('prensa.detalle', $noticia->id) }}" class="btn btn-cruz-roja btn-sm">Leer más</a>
+                    </div>
+                </div>
+            </div>
+            @empty
+            {{-- Solo entra aquí si NO hay noticias en BD --}}
+            <div class="col-md-4">
+                <div class="news-card">
+                    <img src="{{ asset('img/voluntariado.jpg') }}" class="card-img-top" alt="Voluntariado">
+                    <div class="card-body">
+                        <span class="badge bg-danger mb-2">Evento</span>
+                        <h5 class="card-title">Jornada de Voluntariado</h5>
+                        <p class="card-text">Únete a nuestra próxima jornada de voluntariado y ayuda a la comunidad.</p>
+                        <a href="{{ route('prensa') }}" class="btn btn-cruz-roja btn-sm">Leer más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="news-card">
+                    <img src="{{ asset('img/primero_auxilios.jpg') }}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <span class="badge bg-success mb-2">Campaña</span>
+                        <h5 class="card-title">Capacitación Gratuita en Primeros Auxilios</h5>
+                        <p class="card-text">Nueva convocatoria abierta para curso básico de primeros auxilios.</p>
+                        <a href="{{ route('prensa') }}" class="btn btn-cruz-roja btn-sm">Leer más</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="news-card">
+                    <img src="{{ asset('img/paz.png') }}" class="card-img-top" alt="Paz">
+                    <div class="card-body">
+                        <span class="badge bg-info mb-2">Noticia</span>
+                        <h5 class="card-title">Construcción de Paz</h5>
+                        <p class="card-text">Conoce nuestros programas de construcción de paz en el departamento.</p>
+                        <a href="{{ route('prensa') }}" class="btn btn-cruz-roja btn-sm">Leer más</a>
+                    </div>
+                </div>
+            </div>
+            @endforelse
+        </div>
+
+        <div class="text-center mt-4">
+            <a href="{{ route('prensa') }}" class="btn btn-outline-danger btn-lg">Ver todas las noticias</a>
+        </div>
+    </div>
+</section>
+
+<!-- Llamado a la Acción -->
+<section class="py-5" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%); color: white;">
+    <div class="container text-center">
+        <h2 class="mb-4 fw-bold">¿Quieres Ser Parte del Cambio?</h2>
+        <p class="lead mb-4">Únete a nuestro equipo de voluntarios y marca la diferencia en tu comunidad</p>
+        <div class="d-flex gap-3 justify-content-center flex-wrap">
+            <a href="{{ route('voluntariado') }}" class="btn btn-light btn-lg">
+                <i class="fas fa-user-plus me-2"></i> Inscribirme Como Voluntario
+            </a>
+        </div>
+    </div>
+</section>
+
+@endsection
+
+@section('styles')
+<style>
+    .service-card {
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+        height: 100%;
+        padding: 30px;
+        text-align: center;
+        background: white;
+    }
+
+    .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(237, 28, 36, 0.2);
+    }
+
+    .service-icon {
+        width: 80px;
+        height: 80px;
+        background: #ED1C24;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        margin: 0 auto 20px;
+    }
+
+    .news-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s;
+        height: 100%;
+    }
+
+    .news-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    }
+
+    .news-card img {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .section-title {
+        color: #ED1C24;
+        font-weight: 700;
+        margin-bottom: 20px;
+        position: relative;
+        padding-bottom: 15px;
+    }
+
+    .section-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: #ED1C24;
+    }
+
+    .btn-cruz-roja {
+        background: #ED1C24;
+        color: white;
+        border: none;
+        transition: all 0.3s;
+    }
+
+    .btn-cruz-roja:hover {
+        background: #C41419;
+        color: white;
+        transform: translateY(-2px);
+    }
+</style>
+@endsection
