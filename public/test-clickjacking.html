@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Test Clickjacking Protection</title>
+</head>
+<body>
+    <h1>Test de Protección Clickjacking</h1>
+    <p>Si ves este mensaje pero NO ves el contenido de tu sitio abajo, significa que la protección X-Frame-Options está funcionando ✅</p>
+    
+    <h2>Intentando cargar tu sitio en iframe:</h2>
+    <iframe src="http://localhost:8000" width="800" height="600"></iframe>
+    
+    <p><strong>Resultado esperado:</strong> El iframe debería estar bloqueado por el navegador</p>
+</body>
+</html>

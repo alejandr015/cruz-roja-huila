@@ -14,10 +14,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'admin.auth' => \App\Http\Middleware\CheckAdminAuth::class,
             'auto.logout' => \App\Http\Middleware\AutoLogoutOnLeave::class,
+            'security.headers' => \App\Http\Middleware\SecurityHeaders::class,
         ]);
 
         // Aplicar auto-logout a TODAS las rutas (no solo admin)
         $middleware->append(\App\Http\Middleware\AutoLogoutOnLeave::class);
+        $middleware->append(\App\Http\Middleware\SecurityHeaders::class);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
