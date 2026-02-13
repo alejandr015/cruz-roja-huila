@@ -11,6 +11,10 @@
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
             <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="4"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="5"></button>
+            <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="6"></button>
         </div>
 
         <div class="carousel-inner">
@@ -64,6 +68,103 @@
                             </div>
                             <div class="col-lg-6 text-center">
                                 <i class="fas fa-graduation-cap" style="font-size: 15rem; opacity: 0.3; color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Educación ⭐ NUEVO -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                    <div class="container">
+                        <div class="row align-items-center" style="min-height: 500px;">
+                            <div class="col-lg-6 text-white">
+                                <h1 class="display-3 fw-bold mb-4">Educación para la Vida</h1>
+                                <p class="lead mb-4">Ofrecemos programas de formación integral en primeros auxilios, técnicos laborales, diplomados y educación virtual. Certifícate con nosotros y marca la diferencia.</p>
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <a href="{{ route('educacion') }}" class="btn btn-light btn-lg">
+                                        <i class="fas fa-book-open me-2"></i>Ver Programas
+                                    </a>
+                                    <a href="{{ route('educacion.cursos') }}" class="btn btn-outline-light btn-lg">
+                                        <i class="fas fa-certificate me-2"></i>Inscríbete
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <i class="fas fa-chalkboard-teacher" style="font-size: 15rem; opacity: 0.3; color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 5: Vacunación ⭐ NUEVO -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%);">
+                    <div class="container">
+                        <div class="row align-items-center" style="min-height: 500px;">
+                            <div class="col-lg-6 text-white">
+                                <h1 class="display-3 fw-bold mb-4">Punto de Vacunación</h1>
+                                <p class="lead mb-4">Protege a tu familia con nuestro servicio de vacunación completo. Atención para niños, gestantes, adultos y esquemas de riesgos laborales. ¡Tu salud es nuestra prioridad!</p>
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <a href="{{ route('vacunacion') }}" class="btn btn-light btn-lg">
+                                        <i class="fas fa-syringe me-2"></i>Ver Servicios
+                                    </a>
+                                    <a href="{{ route('vacunacion.ninos-gestantes') }}" class="btn btn-outline-light btn-lg">
+                                        <i class="fas fa-baby me-2"></i>Vacunación Infantil
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <i class="fas fa-shield-virus" style="font-size: 15rem; opacity: 0.3; color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Servicios Masivos ⭐ NUEVO -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);">
+                    <div class="container">
+                        <div class="row align-items-center" style="min-height: 500px;">
+                            <div class="col-lg-6 text-white">
+                                <h1 class="display-3 fw-bold mb-4">Servicios Masivos</h1>
+                                <p class="lead mb-4">Apoyo en eventos deportivos, culturales y sociales. Ofrecemos atención médica pre-hospitalaria, ambulancias y personal capacitado para garantizar la seguridad de todos los asistentes.</p>
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <a href="{{ route('salud') }}" class="btn btn-light btn-lg">
+                                        <i class="fas fa-ambulance me-2"></i>Servicios de Salud
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <i class="fas fa-people-group" style="font-size: 15rem; opacity: 0.3; color: white;"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 7: Servicio Social ⭐ NUEVO -->
+            <div class="carousel-item">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
+                    <div class="container">
+                        <div class="row align-items-center" style="min-height: 500px;">
+                            <div class="col-lg-6 text-white">
+                                <h1 class="display-3 fw-bold mb-4">Servicio Social</h1>
+                                <p class="lead mb-4">Programas de voluntariado, damas grises, juventudes y socorrismo. Únete a nuestra misión humanitaria y contribuye al bienestar de las comunidades más vulnerables del Huila.</p>
+                                <div class="d-flex gap-3 flex-wrap">
+                                    <a href="{{ route('voluntariado') }}" class="btn btn-light btn-lg">
+                                        <i class="fas fa-hands-helping me-2"></i>Ser Voluntario
+                                    </a>
+                                    <a href="{{ route('voluntariado.damas-grises') }}" class="btn btn-outline-light btn-lg">
+                                        <i class="fas fa-heart me-2"></i>Damas Grises
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 text-center">
+                                <i class="fas fa-hand-holding-heart" style="font-size: 15rem; opacity: 0.3; color: white;"></i>
                             </div>
                         </div>
                     </div>
