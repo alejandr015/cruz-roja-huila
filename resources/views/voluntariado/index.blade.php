@@ -15,7 +15,7 @@
 <section class="modalidades-section py-5">
     <div class="container">
         <div class="row g-4 justify-content-center">
-            
+
             <!-- Juveniles -->
             <div class="col-md-4">
                 <a href="{{ route('voluntariado.juventudes') }}" class="modalidad-card">
@@ -60,41 +60,58 @@
 <section class="requisitos-section py-5 bg-light">
     <div class="container">
         <h2 class="text-center requisitos-title mb-5">Requisitos Para Ser Voluntario</h2>
-        
+
         <div class="requisitos-container">
             <div class="requisitos-content">
-                <ul class="requisitos-lista">
-                    <li>Inscribirse voluntariamente.</li>
-                    <li>Cumplir con la edad mínima de acuerdo a la agrupación, así:
-                        <ul>
-                            <li>Infantiles 7 años, Prejuveniles 10 años, Juveniles 13 años – Damas Grises y Socorristas 18 años.</li>
-                            <li>Hacer aprobado el grado escolar de acuerdo a la agrupación así:
-                                <ul>
-                                    <li>Infantiles 1° de educación primaria.</li>
-                                    <li>Prejuveniles 4° de educación primaria, Juveniles 7° grado de educación secundaria.</li>
-                                    <li>Damas Grises y Socorrismo 9° de educación secundaria o media vocacional o su equivalente.</li>
-                                    <li>Para menores de edad, autorización por escrito de uno de sus padres o acudiente.</li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>Preferir y aprobar el curso de formación básico de voluntariado respectivo.</li>
-                    <li>Aceptar los Estatutos de la Sociedad Nacional de la Cruz Roja Colombiana y el reglamento de las agrupaciones voluntarias.</li>
-                    <li>Recibir y aprobar el curso de formación básico de voluntariado respectivo.</li>
-                    <li>Firmar compromiso voluntario, previo a su graduación.</li>
-                    <li>No pertenecer a otro organismo de socorro, entidad voluntaria o a otra organización cuyas acciones sean incompatibles con los Principios Fundamentales.</li>
-                    <li>No tener ninguna de las incompatibilidades para ser miembro de la institución, de acuerdo con el artículo 16 de los Estatutos de la Sociedad Nacional que dice:
-                        <ul>
-                            <li>Incompatibilidades.</li>
-                            <li>La condición de Miembro de la Sociedad Nacional de la Cruz Roja Colombiana es incompatible:</li>
-                            <li>Con el ejercicio de cargos de representación política, entendidos por tales los de elección popular y los de dirección y gestión en Directorio de partido o movimientos políticos.</li>
-                            <li>Con toda intervención o participación en política, salvo el derecho al sufragio.</li>
-                            <li>Con la calidad de miembro de cualquier fuerza armada y de policía.</li>
-                            <li>Con toda actividad contraria a los Principios Fundamentales del Movimiento Internacional de la Cruz Roja y de la Media Luna Roja y los Estatutos.</li>
-                            <li>Con cualquier tipo de incompatibilidad legal, que tenga una persona, por virtud de la cual no pueda ocupar un cargo ser miembro de la Cruz Roja Colombiana.</li>
-                        </ul>
-                    </li>
-                </ul>
+                <div class="row g-4">
+                    <!-- Requisitos Básicos -->
+                    <div class="col-lg-4">
+                        <div class="requisito-card text-center">
+                            <div class="requisito-icon mx-auto">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <h4>Requisitos Básicos</h4>
+                            <ul class="requisitos-lista-simple">
+                                <li>Inscripción voluntaria</li>
+                                <li>Aprobar curso de formación</li>
+                                <li>Compromiso con Cruz Roja</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Edad Mínima -->
+                    <div class="col-lg-4">
+                        <div class="requisito-card text-center">
+                            <div class="requisito-icon mx-auto">
+                                <i class="fas fa-user-clock"></i>
+                            </div>
+                            <h4>Edad Mínima</h4>
+                            <ul class="requisitos-lista-simple">
+                                <li><strong>Infantiles:</strong> 7 años</li>
+                                <li><strong>Juveniles:</strong> 13 años</li>
+                                <li><strong>Adultos:</strong> 18 años</li>
+                            </ul>
+                            <p class="text-muted small mt-3 mb-0">
+                                *Menores requieren autorización de padres
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Importante -->
+                    <div class="col-lg-4">
+                        <div class="requisito-card text-center">
+                            <div class="requisito-icon mx-auto bg-warning">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <h4>Importante</h4>
+                            <ul class="requisitos-lista-simple">
+                                <li>No pertenecer a otra entidad de socorro</li>
+                                <li>No tener cargos políticos activos</li>
+                                <li>No ser miembro de fuerzas armadas</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -132,7 +149,7 @@
 
                 <form action="{{ route('voluntariado.inscribirse') }}" method="POST" id="formInscripcion">
                     @csrf
-                    
+
                     <div class="row g-3">
                         <!-- Modalidad de Voluntariado -->
                         <div class="col-12">
@@ -276,7 +293,8 @@
         max-height: 100%;
         width: auto;
         height: auto;
-        object-fit: contain; /* Mantiene proporción sin cortar */
+        object-fit: contain;
+        /* Mantiene proporción sin cortar */
         transition: transform 0.3s ease;
     }
 
@@ -328,13 +346,13 @@
         line-height: 1.8;
     }
 
-    .requisitos-lista > li {
+    .requisitos-lista>li {
         margin-bottom: 15px;
         position: relative;
         padding-left: 25px;
     }
 
-    .requisitos-lista > li::before {
+    .requisitos-lista>li::before {
         content: "•";
         color: #ED1C24;
         font-weight: bold;
@@ -498,17 +516,17 @@
 <script>
     // Si hay errores de validación, abrir el modal automáticamente
     @if($errors->any())
-        var modalInscripcion = new bootstrap.Modal(document.getElementById('modalInscripcion'));
-        modalInscripcion.show();
+    var modalInscripcion = new bootstrap.Modal(document.getElementById('modalInscripcion'));
+    modalInscripcion.show();
     @endif
 
     // Si hay mensaje de éxito, mostrar modal con mensaje y cerrar después de 3 segundos
     @if(session('success'))
-        var modalInscripcion = new bootstrap.Modal(document.getElementById('modalInscripcion'));
-        modalInscripcion.show();
-        setTimeout(function() {
-            modalInscripcion.hide(); 
-        }, 3000);
+    var modalInscripcion = new bootstrap.Modal(document.getElementById('modalInscripcion'));
+    modalInscripcion.show();
+    setTimeout(function() {
+        modalInscripcion.hide();
+    }, 3000);
     @endif
 </script>
 @endsection
