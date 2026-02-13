@@ -125,8 +125,8 @@ Route::get('/habeas-data', function () {
 Route::middleware('throttle.form:3,60')->group(function () {
     
     // Inscripciones a Cursos
-    Route::post('/inscripciones/cursos', [InscripcionCursoController::class, 'store'])
-        ->name('inscripciones.cursos.store');
+    //Route::post('/inscripciones/cursos', [EducacionController::class, 'store'])
+       // ->name('inscripciones.cursos.store');
 
     // Técnicos Laborales
     Route::post('/inscripciones/tecnicos', [InscripcionTecnicoController::class, 'store'])

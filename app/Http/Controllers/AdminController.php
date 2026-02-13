@@ -8,6 +8,7 @@ use App\Models\Voluntario;
 use App\Models\MensajeContacto;
 use App\Models\Donacion;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Cache;
 
 class AdminController extends Controller
 {
@@ -24,15 +25,21 @@ class AdminController extends Controller
      */
     public function getEstadisticas()
     {
-        return response()->json([
-            'cursos' => \App\Models\InscripcionCurso::where('estado', 'pendiente')->count(),
-            'confirmados' => \App\Models\InscripcionCurso::where('estado', 'confirmado')->count(),
-            'tecnicos' => \App\Models\InscripcionTecnico::where('estado', 'pendiente')->count(),
-            'diplomados' => \App\Models\InscripcionDiplomado::where('estado', 'pendiente')->count(),
-            'empresariales' => \App\Models\InscripcionEmpresarial::where('estado', 'pendiente')->count(),
-            'virtuales' => \App\Models\InscripcionVirtual::where('estado', 'pendiente')->count(),
-            'voluntarios' => \App\Models\Voluntario::count(),
-        ]);
+        // Cachear estadísticas por 5 minutos (300 segundos)
+        // Esto reduce de 7 consultas SQL a 0 en cada recarga del dashboard
+        $estadisticas = Cache::remember('admin.estadisticas', 300, function () {
+            return [
+                'cursos' => \App\Models\InscripcionCurso::where('estado', 'pendiente')->count(),
+                'confirmados' => \App\Models\InscripcionCurso::where('estado', 'confirmado')->count(),
+                'tecnicos' => \App\Models\InscripcionTecnico::where('estado', 'pendiente')->count(),
+                'diplomados' => \App\Models\InscripcionDiplomado::where('estado', 'pendiente')->count(),
+                'empresariales' => \App\Models\InscripcionEmpresarial::where('estado', 'pendiente')->count(),
+                'virtuales' => \App\Models\InscripcionVirtual::where('estado', 'pendiente')->count(),
+                'voluntarios' => \App\Models\Voluntario::count(),
+            ];
+        });
+
+        return response()->json($estadisticas);
     }
 
     /**
@@ -77,6 +84,8 @@ class AdminController extends Controller
             $inscripcion = InscripcionCurso::findOrFail($id);
             $inscripcion->delete();
 
+            Cache::forget('admin.estadisticas'); // ⭐ AGREGAR
+
             return response()->json([
                 'success' => true,
                 'message' => 'Inscripción eliminada correctamente'
@@ -104,6 +113,9 @@ class AdminController extends Controller
             'estado' => $request->estado,
             'observaciones' => $request->observaciones,
         ]);
+
+        // ⭐ Invalidar cache para actualizar estadísticas
+        Cache::forget('admin.estadisticas');
 
         return response()->json(['success' => true]);
     }
@@ -167,9 +179,20 @@ class AdminController extends Controller
             fprintf($file, chr(0xEF) . chr(0xBB) . chr(0xBF));
 
             fputcsv($file, [
-                'ID', 'Fecha Inscripción', 'Nombre', 'Documento', 'Email', 'Teléfono',
-                'Fecha Nacimiento', 'Ciudad', 'Curso', 'Duración', 'Modalidad',
-                'Horario', 'Estado', 'Observaciones'
+                'ID',
+                'Fecha Inscripción',
+                'Nombre',
+                'Documento',
+                'Email',
+                'Teléfono',
+                'Fecha Nacimiento',
+                'Ciudad',
+                'Curso',
+                'Duración',
+                'Modalidad',
+                'Horario',
+                'Estado',
+                'Observaciones'
             ]);
 
             foreach ($inscripciones as $inscripcion) {
@@ -226,9 +249,23 @@ class AdminController extends Controller
 
     public function deleteTecnico($id)
     {
-        $tecnico = \App\Models\InscripcionTecnico::findOrFail($id);
-        $tecnico->delete();
-        return response()->json(['success' => true]);
+        try {
+            $tecnico = \App\Models\InscripcionTecnico::findOrFail($id);
+            $tecnico->delete();
+
+            // Invalidar cache de estadísticas
+            Cache::forget('admin.estadisticas');
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Inscripción eliminada correctamente'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al eliminar la inscripción'
+            ], 500);
+        }
     }
 
     public function updateEstadoTecnico(Request $request, $id)
@@ -243,6 +280,8 @@ class AdminController extends Controller
             'estado' => $request->estado,
             'observaciones' => $request->observaciones,
         ]);
+
+        Cache::forget('admin.estadisticas'); // ⭐ AGREGAR
 
         return response()->json(['success' => true]);
     }
@@ -276,9 +315,23 @@ class AdminController extends Controller
 
     public function deleteDiplomado($id)
     {
-        $diplomado = \App\Models\InscripcionDiplomado::findOrFail($id);
-        $diplomado->delete();
-        return response()->json(['success' => true]);
+        try {
+            $diplomado = \App\Models\InscripcionDiplomado::findOrFail($id);
+            $diplomado->delete();
+
+            // Invalidar cache de estadísticas
+            Cache::forget('admin.estadisticas');
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Inscripción eliminada correctamente'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al eliminar la inscripción'
+            ], 500);
+        }
     }
 
     public function updateEstadoDiplomado(Request $request, $id)
@@ -293,6 +346,8 @@ class AdminController extends Controller
             'estado' => $request->estado,
             'observaciones' => $request->observaciones,
         ]);
+
+        Cache::forget('admin.estadisticas'); // ⭐ AGREGAR
 
         return response()->json(['success' => true]);
     }
@@ -327,9 +382,23 @@ class AdminController extends Controller
 
     public function deleteEmpresarial($id)
     {
-        $empresarial = \App\Models\InscripcionEmpresarial::findOrFail($id);
-        $empresarial->delete();
-        return response()->json(['success' => true]);
+        try {
+            $empresarial = \App\Models\InscripcionEmpresarial::findOrFail($id);
+            $empresarial->delete();
+
+            // Invalidar cache de estadísticas
+            Cache::forget('admin.estadisticas');
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Solicitud eliminada correctamente'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al eliminar la solicitud'
+            ], 500);
+        }
     }
 
     public function updateEstadoEmpresarial(Request $request, $id)
@@ -344,6 +413,8 @@ class AdminController extends Controller
             'estado' => $request->estado,
             'observaciones' => $request->observaciones,
         ]);
+
+        Cache::forget('admin.estadisticas'); // ⭐ AGREGAR
 
         return response()->json(['success' => true]);
     }
@@ -377,9 +448,23 @@ class AdminController extends Controller
 
     public function deleteVirtual($id)
     {
-        $virtual = \App\Models\InscripcionVirtual::findOrFail($id);
-        $virtual->delete();
-        return response()->json(['success' => true]);
+        try {
+            $virtual = \App\Models\InscripcionVirtual::findOrFail($id);
+            $virtual->delete();
+
+            // Invalidar cache de estadísticas
+            Cache::forget('admin.estadisticas');
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Inscripción eliminada correctamente'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al eliminar la inscripción'
+            ], 500);
+        }
     }
 
     public function updateEstadoVirtual(Request $request, $id)
@@ -394,6 +479,8 @@ class AdminController extends Controller
             'estado' => $request->estado,
             'observaciones' => $request->observaciones,
         ]);
+
+        Cache::forget('admin.estadisticas'); // ⭐ AGREGAR
 
         return response()->json(['success' => true]);
     }
@@ -448,6 +535,9 @@ class AdminController extends Controller
         try {
             $voluntario = Voluntario::findOrFail($id);
             $voluntario->delete();
+
+            // Invalidar cache de estadísticas
+            Cache::forget('admin.estadisticas');
 
             return response()->json([
                 'success' => true,
@@ -640,8 +730,14 @@ class AdminController extends Controller
             fprintf($file, chr(0xEF) . chr(0xBB) . chr(0xBF));
 
             fputcsv($file, [
-                'Categoría', 'Fecha Inscripción', 'Nombre', 'Email',
-                'Teléfono', 'Programa', 'Estado', 'Ciudad'
+                'Categoría',
+                'Fecha Inscripción',
+                'Nombre',
+                'Email',
+                'Teléfono',
+                'Programa',
+                'Estado',
+                'Ciudad'
             ]);
 
             foreach ($inscritos as $inscrito) {
