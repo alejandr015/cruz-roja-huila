@@ -190,36 +190,75 @@
         </div>
 
         <div class="row g-4">
+            <!-- Acción Humanitaria -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-icon">
                         <i class="fas fa-kit-medical"></i>
                     </div>
                     <h5>Acción Humanitaria</h5>
-                    <p>Brindamos asistencia humanitaria oportuna y neutral.</p>
+                    <p>Brindamos asistencia humanitaria oportuna y neutral a las comunidades más vulnerables.</p>
                     <a href="{{ route('conocenos') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
                 </div>
             </div>
 
+            <!-- Educación -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fa-solid fa-child-reaching"></i>
+                        <i class="fas fa-graduation-cap"></i>
                     </div>
-                    <h5>Juventud</h5>
-                    <p>Juventud que actúa por la vida, la paz y la solidaridad.</p>
-                    <a href="{{ route('voluntariado.juventudes') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
+                    <h5>Educación</h5>
+                    <p>Cursos de primeros auxilios, técnicos laborales, diplomados y educación virtual.</p>
+                    <a href="{{ route('educacion') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
                 </div>
             </div>
 
+            <!-- Vacunación -->
             <div class="col-md-6 col-lg-4">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fa-solid fa-graduation-cap"></i>
+                        <i class="fas fa-syringe"></i>
                     </div>
-                    <h5>Cursos</h5>
-                    <p>Aprende a actuar y salvar vidas.</p>
-                    <a href="{{ route('educacion.cursos') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
+                    <h5>Vacunación</h5>
+                    <p>Punto de vacunación para niños, gestantes, adultos y esquemas de riesgos laborales.</p>
+                    <a href="{{ route('vacunacion') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
+                </div>
+            </div>
+
+            <!-- Servicios Masivos -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-ambulance"></i>
+                    </div>
+                    <h5>Servicios Masivos</h5>
+                    <p>Atención médica pre-hospitalaria en eventos deportivos, culturales y sociales.</p>
+                    <a href="{{ route('salud') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
+                </div>
+            </div>
+
+            <!-- Servicio Social -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h5>Servicio Social</h5>
+                    <p>Programas de voluntariado, damas grises, juventudes y socorrismo comunitario.</p>
+                    <a href="{{ route('voluntariado') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
+                </div>
+            </div>
+
+            <!-- Laboratorio Clínico -->
+            <div class="col-md-6 col-lg-4">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h5>Laboratorio Clínico</h5>
+                    <p>Exámenes de rutina, pruebas especiales, inmunología y servicios empresariales.</p>
+                    <a href="{{ route('salud.laboratorios-clinicos') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
                 </div>
             </div>
         </div>

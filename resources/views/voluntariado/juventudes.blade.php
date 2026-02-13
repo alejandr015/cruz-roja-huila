@@ -7,7 +7,7 @@
 <!-- Banner Header -->
 <section class="page-header-voluntariado" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
     <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Juventud Cruz Roja</h1>
+        <h1 class="display-4 fw-bold">Servicio social Cruz Roja</h1>
         <p class="lead">Jóvenes comprometidos con la acción humanitaria</p>
     </div>
 </section>

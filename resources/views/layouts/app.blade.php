@@ -319,7 +319,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('voluntariado.socorristas') }}">Socorristas</a></li>
-                            <li><a class="dropdown-item" href="{{ route('voluntariado.juventudes') }}">Juventudes</a></li>
+                            <li><a class="dropdown-item" href="{{ route('voluntariado.juventudes') }}">Servicio social</a></li>
                             <li><a class="dropdown-item" href="{{ route('voluntariado.damas-grises') }}">Damas Grises</a></li>
                         </ul>
                     </li>
