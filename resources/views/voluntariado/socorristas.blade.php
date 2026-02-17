@@ -85,8 +85,6 @@
                         <li><i class="fas fa-check-circle"></i> Buena condición física y mental</li>
                         <li><i class="fas fa-check-circle"></i> Compromiso humanitario y vocación de servicio</li>
                         <li><i class="fas fa-check-circle"></i> Completar el curso de inducción y formación básica</li>
-                        <li><i class="fas fa-check-circle"></i> Aprobar evaluaciones teóricas y prácticas</li>
-                        <li><i class="fas fa-check-circle"></i> Disponibilidad para trabajar en equipo</li>
                     </ul>
                 </div>
 
