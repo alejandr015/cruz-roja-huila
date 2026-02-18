@@ -13,7 +13,10 @@
                 <p class="text-muted mb-0">Bienvenido, {{ session('admin_nombre') }}</p>
                 <p class="text-muted mb-0">Gestión de inscripciones y contactos</p>
             </div>
-            <div>
+            <div class="d-flex gap-2">
+                <a href="{{ route('admin.usuarios') }}" class="btn btn-outline-light">
+                    <i class="fas fa-users-cog me-2"></i>Administradores
+                </a>
                 <form action="{{ route('logout') }}" method="POST" class="d-inline">
                     @csrf
                     <button type="submit" class="btn btn-danger">

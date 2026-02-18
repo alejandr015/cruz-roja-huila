@@ -14,6 +14,7 @@ use App\Http\Controllers\InscripcionDiplomadoController;
 use App\Http\Controllers\InscripcionEmpresarialController;
 use App\Http\Controllers\InscripcionVirtualController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AdminUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -123,10 +124,10 @@ Route::get('/habeas-data', function () {
 // Límite: 3 envíos por hora por IP
 // ============================================
 Route::middleware('throttle.form:3,60')->group(function () {
-    
+
     // Inscripciones a Cursos
     //Route::post('/inscripciones/cursos', [EducacionController::class, 'store'])
-       // ->name('inscripciones.cursos.store');
+    // ->name('inscripciones.cursos.store');
 
     // Técnicos Laborales
     Route::post('/inscripciones/tecnicos', [InscripcionTecnicoController::class, 'store'])
@@ -252,6 +253,17 @@ Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function
 
     Route::delete('/inscripciones-virtuales/{inscripcion}', [InscripcionVirtualController::class, 'destroy'])
         ->name('inscripciones-virtuales.destroy');
+    // ============================================
+    // GESTIÓN DE ADMINISTRADORES (AL FINAL) ⭐
+    // ============================================
+    Route::get('/usuarios', [AdminUserController::class, 'index'])->name('usuarios'); // ⭐ CAMBIADO
+
+    Route::prefix('api/usuarios')->name('api.usuarios.')->group(function () {
+        Route::get('/', [AdminUserController::class, 'getAdmins'])->name('index');
+        Route::post('/', [AdminUserController::class, 'store'])->name('store');
+        Route::delete('/{id}', [AdminUserController::class, 'destroy'])->name('destroy');
+        Route::put('/{id}/password', [AdminUserController::class, 'updatePassword'])->name('password');
+    });
 });
 
 
