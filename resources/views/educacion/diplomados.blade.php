@@ -183,6 +183,38 @@
                 </div>
             </div>
 
+            <!-- Diplomado en Cuidador en atención integral en salud -->
+            <div class="col-md-6 col-lg-4">
+                <div class="curso-card" onclick="mostrarDetalleCurso('cuidador')">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <div class="curso-contenido">
+                        <h3>Cuidador en Salud</h3>
+                        <p>Formación integral para el cuidado y asistencia de personas con necesidades de salud.</p>
+
+                        <div class="curso-info">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>120 horas</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>3-4 meses</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Diplomado</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-ver-detalle">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -234,10 +266,20 @@
                     </div>
                 </div>
 
+                <!-- Sección Qué Aprenderás -->
+                <div id="seccion-que-aprenderas" style="display: none;">
+                    <div class="caracteristicas-curso mt-4">
+                        <h4 class="mb-3"><i class="fas fa-graduation-cap me-2"></i>Ejes Temáticos / Qué aprenderás</h4>
+                        <ul id="lista-que-aprenderas" class="list-unstyled">
+                            <!-- Se poblará dinámicamente -->
+                        </ul>
+                    </div>
+                </div>
+
                 <div class="acciones-curso mt-4">
                     <div class="row g-3">
                         <div class="col-md-4">
-                            <a href="#" class="btn btn-plan-estudios w-100" target="_blank">
+                            <a href="#" id="btn-plan-estudios" class="btn btn-plan-estudios w-100" target="_blank">
                                 <i class="fas fa-download me-2"></i>Plan de Estudios
                             </a>
                         </div>
@@ -732,7 +774,17 @@
             inversion: 'Consultar',
             certificacion: 'Diplomado Certificado',
             icono: 'fa-hospital',
-            color: 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)'
+            color: 'linear-gradient(135deg, #e74c3c 0%, #c0392b 100%)',
+            aprenderas: [
+                'Módulo 1: Cinemática del trauma',
+                'Módulo 2: Extracción vehicular',
+                'Módulo 3: Actuación en situación de urgencias',
+                'Módulo 4: Primeros auxilios',
+                'Módulo 5: Transporte de lesionados',
+                'Módulo 6: Atención a pacientes politraumatizados',
+                'Módulo 7: Emergencias cardio respiratorias'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/atencion-prehospitalaria.html'
         },
         'cuidado-critico': {
             nombre: 'Diplomado en Cuidado Crítico',
@@ -743,7 +795,16 @@
             inversion: 'Consultar',
             certificacion: 'Diplomado Certificado',
             icono: 'fa-heartbeat',
-            color: 'linear-gradient(135deg, #C41419 0%, #9a1014 100%)'
+            color: 'linear-gradient(135deg, #C41419 0%, #9a1014 100%)',
+            aprenderas: [
+                'Monitoreo hemodinámico avanzado',
+                'Manejo de ventilación mecánica',
+                'Cuidado integral del paciente crítico',
+                'Farmacología en UCI',
+                'Protocolos de reanimación avanzada',
+                'Ética en el cuidado crítico'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/cuidador-salud-integral.html'
         },
         'salud-ocupacional': {
             nombre: 'Diplomado en Salud Ocupacional',
@@ -754,29 +815,80 @@
             inversion: 'Consultar',
             certificacion: 'Diplomado Certificado',
             icono: 'fa-briefcase-medical',
-            color: 'linear-gradient(135deg, #1a2332 0%, #2C3E50 100%)'
+            color: 'linear-gradient(135deg, #1a2332 0%, #2C3E50 100%)',
+            aprenderas: [
+                'Gestión de sistemas de seguridad y salud',
+                'Identificación de riesgos ambientales y laborales',
+                'Normatividad legal vigente',
+                'Programas de medicina preventiva',
+                'Ergonomía y factores psicosociales',
+                'Auditoría y control de riesgos'
+            ],
+            planEstudios: '#'
         },
         'adulto-mayor': {
             nombre: 'Diplomado en Atención Integral al Adulto Mayor',
-            duracion: '100 horas',
-            tiempo: '2-3 meses',
+            duracion: '160 horas',
+            tiempo: '3-4 meses',
             modalidad: 'Presencial / Virtual',
             horarios: 'Fines de semana',
             inversion: 'Consultar',
             certificacion: 'Diplomado Certificado',
             icono: 'fa-user-md',
-            color: 'linear-gradient(135deg, #2980b9 0%, #21618c 100%)'
+            color: 'linear-gradient(135deg, #2980b9 0%, #21618c 100%)',
+            aprenderas: [
+                'Unidad 1: Normatividad Actual (Ministerio de Protección Social)',
+                'Unidad 2: Generalidades del Envejecimiento',
+                'Unidad 3: Psicología de la Vejez',
+                'Unidad 4: Biología y fisiología del envejecimiento',
+                'Unidad 5: Gerontología Clínica',
+                'Unidad 6: Tanatología',
+                'Unidad 7: Deberes y Derechos del Adulto Mayor'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/adulto-mayor.html'
         },
         'primeros-auxilios': {
-            nombre: 'Diplomado en Primeros Auxilios Avanzados',
-            duracion: '80 horas',
-            tiempo: '2 meses',
+            nombre: 'Diplomado en Primeros Auxilios Avanzados (APH)',
+            duracion: '120 horas',
+            tiempo: '3-4 meses',
             modalidad: 'Presencial / Virtual',
             horarios: 'Fines de semana',
             inversion: 'Consultar',
             certificacion: 'Diplomado Certificado',
             icono: 'fa-first-aid',
-            color: 'linear-gradient(135deg, #ED1C24 0%, #C41419 100%)'
+            color: 'linear-gradient(135deg, #ED1C24 0%, #C41419 100%)',
+            aprenderas: [
+                'Cinemática del trauma y extracción vehicular',
+                'Actuación en situación de urgencias',
+                'Primeros auxilios avanzados',
+                'Transporte de lesionados',
+                'Atención a pacientes politraumatizados',
+                'Emergencias cardio respiratorias'
+            ],
+            planEstudios: '{{ asset("docs/planes-estudio/individual/atencion-prehospitalaria.pdf") }}'
+        },
+        'cuidador': {
+            nombre: 'Diplomado en Cuidador en Atención Integral en Salud',
+            duracion: '120 horas',
+            tiempo: '3-4 meses',
+            modalidad: 'Presencial / Virtual',
+            horarios: 'Fines de semana',
+            inversion: 'Consultar',
+            certificacion: 'Diplomado Certificado',
+            icono: 'fa-hands-helping',
+            color: 'linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)',
+            aprenderas: [
+                'Introducción al rol del cuidador',
+                'Anatomía y fisiología básica',
+                'Higiene, confort and movilidad del paciente',
+                'Alimentación y nutrición específica',
+                'Administración de medicamentos según normativa',
+                'Primeros auxilios y atención en emergencias',
+                'Comunicación y relaciones interpersonales',
+                'Salud mental y manejo emocional del cuidador',
+                'Normatividad y ética en el cuidado'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/cuidador-salud-integral.html'
         }
     };
 
@@ -797,6 +909,41 @@
         const imagenCurso = document.getElementById('imagen-curso');
         imagenCurso.innerHTML = `<i class="fas ${curso.icono}"></i>`;
         imagenCurso.style.background = curso.color;
+
+        // Poblar "Qué aprenderás"
+        const seccionAprenderas = document.getElementById('seccion-que-aprenderas');
+        const listaAprenderas = document.getElementById('lista-que-aprenderas');
+        
+        if (curso.aprenderas && curso.aprenderas.length > 0) {
+            listaAprenderas.innerHTML = curso.aprenderas.map(item => `
+                <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>${item}
+                </li>
+            `).join('');
+            seccionAprenderas.style.display = 'block';
+        } else {
+            seccionAprenderas.style.display = 'none';
+        }
+
+        // Actualizar enlace del plan de estudios
+        const btnPlan = document.getElementById('btn-plan-estudios');
+        if (curso.planEstudios && curso.planEstudios !== '#') {
+            // Asegurar que la URL sea absoluta
+            const fullUrl = curso.planEstudios.startsWith('http') ? 
+                            curso.planEstudios : 
+                            window.location.origin + (curso.planEstudios.startsWith('/') ? '' : '/') + curso.planEstudios;
+            
+            btnPlan.href = fullUrl;
+            btnPlan.style.display = 'inline-block';
+            
+            // Forzar apertura en nueva ventana si el clic estándar falla
+            btnPlan.onclick = function(e) {
+                window.open(this.href, '_blank');
+                return false;
+            };
+        } else {
+            btnPlan.style.display = 'none';
+        }
 
         actualizarFormularioModal(curso);
 

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tecnico Auxiliar en Farmacia - Cruz Roja Colombiana</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --red: #ED1C24; --dark: #111827; --muted: #6B7280; --bg: #F9FAFB; --border: #E5E7EB; }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Outfit', sans-serif; background: var(--bg); color: var(--dark); line-height: 1.7; padding: 40px 20px; }
+  .card { background: #fff; max-width: 860px; margin: 0 auto; padding: 64px 80px; box-shadow: 0 2px 24px rgba(0,0,0,0.07); border-radius: 10px; }
+  header { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 28px; border-bottom: 2px solid var(--red); margin-bottom: 44px; }
+  .logo { height: 48px; object-fit: contain; }
+  .brand p { font-size: 0.78rem; color: var(--muted); text-align: right; margin: 0; }
+  .brand strong { display: block; font-size: 0.88rem; color: var(--red); text-transform: uppercase; letter-spacing: 0.08em; }
+  h1 { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 6px; }
+  .subtitle { font-size: 1rem; color: var(--muted); margin-bottom: 36px; }
+  .meta { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 44px; padding: 22px 28px; background: var(--bg); border: 1px solid var(--border); border-radius: 8px; }
+  .meta-item label { display: block; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red); margin-bottom: 5px; }
+  .meta-item span { font-size: 0.95rem; font-weight: 500; color: var(--dark); }
+  section { margin-bottom: 42px; }
+  h3 { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); padding-left: 14px; border-left: 3px solid var(--red); margin-bottom: 18px; }
+  p { color: #374151; font-size: 1rem; margin-bottom: 12px; }
+  ul { list-style: none; }
+  li { color: #374151; font-size: 0.98rem; padding: 6px 0 6px 22px; position: relative; border-bottom: 1px solid var(--border); }
+  li:last-child { border-bottom: none; }
+  li::before { content: ''; position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+  .footer-legal { font-size: 0.75rem; color: var(--muted); }
+  .footer-copy { font-size: 0.75rem; color: var(--muted); }
+  .btn-print { position: fixed; bottom: 28px; right: 28px; background: var(--red); color: #fff; border: none; padding: 12px 24px; border-radius: 8px; font-family: 'Outfit', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; box-shadow: 0 4px 16px rgba(237,28,36,0.35); letter-spacing: 0.04em; }
+  @media print { body { background: #fff; padding: 0; } .card { box-shadow: none; padding: 30px; } .btn-print { display: none; } }
+  @media (max-width: 640px) { .card { padding: 32px 24px; } h1 { font-size: 1.8rem; } .meta { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<button class="btn-print" onclick="window.print()">Imprimir / Guardar PDF</button>
+<div class="card">
+  <header>
+    <img src="/img/cruz-roja-logo.png" alt="Cruz Roja Colombiana" class="logo">
+    <div class="brand">
+      <strong>Cruz Roja Colombiana</strong>
+      <p>Seccional Huila</p>
+    </div>
+  </header>
+
+  <h1>Tecnico Auxiliar en Farmacia</h1>
+  <p class="subtitle">Programa Tecnico | Cruz Roja Colombiana Seccional Huila</p>
+
+  <div class="meta">
+    <div class="meta-item"><label>Duracion</label><span>Tres ciclos academicos (aprox. 18 meses)</span></div>
+    <div class="meta-item"><label>Horarios</label><span>Viernes 1:00-5:30 pm y Sabado 7:00-5:00 pm</span></div>
+    <div class="meta-item"><label>Modalidad</label><span>Presencial</span></div>
+  </div>
+
+  <section>
+    <h3>Perfil del Programa</h3>
+    <p>Forma talento humano con habilidades para ejecutar la recepcion, almacenamiento, dispensacion y distribucion de medicamentos en farmacias, aplicando las disposiciones legales vigentes. Campo laboral: hospitales publicos y privados, farmacias, tiendas naturistas, laboratorios farmaceuticos.</p>
+  </section>
+
+  <section>
+    <h3>Contenido del Programa</h3>
+    <ul>
+            <li>Normativa del Sistema General de Seguridad Social en Salud (SGSSS).</li>
+            <li>Atencion al cliente interno y externo.</li>
+            <li>Recepcion, almacenamiento y dispensacion de medicamentos.</li>
+            <li>Tecnica aseptica y prevencion de infecciones.</li>
+            <li>Entrega de medicamentos segun prescripcion medica.</li>
+            <li>Registro y actualizacion del sistema de informacion de la farmacia.</li>
+            <li>Aplicacion y vigilancia de medicamentos e inmunobiologicos.</li>
+            <li>Primer respondiente y atencion en emergencias.</li>
+            <li>Verificacion de ingresos y egresos de productos farmaceuticos.</li>
+            </ul>
+  </section>
+
+  <footer>
+    <span class="footer-legal">La informacion puede estar sujeta a cambios segun normatividad vigente.</span>
+    <span class="footer-copy">&copy; 2026 Cruz Roja Colombiana &mdash; Seccional Huila</span>
+  </footer>
+</div>
+</body>
+</html>

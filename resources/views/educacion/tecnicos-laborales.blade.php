@@ -119,6 +119,70 @@
                 </div>
             </div>
 
+            <!-- Sastre de confección sobre medida -->
+            <div class="col-md-6 col-lg-4">
+                <div class="curso-card" onclick="mostrarDetalleCurso('sastre')">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <div class="curso-contenido">
+                        <h3>Sastre de Confección</h3>
+                        <p>Aprende el arte de la sastrería y confección a medida con técnicas profesionales de alta costura.</p>
+
+                        <div class="curso-info">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>12 meses</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>1 año</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Técnico Laboral</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-ver-detalle">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Auxiliar en Farmacia -->
+            <div class="col-md-6 col-lg-4">
+                <div class="curso-card" onclick="mostrarDetalleCurso('farmacia')">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);">
+                        <i class="fas fa-pills"></i>
+                    </div>
+                    <div class="curso-contenido">
+                        <h3>Auxiliar en Farmacia</h3>
+                        <p>Capacítate para la gestión farmacéutica, dispensación de medicamentos y atención al cliente en salud.</p>
+
+                        <div class="curso-info">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>12 meses</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>1 año</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Técnico Laboral</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-ver-detalle">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </div>
 </section>
@@ -168,11 +232,21 @@
                     </div>
                 </div>
 
+                <!-- Sección Qué Aprenderás -->
+                <div id="seccion-que-aprenderas" style="display: none;">
+                    <div class="caracteristicas-curso mt-4">
+                        <h4 class="mb-3"><i class="fas fa-graduation-cap me-2"></i>¿Qué aprenderás?</h4>
+                        <ul id="lista-que-aprenderas" class="list-unstyled">
+                            <!-- Se poblará dinámicamente -->
+                        </ul>
+                    </div>
+                </div>
+
                 <!-- Botones de Acción -->
                 <div class="acciones-curso mt-4">
                     <div class="row g-3">
                         <div class="col-md-4">
-                            <a href="#" class="btn btn-plan-estudios w-100" target="_blank">
+                            <a href="#" id="btn-plan-estudios" class="btn btn-plan-estudios w-100" target="_blank">
                                 <i class="fas fa-download me-2"></i>Plan de Estudios
                             </a>
                         </div>
@@ -669,27 +743,135 @@
             inversion: 'Consultar',
             titulo: 'Técnico Laboral en Atención Prehospitalaria',
             icono: 'fa-ambulance',
-            color: 'linear-gradient(135deg, #ED1C24 0%, #C41419 100%)'
+            color: 'linear-gradient(135deg, #ED1C24 0%, #C41419 100%)',
+            aprenderas: [
+                'Manejo inicial de pacientes traumatizados',
+                'Soporte vital básico y avanzado',
+                'Cinemática del trauma',
+                'Farmacología de urgencias',
+                'Ética y legislación en emergencias',
+                'Prácticas en ambulancias y centros hospitalarios'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/atencion-prehospitalaria-tecnico.html'
         },
         'enfermeria': {
             nombre: 'Técnico Auxiliar de Enfermería',
-            duracion: '18 meses',
+            duracion: '18 meses (3 ciclos)',
             modalidad: 'Presencial',
-            horarios: 'Fines de semana / Entre semana',
+            horarios: 'Lu-Vi 7:00-11:40 am / Viernes 1:00-5:30 pm y Sábado 7:00-4:30 pm',
             inversion: 'Consultar',
             titulo: 'Técnico Laboral Auxiliar de Enfermería',
             icono: 'fa-user-nurse',
-            color: 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)'
+            color: 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)',
+            aprenderas: [
+                'Cuidado Personal del Paciente (bañarse, vestirse, alimentarse)',
+                'Medición de Signos Vitales y asistencia en movilidad',
+                'Alistar y administrar medicamentos bajo supervisión',
+                'Custodiar historias clínicas y reportar condiciones',
+                'Asistencia en procedimientos médicos y toma de muestras',
+                'Control de infecciones y mantenimiento de higiene y seguridad',
+                'Atención integral a la familia y orientación al usuario',
+                'Prácticas asistenciales en centros hospitalarios y urgencias'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/auxiliar-enfermeria.html'
         },
         'salud-ocupacional': {
-            nombre: 'Técnico en Salud Ocupacional',
+            nombre: 'Técnico en Seguridad y Salud en el Trabajo',
             duracion: '12 meses',
             modalidad: 'Presencial',
             horarios: 'Fines de semana / Entre semana',
             inversion: 'Consultar',
-            titulo: 'Técnico Laboral en Salud Ocupacional',
+            titulo: 'Técnico Laboral en Seguridad y Salud en el Trabajo',
             icono: 'fa-hard-hat',
-            color: 'linear-gradient(135deg, #1a2332 0%, #2C3E50 100%)'
+            color: 'linear-gradient(135deg, #1a2332 0%, #2C3E50 100%)',
+            aprenderas: [
+                'Identificación de peligros y valoración de riesgos',
+                'Legislación en Seguridad y Salud en el Trabajo',
+                'Prevención y atención de emergencias laborales',
+                'Higiene y seguridad industrial',
+                'Sistemas de gestión de calidad',
+                'Salud pública y medicina preventiva'
+            ],
+            planEstudios: '#'
+        },
+        'sastre': {
+            nombre: 'Técnico en Sastre de Confección sobre Medida',
+            duracion: '12 meses (2 ciclos)',
+            modalidad: 'Presencial',
+            horarios: 'Sábados 8:00 a 11:40 am / 1:00 a 4:30 pm',
+            inversion: 'Consultar',
+            titulo: 'Técnico Laboral en Sastre de Confección sobre Medida',
+            icono: 'fa-cut',
+            color: 'linear-gradient(135deg, #f39c12 0%, #e67e22 100%)',
+            aprenderas: [
+                'Patronaje y Corte: Creación de moldes precisos',
+                'Toma de Medidas: Captura exacta de dimensiones corporales',
+                'Ajustes y Modificaciones: Arreglo de ropa para silueta ideal',
+                'Desarrollo de modelos en clase',
+                'Uso de máquinas industriales y selección de telas'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/sastre-confeccion.html'
+        },
+        'farmacia': {
+            nombre: 'Técnico Auxiliar en Farmacia',
+            duracion: '18 meses (3 ciclos)',
+            modalidad: 'Presencial',
+            horarios: 'Viernes 1:00 a 5:30 pm y Sábado 7:00 am a 5:00 pm',
+            inversion: 'Consultar',
+            titulo: 'Técnico Laboral Auxiliar en Servicios Farmacéuticos',
+            icono: 'fa-pills',
+            color: 'linear-gradient(135deg, #1abc9c 0%, #16a085 100%)',
+            aprenderas: [
+                'Recepción, almacenamiento y dispensación de medicamentos',
+                'Interactuar con clientes internos y externos según políticas',
+                'Aplicar técnica aséptica en todos los procedimientos',
+                'Mantener actualizado el sistema de información farmacéutico',
+                'Alistar y aplicar medicamentos e inmunobiológicos',
+                'Vigilar acción farmacéutica y reacciones adversas',
+                'Cierre de ventas y términos de negociación comercial',
+                'Prácticas en farmacias hospitalarias y privadas'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/auxiliar-farmacia.html'
+        },
+        'cuidador-adulto-mayor': {
+            nombre: 'Técnico Cuidador de Adulto Mayor',
+            duracion: '12 meses (2 ciclos)',
+            modalidad: 'Presencial',
+            horarios: 'Viernes 1:00 a 5:30 pm y Sábado 7:00 am a 5:00 pm',
+            inversion: 'Consultar',
+            titulo: 'Técnico Laboral Cuidador Adulto Mayor',
+            icono: 'fa-user-friends',
+            color: 'linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%)',
+            aprenderas: [
+                'Apoyo físico, emocional y técnico a personas dependientes',
+                'Facilitar actividades cotidianas (aseo, movilidad, alimentación)',
+                'Toma y registro de signos vitales (presión, pulso, temperatura)',
+                'Procedimientos básicos de apoyo al personal médico',
+                'Técnicas de alivio del dolor y bienestar (masajes no quirúrgicos)',
+                'Higiene ambiental y mantenimiento del entorno del paciente',
+                'Acompañamiento a consultas micas y actividades recreativas'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/cuidado-adulto-mayor.html'
+        },
+        'marketing': {
+            nombre: 'Técnico Asistente de Marketing y Ventas',
+            duracion: '12 meses (2 ciclos)',
+            modalidad: 'Presencial',
+            horarios: 'Sábado 8:00 a 11:40 am / 1:00 a 4:30 pm',
+            inversion: 'Consultar',
+            titulo: 'Técnico Laboral Asistente de Marketing y Ventas',
+            icono: 'fa-bullhorn',
+            color: 'linear-gradient(135deg, #34495e 0%, #2c3e50 100%)',
+            aprenderas: [
+                'Investigación y análisis de mercados estratégicos',
+                'Gestión de comunicación y relaciones comerciales efectivas',
+                'Actualización de contenidos digitales (web y redes sociales)',
+                'Creación de contenido atractivo y gestión de pauta digital',
+                'Optimización de estrategias de marketing digital y SEO',
+                'Soporte a la operación comercial y asesoría post-venta',
+                'Uso de herramientas de diseño gráfico bísico'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/asistente-marketing-ventas.html'
         }
     };
 
@@ -710,6 +892,41 @@
         const imagenCurso = document.getElementById('imagen-curso');
         imagenCurso.innerHTML = `<i class="fas ${curso.icono}"></i>`;
         imagenCurso.style.background = curso.color;
+
+        // Poblar "Qué aprenderás"
+        const seccionAprenderas = document.getElementById('seccion-que-aprenderas');
+        const listaAprenderas = document.getElementById('lista-que-aprenderas');
+        
+        if (curso.aprenderas && curso.aprenderas.length > 0) {
+            listaAprenderas.innerHTML = curso.aprenderas.map(item => `
+                <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>${item}
+                </li>
+            `).join('');
+            seccionAprenderas.style.display = 'block';
+        } else {
+            seccionAprenderas.style.display = 'none';
+        }
+
+        // Actualizar enlace del plan de estudios
+        const btnPlan = document.getElementById('btn-plan-estudios');
+        if (curso.planEstudios && curso.planEstudios !== '#') {
+            // Asegurar que la URL sea absoluta
+            const fullUrl = curso.planEstudios.startsWith('http') ? 
+                            curso.planEstudios : 
+                            window.location.origin + (curso.planEstudios.startsWith('/') ? '' : '/') + curso.planEstudios;
+            
+            btnPlan.href = fullUrl;
+            btnPlan.style.display = 'inline-block';
+            
+            // Forzar apertura en nueva ventana si el clic estándar falla
+            btnPlan.onclick = function(e) {
+                window.open(this.href, '_blank');
+                return false;
+            };
+        } else {
+            btnPlan.style.display = 'none';
+        }
 
         actualizarFormularioModal(curso);
 

@@ -87,14 +87,14 @@
                 </div>
             </div>
 
-            <!-- Belleza -->
+            <!-- Belleza Integral -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('belleza')">
                     <div class="curso-imagen" style="background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);">
                         <i class="fas fa-spa"></i>
                     </div>
                     <div class="curso-contenido">
-                        <h3>Belleza</h3>
+                        <h3>Belleza Integral</h3>
                         <p>Curso integral de belleza: maquillaje, cuidado de la piel, estética facial y corporal. Inicia tu carrera en el mundo de la belleza.</p>
 
                         <div class="curso-info">
@@ -105,6 +105,104 @@
                             <div class="info-item">
                                 <i class="fas fa-calendar"></i>
                                 <span>2 semanas</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Certificado</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-ver-detalle">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Barbería -->
+            <div class="col-md-6 col-lg-4">
+                <div class="curso-card" onclick="mostrarDetalleCurso('barberia')">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <div class="curso-contenido">
+                        <h3>Barbería</h3>
+                        <p>Técnicas modernas de corte masculino, diseño de barba y cuidado capilar para el hombre actual.</p>
+
+                        <div class="curso-info">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>24 horas</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>4 días</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Certificado</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-ver-detalle">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalles
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Asistente de Marketing y Ventas -->
+            <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-12"> <!-- Wrapper para mantener proporciones si es necesario -->
+                <div class="curso-card" onclick="mostrarDetalleCurso('marketing')">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <div class="curso-contenido">
+                        <h3>Marketing y Ventas</h3>
+                        <p>Habilidades comerciales estratégicas para potenciar ventas y gestionar relaciones con clientes.</p>
+
+                        <div class="curso-info">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>30 horas</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>1 semana</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Certificado</span>
+                            </div>
+                        </div>
+
+                        <button class="btn-ver-detalle">
+                            <i class="fas fa-info-circle me-2"></i>Ver Detalles
+                        </button>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <!-- Masajes Estéticos y Técnicos de SPA -->
+            <div class="col-md-6 col-lg-4">
+                <div class="curso-card" onclick="mostrarDetalleCurso('masajes')">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <div class="curso-contenido">
+                        <h3>Masajes y SPA</h3>
+                        <p>Aprende técnicas profesionales de masajes relajantes, estéticos y protocolos terapéuticos de SPA.</p>
+
+                        <div class="curso-info">
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>32 horas</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-calendar"></i>
+                                <span>5 días</span>
                             </div>
                             <div class="info-item">
                                 <i class="fas fa-certificate"></i>
@@ -137,7 +235,7 @@
 
             <!-- Características del Curso -->
             <div class="col-lg-7">
-                <h2 class="curso-titulo-detalle" id="titulo-curso">Primeros Auxilios</h2>
+                <h2 class="curso-titulo-detalle" id="titulo-curso">Belleza Integral</h2>
 
                 <div class="caracteristicas-curso">
                     <h4 class="mb-3"><i class="fas fa-list-ul me-2"></i>Características del Curso</h4>
@@ -164,7 +262,17 @@
 
                     <div class="caracteristica-item">
                         <span class="caracteristica-label">Título Obtenido:</span>
-                        <span class="caracteristica-value" id="titulo-curso-obtenido">Certificado en Primeros Auxilios Básicos</span>
+                        <span class="caracteristica-value" id="titulo-curso-obtenido">Certificado</span>
+                    </div>
+                </div>
+
+                <!-- Sección Qué Aprenderás -->
+                <div id="seccion-que-aprenderas" style="display: none;">
+                    <div class="caracteristicas-curso mt-4">
+                        <h4 class="mb-3"><i class="fas fa-graduation-cap me-2"></i>¿Qué aprenderás?</h4>
+                        <ul id="lista-que-aprenderas" class="list-unstyled">
+                            <!-- Se poblará dinámicamente -->
+                        </ul>
                     </div>
                 </div>
 
@@ -172,7 +280,7 @@
                 <div class="acciones-curso mt-4">
                     <div class="row g-3">
                         <div class="col-md-4">
-                            <a href="#" class="btn btn-plan-estudios w-100" target="_blank">
+                            <a href="#" id="btn-plan-estudios" class="btn btn-plan-estudios w-100" target="_blank">
                                 <i class="fas fa-download me-2"></i>Plan de Estudios
                             </a>
                         </div>
@@ -674,34 +782,138 @@
     // Datos de los cursos
     const cursosData = {
         'primeros-auxilios': {
-            nombre: 'Primeros Auxilios',
-            duracion: '16 horas',
-            modalidad: 'Presencial',
-            horarios: 'Fines de semana / Entre semana',
-            inversion: '$150.000 COP',
-            titulo: 'Certificado en Primeros Auxilios Básicos',
-            icono: 'fa-first-aid',
-            color: 'linear-gradient(135deg, #ED1C24 0%, #C41419 100%)'
-        },
-        'inyectologia': {
-            nombre: 'Inyectología',
+            nombre: 'Primeros Auxilios Básico',
             duracion: '20 horas',
             modalidad: 'Presencial',
-            horarios: 'Fines de semana / Entre semana',
-            inversion: '$200.000 COP',
-            titulo: 'Certificado en Inyectología',
-            icono: 'fa-syringe',
-            color: 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)'
+            horarios: 'Sábados 8:00 am - 4:00 pm',
+            inversion: '$150.000 COP',
+            titulo: 'Certificado de Asistencia y Aprobación',
+            icono: 'fa-first-aid',
+            color: 'linear-gradient(135deg, #ED1C24 0%, #C41419 100%)',
+            aprenderas: [
+                'Evaluación de la escena y bioseguridad',
+                'Valoración primaria y secundaria del paciente',
+                'Maniobras de RCP básica y uso de DEA',
+                'Manejo de obstrucción de vía aérea (Maniobra de Heimlich)',
+                'Control de hemorragias y manejo de heridas',
+                'Inmovilización de fracturas y traslados'
+            ],
+            planEstudios: '#'
         },
-        'belleza': {
-            nombre: 'Belleza',
+        'inyectologia': {
+            nombre: 'Inyectología y Venopunción',
+            duracion: '16 horas',
+            modalidad: 'Presencial',
+            horarios: 'Sábados y Domingos',
+            inversion: '$120.000 COP',
+            titulo: 'Certificado de Asistencia y Aprobación',
+            icono: 'fa-syringe',
+            color: 'linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)',
+            aprenderas: [
+                'Técnicas de asepsia y antisepsia',
+                'Vías de administración (Intramuscular, Intradérmica, Subcutánea)',
+                'Técnica de venopunción y canalización',
+                'Farmacovigilancia y 10 correctos',
+                'Manejo de residuos hospitalarios',
+                'Atención en caso de reacciones adversas'
+            ],
+            planEstudios: '#'
+        },
+        'soporte-vital': {
+            nombre: 'Soporte Vital Básico y Avanzado',
             duracion: '40 horas',
             modalidad: 'Presencial',
-            horarios: 'Fines de semana / Entre semana',
-            inversion: '$350.000 COP',
-            titulo: 'Certificado en Belleza Integral',
+            horarios: 'Fines de semana',
+            inversion: 'Consultar',
+            titulo: 'Certificado de Entrenamiento BLS-ACLS',
+            icono: 'fa-heartbeat',
+            color: 'linear-gradient(135deg, #3498db 0%, #2980b9 100%)',
+            aprenderas: [
+                'Dinámica de equipo de reanimación de alto rendimiento',
+                'Algoritmos de soporte vital cardiovascular avanzado',
+                'Manejo avanzado de la vía aérea',
+                'Farmacología en situaciones de paro cardíaco',
+                'Cuidados post-paro cardíaco',
+                'Identificación y manejo de arritmias letales'
+            ],
+            planEstudios: '#'
+        },
+        'belleza': {
+            nombre: 'Belleza Integral',
+            duracion: 'TRES CICLOS ACADÉMICOS (Año y medio)',
+            modalidad: 'Presencial',
+            horarios: 'Lu-Vi 8:00-11:40 am / Viernes 1:00-5:30 pm y Sáb 8:00-4:30 pm',
+            inversion: 'Consultar',
+            titulo: 'Certificado en Belleza Integral Profesional',
             icono: 'fa-spa',
-            color: 'linear-gradient(135deg, #e91e63 0%, #c2185b 100%)'
+            color: 'linear-gradient(135deg, #e91e63 0%, #c2185b 100%)',
+            aprenderas: [
+                'Manicure y pedicure (gel, acrílico, efectos decorativos)',
+                'Maquillaje profesional (tendencias, artístico, diseño de cejas)',
+                'Corte de cabello para damas y caballeros',
+                'Colorimetría avanzada (balayage, rayitos, iluminaciones)',
+                'Peinados versátiles y ondulación permanente (keratina)',
+                'Diagnósticos y tratamientos capilares',
+                'Protocolos de bioseguridad y atención al cliente'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/belleza-integral.html'
+        },
+        'barberia': {
+            nombre: 'Curso Intensivo de Barbería',
+            duracion: '9 clases',
+            modalidad: 'Presencial',
+            horarios: 'Dos días a la semana 2:00 – 5:30 pm',
+            inversion: 'Consultar',
+            titulo: 'Certificado en Barbería',
+            icono: 'fa-user-tie',
+            color: 'linear-gradient(135deg, #2c3e50 0%, #000000 100%)',
+            aprenderas: [
+                'Manejo de máquina, tijera sobre peine y navaja',
+                'Cortes clásicos, desvanecidos (fades) y modernos',
+                'Diseño, contorno y afeitado de barba y bigote',
+                'Técnicas de coloración capilar masculina',
+                'Tratamientos capilares y diagnósticos',
+                'Normativa legal de bioseguridad en barberías'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/barberia.html'
+        },
+        'marketing': {
+            nombre: 'Curso de Asistente de Marketing y Ventas',
+            duracion: '30 horas',
+            modalidad: 'Presencial',
+            horarios: 'Fines de semana',
+            inversion: 'Consultar',
+            titulo: 'Certificado de Asistente en Marketing Digital',
+            icono: 'fa-bullhorn',
+            color: 'linear-gradient(135deg, #f1c40f 0%, #f39c12 100%)',
+            aprenderas: [
+                'Investigación de mercados y comportamiento del consumidor',
+                'Gestión de sitios web y redes sociales empresariales',
+                'Creación de contenido digital y piezas gráficas',
+                'Estrategias de posicionamiento SEO y SEM',
+                'Gestión de relaciones comerciales y CRM',
+                'Resolución de problemas post-venta y soporte comercial'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/asistente-marketing-ventas.html'
+        },
+        'masajes': {
+            nombre: 'Masajes Estéticos y Técnicos de SPA',
+            duracion: '12 clases',
+            modalidad: 'Presencial',
+            horarios: 'Dos días a la semana 2:00 – 5:30 pm',
+            inversion: 'Consultar',
+            titulo: 'Certificado en Técnicas de Masaje y SPA',
+            icono: 'fa-spa',
+            color: 'linear-gradient(135deg, #1abc9c 0%, #16a085 100%)',
+            aprenderas: [
+                'Masajes reductores y levantamiento de glúteos',
+                'Drenaje linfático y manejo de celulitis',
+                'Técnicas de SPA: Baño de novia y chocoterapia',
+                'Reflexología podal y terapias de spa de pies',
+                'Depilación con cera profesional',
+                'Relajación profunda y liberación de puntos gatillo'
+            ],
+            planEstudios: '/docs/planes-estudio/individual/masajes-esteticos-spa.html'
         }
     };
 
@@ -724,6 +936,41 @@
         const imagenCurso = document.getElementById('imagen-curso');
         imagenCurso.innerHTML = `<i class="fas ${curso.icono}"></i>`;
         imagenCurso.style.background = curso.color;
+
+        // Poblar "Qué aprenderás"
+        const seccionAprenderas = document.getElementById('seccion-que-aprenderas');
+        const listaAprenderas = document.getElementById('lista-que-aprenderas');
+        
+        if (curso.aprenderas && curso.aprenderas.length > 0) {
+            listaAprenderas.innerHTML = curso.aprenderas.map(item => `
+                <li class="mb-2">
+                    <i class="fas fa-check text-success me-2"></i>${item}
+                </li>
+            `).join('');
+            seccionAprenderas.style.display = 'block';
+        } else {
+            seccionAprenderas.style.display = 'none';
+        }
+
+        // Actualizar enlace del plan de estudios
+        const btnPlan = document.getElementById('btn-plan-estudios');
+        if (curso.planEstudios && curso.planEstudios !== '#') {
+            // Asegurar que la URL sea absoluta
+            const fullUrl = curso.planEstudios.startsWith('http') ? 
+                            curso.planEstudios : 
+                            window.location.origin + (curso.planEstudios.startsWith('/') ? '' : '/') + curso.planEstudios;
+            
+            btnPlan.href = fullUrl;
+            btnPlan.style.display = 'inline-block';
+            
+            // Forzar apertura en nueva ventana si el clic estándar falla
+            btnPlan.onclick = function(e) {
+                window.open(this.href, '_blank');
+                return false;
+            };
+        } else {
+            btnPlan.style.display = 'none';
+        }
 
         // Actualizar formulario del modal
         actualizarFormularioModal(curso);
