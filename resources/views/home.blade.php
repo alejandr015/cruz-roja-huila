@@ -335,6 +335,47 @@
     </div>
 </section>
 
+<!-- Noticias desde Google News API -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="section-title">Noticias en Medios de Comunicación</h2>
+            <p class="lead text-muted">Últimos reportajes en periódicos y noticias sobre nuestra seccional y actividades</p>
+        </div>
+        <div class="row g-4">
+            @if(isset($rssNoticias) && count($rssNoticias) > 0)
+                @foreach($rssNoticias as $news)
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 news-card shadow-sm border-0" style="transition: transform 0.3s; border-radius: 12px; overflow: hidden;">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-danger" style="font-size: 0.75rem; letter-spacing: 0.5px;">
+                                    <i class="far fa-newspaper me-1"></i> {{ $news['fuente'] }}
+                                </span>
+                            </div>
+                            <h5 class="card-title fw-bold mb-3" style="line-height: 1.4; color: #333;">{{ $news['titulo'] }}</h5>
+                            
+                            <p class="card-text text-muted mb-4 mt-auto" style="font-size: 0.9rem;">
+                                <i class="far fa-calendar-alt me-2 text-danger"></i> Fecha: {{ $news['fecha'] }}
+                            </p>
+                            
+                            <a href="{{ $news['enlace'] }}" target="_blank" class="btn btn-outline-danger w-100 mt-auto" style="border-radius: 8px;">
+                                Leer artículo completo <i class="fas fa-external-link-alt ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            @else
+                <div class="col-12 text-center text-muted my-4 py-5 bg-white rounded-3 shadow-sm">
+                    <i class="fas fa-rss fa-3x mb-3 text-secondary" style="opacity: 0.5;"></i>
+                    <p class="fs-5">No hay noticias en medios disponibles en este momento.</p>
+                </div>
+            @endif
+        </div>
+    </div>
+</section>
+
 <!-- Llamado a la Acción -->
 <section class="py-5" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%); color: white;">
     <div class="container text-center">

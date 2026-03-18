@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Noticia;
 use App\Models\Servicio;
+use Illuminate\Support\Facades\Http;
 
 class HomeController extends Controller
 {
@@ -21,8 +22,11 @@ class HomeController extends Controller
         $servicios = Servicio::where('activo', true)
             ->orderBy('orden')
             ->get();
+            
+        // Obtener Noticias desde Google News API/RSS
+        $rssNoticias = $this->getRssNoticias(6);
         
-        return view('home', compact('noticias', 'servicios'));
+        return view('home', compact('noticias', 'servicios', 'rssNoticias'));
     }
 
     /**
@@ -49,8 +53,53 @@ class HomeController extends Controller
             ->whereBetween('fecha_publicacion', [now()->subDays(30), now()->subDays(7)])
             ->recientes()
             ->get();
+            
+        // Noticias externas (RSS)
+        $rssNoticias = $this->getRssNoticias(12);
         
-        return view('prensa.index', compact('noticiasSemanales', 'noticiasMensuales'));
+        return view('prensa.index', compact('noticiasSemanales', 'noticiasMensuales', 'rssNoticias'));
+    }
+
+    /**
+     * Obtener noticias desde Google News RSS
+     */
+    private function getRssNoticias($limit = 6)
+    {
+        $rssNoticias = [];
+        try {
+            $rssUrl = 'https://news.google.com/rss/search?q=Cruz+Roja+Huila&hl=es-419&gl=CO&ceid=CO:es-419';
+            $response = Http::timeout(5)->get($rssUrl);
+            
+            if ($response->successful()) {
+                $rssData = simplexml_load_string($response->body());
+                if ($rssData && isset($rssData->channel->item)) {
+                    $count = 0;
+                    foreach ($rssData->channel->item as $item) {
+                        if ($count >= $limit) break;
+                        
+                        $title = (string) $item->title;
+                        $source = (string) $item->source;
+                        
+                        // Limpiar el '- Fuente' del título si existe
+                        if (str_ends_with($title, ' - ' . $source)) {
+                            $title = substr($title, 0, -strlen(' - ' . $source));
+                        }
+                        
+                        $rssNoticias[] = [
+                            'titulo' => $title,
+                            'enlace' => (string) $item->link,
+                            'fecha'  => date('d M Y', strtotime((string) $item->pubDate)),
+                            'fuente' => $source
+                        ];
+                        $count++;
+                    }
+                }
+            }
+        } catch (\Exception $e) {
+            // Falla silenciosa
+        }
+        
+        return $rssNoticias;
     }
 
     /**

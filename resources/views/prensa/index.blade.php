@@ -4,11 +4,22 @@
 
 @section('content')
 
-<!-- Banner Sala de Prensa -->
-<section class="page-header" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Sala De Prensa</h1>
-        <p class="lead">Mantente informado sobre nuestras últimas noticias y eventos</p>
+<!-- Banner Sala de Prensa (Animado CSS) -->
+<section class="page-header position-relative overflow-hidden d-flex align-items-center justify-content-center" style="min-height: 45vh;">
+    <!-- Fondo Animado -->
+    <div class="animated-bg-gradient position-absolute w-100 h-100 top-0 start-0"></div>
+    
+    <!-- Patrón de Puntos Sutil -->
+    <div class="bg-pattern-overlay position-absolute w-100 h-100 top-0 start-0"></div>
+
+    <div class="container text-center text-white position-relative" style="z-index: 2;">
+        <div class="badge bg-white text-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-weight: 600; letter-spacing: 1px; font-size: 0.85rem;">
+            <i class="fas fa-bullhorn me-1"></i> CENTRO DE COMUNICACIONES
+        </div>
+        <h1 class="display-3 fw-bolder mb-3" style="text-shadow: 0 4px 15px rgba(0,0,0,0.2);">Sala De Prensa</h1>
+        <p class="lead fw-normal mx-auto" style="max-width: 650px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); font-size: 1.25rem;">
+            Manténgase informado sobre nuestras últimas noticias, campañas humanitarias y boletines oficiales.
+        </p>
     </div>
 </section>
 
@@ -105,6 +116,43 @@
                 </div>
             </div>
             @endforeach
+        </div>
+    </section>
+
+    <!-- Menciones en Medios -->
+    <section class="mb-5 mt-5">
+        <h2 class="section-heading mb-4">Menciones en Medios</h2>
+        
+        <div class="row g-4">
+            @if(isset($rssNoticias) && count($rssNoticias) > 0)
+                @foreach($rssNoticias as $news)
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 news-card shadow-sm border-0" style="transition: transform 0.3s; border-radius: 12px; overflow: hidden;">
+                        <div class="card-body d-flex flex-column p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-danger" style="font-size: 0.75rem; letter-spacing: 0.5px;">
+                                    <i class="far fa-newspaper me-1"></i> {{ $news['fuente'] }}
+                                </span>
+                            </div>
+                            <h5 class="card-title fw-bold mb-3" style="line-height: 1.4; color: #333;">{{ $news['titulo'] }}</h5>
+                            
+                            <p class="card-text text-muted mb-4 mt-auto" style="font-size: 0.9rem;">
+                                <i class="far fa-calendar-alt me-2 text-danger"></i> Fecha: {{ $news['fecha'] }}
+                            </p>
+                            
+                            <a href="{{ $news['enlace'] }}" target="_blank" class="btn btn-outline-danger w-100 mt-auto" style="border-radius: 8px;">
+                                Leer artículo completo <i class="fas fa-external-link-alt ms-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            @else
+                <div class="col-12 text-center text-muted my-4 py-5 bg-white rounded-3 shadow-sm border">
+                    <i class="fas fa-rss fa-3x mb-3 text-secondary" style="opacity: 0.5;"></i>
+                    <p class="fs-5">No hay noticias en medios disponibles en este momento.</p>
+                </div>
+            @endif
         </div>
     </section>
 
@@ -205,6 +253,35 @@
         .section-heading {
             font-size: 1.5rem;
         }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+        }
+    }
+
+    /* Estilos Premium Background Animado */
+    .animated-bg-gradient {
+        /* Gradiente animado en tonos rojos institucionales */
+        background: linear-gradient(-45deg, #8B0000, #ED1C24, #C41419, #660000);
+        background-size: 400% 400%;
+        animation: gradientBG 12s ease infinite;
+    }
+
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .bg-pattern-overlay {
+        background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px);
+        background-size: 30px 30px;
+        opacity: 0.6;
+    }
+
+    .page-header {
+        border-bottom: 5px solid #ED1C24;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
     }
 </style>
 @endsection
