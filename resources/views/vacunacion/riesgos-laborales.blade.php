@@ -5,10 +5,74 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-vacuna" style="background: linear-gradient(135deg, #1a2332 0%, #2C3E50 100%); padding: 60px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-5 fw-bold">Vacunación de Riesgos Laborales</h1>
-        <p class="lead">Protección ocupacional para trabajadores expuestos</p>
+<style>
+    .laboral-header-bg {
+        background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Industrial Blueprint Grid */
+    .laboral-grid {
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: panGrid 20s linear infinite;
+        z-index: 0;
+    }
+
+    @keyframes panGrid {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(-50px, -50px); }
+    }
+
+    /* Subtle rotating gears/shields for 'occupational protection' */
+    .laboral-gear {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.04);
+        animation: spinGear 30s linear infinite;
+        z-index: 1;
+        user-select: none;
+    }
+
+    @keyframes spinGear {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    .gr-1 { top: -50px; left: -50px; font-size: 300px; animation-duration: 40s; }
+    .gr-2 { bottom: -100px; right: 10%; font-size: 250px; animation-duration: 30s; animation-direction: reverse; }
+    .gr-3 { top: 30%; left: 60%; font-size: 150px; animation-duration: 25s; }
+</style>
+
+<section class="page-header-vacuna laboral-header-bg text-center text-white">
+    <!-- Blueprint Grid and Gears -->
+    <div class="laboral-grid"></div>
+    <i class="fas fa-cog laboral-gear gr-1"></i>
+    <i class="fas fa-shield-alt laboral-gear gr-2"></i>
+    <i class="fas fa-hard-hat laboral-gear gr-3"></i>
+    
+    <div class="container position-relative z-2 pb-4">
+        <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-hard-hat me-2"></i> Seguridad y Salud en el Trabajo
+        </span>
+        <h1 class="display-5 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Vacunación de Riesgos Laborales</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Protección ocupacional e inmunización para trabajadores expuestos.
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 3;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

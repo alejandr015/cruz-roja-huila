@@ -5,13 +5,41 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-educacion" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Oferta Educativa</h1>
-        <p class="lead">Formación de calidad para salvar vidas y servir a la comunidad</p>
+<style>
+    .minimal-edu-bg {
+        background: linear-gradient(-45deg, #0a1526, #12284C, #1a3055, #12284C);
+        background-size: 300% 300%;
+        animation: gradientMinimal 12s ease-in-out infinite;
+        position: relative;
+    }
+    
+    @keyframes gradientMinimal {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+</style>
+
+<section class="page-header-educacion minimal-edu-bg" style="padding: 100px 0;">
+    <div class="container position-relative z-1 text-center text-white">
+        <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-book-reader me-2"></i> Formación Continua
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Oferta Educativa</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Formación de calidad para salvar vidas y servir a la comunidad. Instructores expertos y certificación oficial.
+        </p>
+    </div>
+    
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
-
 <!-- Programas Educativos -->
 <section class="py-5">
     <div class="container">

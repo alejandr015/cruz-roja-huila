@@ -5,10 +5,101 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-cursos">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Técnicos Laborales</h1>
-        <p class="lead">Formación profesional certificada en áreas de salud y emergencias</p>
+<style>
+    .tecnicos-header-bg {
+        background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Knowledge Network Nodes */
+    .tec-node {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(255,255,255,0.8);
+        opacity: 0.4;
+        animation: floatNode ease-in-out infinite alternate;
+        z-index: 1;
+    }
+
+    /* Connecting Lines */
+    .tec-line {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        transform-origin: left center;
+        z-index: 0;
+    }
+
+    @keyframes floatNode {
+        0% { transform: translate(0, 0); }
+        100% { transform: translate(20px, -20px); }
+    }
+
+    /* Preset layout for nodes to simulate a constellation */
+    .n-1 { top: 20%; left: 15%; animation-duration: 4s; }
+    .n-2 { top: 40%; left: 25%; animation-duration: 5s; animation-delay: 1s; }
+    .n-3 { top: 15%; left: 40%; animation-duration: 4.5s; animation-delay: 2s; }
+    .n-4 { top: 60%; left: 10%; animation-duration: 6s; }
+    .n-5 { top: 80%; left: 30%; animation-duration: 5.5s; animation-delay: 1.5s; }
+    .n-6 { top: 30%; left: 75%; animation-duration: 4s; animation-delay: 0.5s; }
+    .n-7 { top: 50%; left: 85%; animation-duration: 5.2s; animation-delay: 2.5s; }
+    .n-8 { top: 75%; left: 70%; animation-duration: 4.8s; animation-delay: 1s; }
+    .n-9 { top: 20%; left: 90%; animation-duration: 6s; animation-delay: 2s; }
+
+    /* Preset lines to connect nodes approximately */
+    .l-1 { top: 20%; left: 15%; width: 12vw; height: 1px; transform: rotate(25deg); }
+    .l-2 { top: 40%; left: 25%; width: 15vw; height: 1px; transform: rotate(-35deg); }
+    .l-3 { top: 15%; left: 40%; width: 35vw; height: 1px; transform: rotate(15deg); }
+    .l-4 { top: 40%; left: 25%; width: 16vw; height: 1px; transform: rotate(115deg); }
+    .l-5 { top: 60%; left: 10%; width: 20vw; height: 1px; transform: rotate(25deg); }
+    .l-6 { top: 30%; left: 75%; width: 11vw; height: 1px; transform: rotate(45deg); }
+    .l-7 { top: 50%; left: 85%; width: 16vw; height: 1px; transform: rotate(135deg); }
+    .l-8 { top: 30%; left: 75%; width: 16vw; height: 1px; transform: rotate(-30deg); }
+
+</style>
+
+<section class="page-header-cursos tecnicos-header-bg text-center text-white">
+    <!-- Knowledge Network Animation -->
+    <div class="tec-node n-1"></div>
+    <div class="tec-node n-2"></div>
+    <div class="tec-node n-3"></div>
+    <div class="tec-node n-4"></div>
+    <div class="tec-node n-5"></div>
+    <div class="tec-node n-6"></div>
+    <div class="tec-node n-7"></div>
+    <div class="tec-node n-8"></div>
+    <div class="tec-node n-9"></div>
+
+    <div class="tec-line l-1"></div>
+    <div class="tec-line l-2"></div>
+    <div class="tec-line l-3"></div>
+    <div class="tec-line l-4"></div>
+    <div class="tec-line l-5"></div>
+    <div class="tec-line l-6"></div>
+    <div class="tec-line l-7"></div>
+    <div class="tec-line l-8"></div>
+    
+    <div class="container position-relative z-2 pb-4">
+        <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-graduation-cap me-2"></i> Educación Continua
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Técnicos Laborales</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Formación profesional certificada en áreas de salud, emergencias y desarrollo.
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 3;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

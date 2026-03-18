@@ -5,10 +5,85 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-vacunacion" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-5 fw-bold">Portafolio de Vacunación</h1>
-        <p class="lead">Protegiendo la salud de nuestra comunidad</p>
+<style>
+    .animated-bg-med {
+        background: linear-gradient(-45deg, #0f2027, #203a43, #2C3E50, #12284C);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    .particles-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 0;
+        pointer-events: none;
+    }
+    .med-cross {
+        position: absolute;
+        bottom: -150px;
+        animation: floatUp linear infinite;
+    }
+    .med-cross::before, .med-cross::after {
+        content: '';
+        position: absolute;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        box-shadow: 0 0 15px rgba(0, 195, 255, 0.4);
+    }
+    .med-cross::before {
+        top: 50%; left: 0; right: 0; height: 26%;
+        transform: translateY(-50%);
+    }
+    .med-cross::after {
+        left: 50%; top: 0; bottom: 0; width: 26%;
+        transform: translateX(-50%);
+    }
+    .med-cross:nth-child(1) { left: 15%; width: 40px; height: 40px; animation-duration: 20s; animation-delay: 0s; }
+    .med-cross:nth-child(2) { left: 25%; width: 20px; height: 20px; animation-duration: 14s; animation-delay: 2s; }
+    .med-cross:nth-child(3) { left: 35%; width: 50px; height: 50px; animation-duration: 24s; animation-delay: 5s; }
+    .med-cross:nth-child(4) { left: 45%; width: 30px; height: 30px; animation-duration: 18s; animation-delay: 1s; }
+    .med-cross:nth-child(5) { left: 55%; width: 60px; height: 60px; animation-duration: 28s; animation-delay: 3s; }
+    .med-cross:nth-child(6) { left: 65%; width: 25px; height: 25px; animation-duration: 16s; animation-delay: 6s; }
+    .med-cross:nth-child(7) { left: 75%; width: 45px; height: 45px; animation-duration: 22s; animation-delay: 2s; }
+    .med-cross:nth-child(8) { left: 85%; width: 35px; height: 35px; animation-duration: 19s; animation-delay: 4s; }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    }
+</style>
+<section class="page-header-vacunacion position-relative animated-bg-med" style="padding: 100px 0; overflow: hidden;">
+    <!-- Partículas cruz animadas de fondo -->
+    <div class="particles-container">
+        <div class="med-cross"></div><div class="med-cross"></div><div class="med-cross"></div><div class="med-cross"></div>
+        <div class="med-cross"></div><div class="med-cross"></div><div class="med-cross"></div><div class="med-cross"></div>
+    </div>
+    
+    <div class="container position-relative z-1 text-center text-white">
+        <span class="badge bg-info text-dark mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-shield-virus me-2"></i> Salud y Prevención
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Portafolio de Vacunación</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Protegiendo la salud de nuestra comunidad con servicios integrales de inmunización para todas las edades.
+        </p>
+    </div>
+    
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

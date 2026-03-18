@@ -5,10 +5,92 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-vacuna" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-5 fw-bold">Vacunación para Adultos</h1>
-        <p class="lead">Protección continua en todas las etapas de la vida adulta</p>
+<style>
+    .adultos-header-bg {
+        background: linear-gradient(135deg, #12284C 0%, #17365d 50%, #2C3E50 100%);
+        background-size: 200% 200%;
+        animation: gradientAdultos 10s ease infinite;
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    @keyframes gradientAdultos {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    /* Soft floating medical crosses */
+    .adultos-cross {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.05); /* very subtle */
+        font-family: Arial, sans-serif;
+        font-weight: bold;
+        animation: floatCross linear infinite;
+        z-index: 1;
+        user-select: none;
+    }
+
+    @keyframes floatCross {
+        0% { transform: translateY(100px) rotate(0deg) scale(0.8); opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateY(-200px) rotate(90deg) scale(1.2); opacity: 0; }
+    }
+
+    .cr-1 { left: 10%; font-size: 60px; animation-duration: 20s; animation-delay: 2s; }
+    .cr-2 { left: 85%; font-size: 100px; animation-duration: 25s; animation-delay: 0s; }
+    .cr-3 { left: 30%; font-size: 40px; animation-duration: 18s; animation-delay: 5s; }
+    .cr-4 { left: 60%; font-size: 80px; animation-duration: 22s; animation-delay: 1s; }
+    .cr-5 { left: 45%; font-size: 50px; animation-duration: 19s; animation-delay: 8s; }
+    .cr-6 { left: 75%; font-size: 30px; animation-duration: 15s; animation-delay: 4s; }
+
+    /* Moving light ray for "continuous protection" */
+    .adultos-ray {
+        position: absolute;
+        top: 0; left: -100%;
+        width: 50%; height: 100%;
+        background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.05), transparent);
+        transform: skewX(-30deg);
+        animation: sweepRay 8s infinite;
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    @keyframes sweepRay {
+        0% { left: -100%; }
+        50%, 100% { left: 200%; }
+    }
+</style>
+
+<section class="page-header-vacuna adultos-header-bg text-center text-white">
+    <!-- Animated Medical Crosses & Ray -->
+    <div class="adultos-cross cr-1">+</div>
+    <div class="adultos-cross cr-2">+</div>
+    <div class="adultos-cross cr-3">+</div>
+    <div class="adultos-cross cr-4">+</div>
+    <div class="adultos-cross cr-5">+</div>
+    <div class="adultos-cross cr-6">+</div>
+    <div class="adultos-ray"></div>
+    
+    <div class="container position-relative z-3 pb-4">
+        <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-shield-alt me-2"></i> Inmunización Preventiva
+        </span>
+        <h1 class="display-5 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Vacunación para Adultos</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Protección médica continua en todas las etapas de la vida adulta.
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 4;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

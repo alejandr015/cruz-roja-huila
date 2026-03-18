@@ -5,10 +5,90 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-vacuna" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-5 fw-bold">Vacunación para Gestantes y Niños</h1>
-        <p class="lead">Protegiendo a los más vulnerables desde el inicio de la vida</p>
+<style>
+    .ninos-header-bg {
+        background: linear-gradient(135deg, #12284C 0%, #1a4a5e 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Soft floating bubbles representing life/cells */
+    .vida-bubble {
+        position: absolute;
+        bottom: -50px;
+        background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.05));
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 50%;
+        animation: floatVida linear infinite;
+        z-index: 1;
+        backdrop-filter: blur(2px);
+    }
+
+    @keyframes floatVida {
+        0% { transform: translateY(0) translateX(0) scale(1); opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateY(-600px) translateX(50px) scale(1.2); opacity: 0; }
+    }
+
+    /* Variaciones de burbujas */
+    .vb-1 { left: 10%; width: 80px; height: 80px; animation-duration: 15s; animation-delay: 2s; }
+    .vb-2 { left: 25%; width: 40px; height: 40px; animation-duration: 12s; animation-delay: 0s; }
+    .vb-3 { left: 45%; width: 120px; height: 120px; animation-duration: 20s; animation-delay: 5s; }
+    .vb-4 { left: 65%; width: 60px; height: 60px; animation-duration: 14s; animation-delay: 1s; }
+    .vb-5 { left: 85%; width: 90px; height: 90px; animation-duration: 18s; animation-delay: 4s; }
+    .vb-6 { left: 15%; width: 50px; height: 50px; animation-duration: 11s; animation-delay: 6s; }
+    .vb-7 { left: 55%; width: 70px; height: 70px; animation-duration: 16s; animation-delay: 3s; }
+    .vb-8 { left: 75%; width: 30px; height: 30px; animation-duration: 10s; animation-delay: 7s; }
+
+    /* Pulso central suave (Latido materno) */
+    .latido-bg {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 800px; height: 800px;
+        background: radial-gradient(circle, rgba(237, 28, 36, 0.08) 0%, transparent 60%);
+        animation: latir 3s ease-in-out infinite alternate;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    @keyframes latir {
+        0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.5; }
+        100% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
+    }
+</style>
+
+<section class="page-header-vacuna ninos-header-bg text-center text-white">
+    <!-- Latido y Burbujas de Vida -->
+    <div class="latido-bg"></div>
+    <div class="vida-bubble vb-1"></div>
+    <div class="vida-bubble vb-2"></div>
+    <div class="vida-bubble vb-3"></div>
+    <div class="vida-bubble vb-4"></div>
+    <div class="vida-bubble vb-5"></div>
+    <div class="vida-bubble vb-6"></div>
+    <div class="vida-bubble vb-7"></div>
+    <div class="vida-bubble vb-8"></div>
+    
+    <div class="container position-relative z-2 pb-4">
+        <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-baby me-2"></i> Cuidado y Protección
+        </span>
+        <h1 class="display-5 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Vacunación para Gestantes y Niños</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Protegiendo a los más vulnerables desde el inicio de la vida.
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 3;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

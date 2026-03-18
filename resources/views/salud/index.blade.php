@@ -5,10 +5,91 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-salud" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Servicios De Salud</h1>
-        <p class="lead">Atención médica de calidad y servicios especializados para tu bienestar</p>
+<style>
+    .page-header-salud {
+        background: linear-gradient(135deg, #12284C 0%, #1a365d 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .ekg-line {
+        position: absolute;
+        bottom: 15%;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><polyline points="0,50 15,50 20,35 25,65 30,10 35,90 40,35 45,50 100,50" fill="none" stroke="%23ED1C24" stroke-width="2" opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/></svg>') repeat-x;
+        background-size: 250px 100%;
+        animation: slideEKG 4s linear infinite;
+        z-index: 1;
+    }
+    
+    .ekg-glow {
+        position: absolute;
+        bottom: 15%;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><polyline points="0,50 15,50 20,35 25,65 30,10 35,90 40,35 45,50 100,50" fill="none" stroke="%23ffffff" stroke-width="4" opacity="0.1" stroke-linecap="round" stroke-linejoin="round"/></svg>') repeat-x;
+        background-size: 250px 100%;
+        animation: slideEKG 4s linear infinite;
+        filter: blur(4px);
+        z-index: 0;
+    }
+
+    @keyframes slideEKG {
+        0% { background-position-x: 0; }
+        100% { background-position-x: -250px; }
+    }
+
+    /* Additional floating subtle elements */
+    .health-icon {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.04);
+        font-size: 2rem;
+        font-weight: bold;
+        animation: floatPlus linear infinite;
+        z-index: 0;
+    }
+    
+    .hi-1 { left: 10%; bottom: -50px; animation-duration: 15s; }
+    .hi-2 { left: 30%; bottom: -50px; animation-duration: 20s; font-size: 1.5rem; animation-delay: 2s; }
+    .hi-3 { left: 60%; bottom: -50px; animation-duration: 18s; font-size: 3rem; animation-delay: 5s;}
+    .hi-4 { left: 85%; bottom: -50px; animation-duration: 22s; font-size: 2.5rem; animation-delay: 1s;}
+    
+    @keyframes floatPlus {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-500px) rotate(180deg); opacity: 0; }
+    }
+</style>
+
+<section class="page-header-salud position-relative">
+    <!-- EKG Animation Data -->
+    <div class="ekg-glow"></div>
+    <div class="ekg-line"></div>
+    <div class="health-icon hi-1">+</div>
+    <div class="health-icon hi-2">+</div>
+    <div class="health-icon hi-3">+</div>
+    <div class="health-icon hi-4">+</div>
+
+    <div class="container position-relative z-1 text-center text-white pb-4">
+        <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-user-md me-2"></i> Bienestar y Prevención
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Servicios De Salud</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Atención médica de calidad y servicios especializados para tu bienestar.
+        </p>
+    </div>
+    
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

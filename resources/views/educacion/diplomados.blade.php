@@ -5,10 +5,102 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-cursos">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Diplomados</h1>
-        <p class="lead">Especialización y actualización profesional en áreas de la salud</p>
+<style>
+    .diplomados-header-bg {
+        background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Focus/Pulse Animation */
+    .diplo-pulse-container {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .diplo-pulse {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border: 2px solid rgba(255, 255, 255, 0.4);
+        border-radius: 50%;
+        opacity: 0;
+        animation: pulseDiplo 6s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+
+    .diplo-pulse:nth-child(1) { animation-delay: 0s; }
+    .diplo-pulse:nth-child(2) { animation-delay: 1.5s; }
+    .diplo-pulse:nth-child(3) { animation-delay: 3s; border-width: 1px; }
+    .diplo-pulse:nth-child(4) { animation-delay: 4.5s; border-width: 1px; }
+
+    @keyframes pulseDiplo {
+        0% { transform: scale(1); opacity: 0.5; }
+        100% { transform: scale(15); opacity: 0; border-width: 0.5px; }
+    }
+
+    /* Subtle floating medical crosses */
+    .diplo-cross {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.05);
+        animation: floatCross 15s linear infinite;
+        z-index: 0;
+    }
+
+    @keyframes floatCross {
+        0% { transform: translateY(100px) rotate(0deg); opacity: 0; }
+        20% { opacity: 1; }
+        80% { opacity: 1; }
+        100% { transform: translateY(-300px) rotate(180deg); opacity: 0; }
+    }
+
+    .cr-1 { left: 15%; font-size: 40px; animation-duration: 20s; animation-delay: 0s; }
+    .cr-2 { left: 85%; font-size: 60px; animation-duration: 25s; animation-delay: 5s; }
+    .cr-3 { left: 30%; font-size: 30px; animation-duration: 18s; animation-delay: 10s; }
+    .cr-4 { left: 70%; font-size: 20px; animation-duration: 22s; animation-delay: 2s; }
+</style>
+
+<section class="page-header-cursos diplomados-header-bg text-center text-white">
+    <!-- Pulse Animation -->
+    <div class="diplo-pulse-container">
+        <div class="diplo-pulse"></div>
+        <div class="diplo-pulse"></div>
+        <div class="diplo-pulse"></div>
+        <div class="diplo-pulse"></div>
+    </div>
+
+    <!-- Floating Crosses -->
+    <i class="fas fa-plus diplo-cross cr-1"></i>
+    <i class="fas fa-plus diplo-cross cr-2"></i>
+    <i class="fas fa-plus diplo-cross cr-3"></i>
+    <i class="fas fa-plus diplo-cross cr-4"></i>
+    
+    <div class="container position-relative z-2 pb-4">
+        <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-user-md me-2"></i> Especialización en Salud
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Diplomados</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Especialización y actualización profesional continua en áreas de la salud.
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 3;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

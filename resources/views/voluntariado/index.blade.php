@@ -5,9 +5,84 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-voluntariado" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-5 fw-bold">Conoce Nuestras Tres Modalidades De Voluntariados</h1>
+<style>
+    .animated-bg {
+        background: linear-gradient(-45deg, #0b1a30, #17325c, #1f2e4a, #12284C);
+        background-size: 400% 400%;
+        animation: gradientBG 15s ease infinite;
+    }
+    @keyframes gradientBG {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    .particles-container {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+        z-index: 0;
+        pointer-events: none;
+    }
+    .particle {
+        position: absolute;
+        bottom: -150px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 50%;
+        animation: floatUp linear infinite;
+    }
+    .particle::after {
+        content: '';
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60%; height: 60%;
+        background: radial-gradient(circle, rgba(237, 28, 36, 0.25) 0%, transparent 70%);
+        border-radius: 50%;
+    }
+    .particle:nth-child(1) { left: 10%; width: 80px; height: 80px; animation-duration: 25s; animation-delay: 0s; }
+    .particle:nth-child(2) { left: 20%; width: 20px; height: 20px; animation-duration: 12s; animation-delay: 2s; }
+    .particle:nth-child(3) { left: 30%; width: 50px; height: 50px; animation-duration: 18s; animation-delay: 4s; }
+    .particle:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-duration: 22s; animation-delay: 0s; }
+    .particle:nth-child(5) { left: 50%; width: 15px; height: 15px; animation-duration: 10s; animation-delay: 5s; }
+    .particle:nth-child(6) { left: 60%; width: 110px; height: 110px; animation-duration: 28s; animation-delay: 1s; }
+    .particle:nth-child(7) { left: 70%; width: 30px; height: 30px; animation-duration: 14s; animation-delay: 3s; }
+    .particle:nth-child(8) { left: 80%; width: 85px; height: 85px; animation-duration: 26s; animation-delay: 6s; }
+    .particle:nth-child(9) { left: 90%; width: 25px; height: 25px; animation-duration: 11s; animation-delay: 2s; }
+    .particle:nth-child(10) { left: 95%; width: 40px; height: 40px; animation-duration: 15s; animation-delay: 4s; }
+
+    @keyframes floatUp {
+        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    }
+</style>
+<section class="page-header-voluntariado position-relative animated-bg" style="padding: 100px 0; overflow: hidden;">
+    <!-- Partículas animadas de fondo -->
+    <div class="particles-container">
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+        <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    </div>
+    
+    <div class="container position-relative z-1 text-center text-white">
+        <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-hands-helping me-2"></i> Forma Parte del Equipo
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Conoce Nuestras Tres Modalidades De Voluntariados</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Descubre las diferentes formas en las que puedes involucrarte y hacer la diferencia. Tu tiempo y habilidades pueden cambiar vidas.
+        </p>
+    </div>
+    
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

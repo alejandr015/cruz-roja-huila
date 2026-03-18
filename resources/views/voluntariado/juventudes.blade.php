@@ -5,10 +5,88 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-voluntariado" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Servicio social Cruz Roja</h1>
-        <p class="lead">Jóvenes comprometidos con la acción humanitaria</p>
+<style>
+    .juv-header-bg {
+        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .juv-shapes-layer {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        overflow: hidden;
+        z-index: 0;
+    }
+
+    .juv-shape {
+        position: absolute;
+        bottom: -150px;
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(5px);
+        animation: floatJuv linear infinite;
+    }
+
+    .juv-circle {
+        border-radius: 50%;
+    }
+
+    .juv-triangle {
+        background: transparent;
+        width: 0; height: 0;
+        border-left: 25px solid transparent;
+        border-right: 25px solid transparent;
+        border-bottom: 50px solid rgba(255, 255, 255, 0.15);
+        backdrop-filter: none;
+    }
+
+    @keyframes floatJuv {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-800px) rotate(360deg); opacity: 0; }
+    }
+
+    .js-1 { left: 10%; width: 80px; height: 80px; animation-duration: 25s; animation-delay: 2s; }
+    .js-2 { left: 25%; animation-duration: 18s; animation-delay: 0s; } /* Triangle */
+    .js-3 { left: 45%; width: 50px; height: 50px; animation-duration: 22s; animation-delay: 5s; }
+    .js-4 { left: 60%; animation-duration: 15s; animation-delay: 1s; transform: scale(1.5); } /* Triangle */
+    .js-5 { left: 80%; width: 120px; height: 120px; animation-duration: 30s; animation-delay: 3s; }
+    .js-6 { left: 90%; width: 40px; height: 40px; animation-duration: 12s; animation-delay: 7s; }
+    .js-7 { left: 35%; width: 60px; height: 60px; animation-duration: 20s; animation-delay: 4s; }
+</style>
+
+<section class="page-header-voluntariado juv-header-bg text-center text-white">
+    <!-- Geometría Juvenil Animada -->
+    <div class="juv-shapes-layer">
+        <div class="juv-shape juv-circle js-1"></div>
+        <div class="juv-shape juv-triangle js-2"></div>
+        <div class="juv-shape juv-circle js-3"></div>
+        <div class="juv-shape juv-triangle js-4"></div>
+        <div class="juv-shape juv-circle js-5"></div>
+        <div class="juv-shape juv-circle js-6"></div>
+        <div class="juv-shape juv-circle js-7"></div>
+    </div>
+    
+    <div class="container position-relative z-1 pb-4">
+        <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-hands-helping me-2"></i> Juventud y Acción Social
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Servicio social Cruz Roja</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Jóvenes comprometidos con la acción humanitaria y el desarrollo de la comunidad.
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

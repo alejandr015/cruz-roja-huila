@@ -5,10 +5,72 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-voluntariado" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%);">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Socorristas</h1>
-        <p class="lead">Grupo de respuesta inmediata ante emergencias</p>
+<style>
+    .page-header-socorristas {
+        background: linear-gradient(135deg, #a71115 0%, #5a0000 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sparks-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .spark {
+        position: absolute;
+        bottom: -20px;
+        border-radius: 5px;
+        opacity: 0;
+    }
+
+    @keyframes flySparks1 { 0% { opacity:1; transform:translateY(0) translateX(0) scale(1);} 100% { opacity:0; transform:translateY(-500px) translateX(50px) scale(0.2);} }
+    @keyframes flySparks2 { 0% { opacity:1; transform:translateY(0) translateX(0) scale(1);} 100% { opacity:0; transform:translateY(-600px) translateX(-40px) scale(0.3);} }
+    @keyframes flySparks3 { 0% { opacity:1; transform:translateY(0) translateX(0) scale(1.5);} 100% { opacity:0; transform:translateY(-400px) translateX(80px) scale(0.1);} }
+
+    .sp-1 { left: 10%; width: 4px; height: 12px; animation: flySparks1 3s infinite 0.5s; background: #fff5cc; box-shadow: 0 0 10px #ffcc00;}
+    .sp-2 { left: 25%; width: 3px; height: 10px; animation: flySparks2 4s infinite 1.2s; background: #ffcc00; box-shadow: 0 0 10px #ffaa00;}
+    .sp-3 { left: 40%; width: 5px; height: 15px; animation: flySparks3 2.5s infinite 0s; background: #ffaa00; box-shadow: 0 0 15px #ff4400;}
+    .sp-4 { left: 60%; width: 3px; height: 12px; animation: flySparks1 3.5s infinite 2s; background: #ffee88; box-shadow: 0 0 10px #ffcc00;}
+    .sp-5 { left: 75%; width: 4px; height: 14px; animation: flySparks2 4.2s infinite 0.8s; background: #ff9900; box-shadow: 0 0 12px #ff3300;}
+    .sp-6 { left: 90%; width: 2px; height: 8px; animation: flySparks3 3.8s infinite 1.5s; background: #ffeeaa; box-shadow: 0 0 8px #ffaa00;}
+    .sp-7 { left: 15%; width: 5px; height: 16px; animation: flySparks1 2.8s infinite 2.5s; background: #ffbb00; box-shadow: 0 0 15px #ff5500;}
+    .sp-8 { left: 50%; width: 3px; height: 10px; animation: flySparks2 4.5s infinite 0.3s; background: #ffdd44; box-shadow: 0 0 10px #ff8800;}
+    .sp-9 { left: 80%; width: 4px; height: 14px; animation: flySparks3 3.2s infinite 1.8s; background: #ffaa00; box-shadow: 0 0 12px #ff4400;}
+    .sp-10 { left: 35%; width: 3px; height: 12px; animation: flySparks1 4s infinite 0.9s; background: #ffcc22; box-shadow: 0 0 10px #ff9900;}
+</style>
+
+<section class="page-header-socorristas position-relative">
+    <div class="sparks-container">
+        <div class="spark sp-1"></div><div class="spark sp-2"></div><div class="spark sp-3"></div>
+        <div class="spark sp-4"></div><div class="spark sp-5"></div><div class="spark sp-6"></div>
+        <div class="spark sp-7"></div><div class="spark sp-8"></div><div class="spark sp-9"></div>
+        <div class="spark sp-10"></div>
+    </div>
+    
+    <div class="container position-relative z-1 text-center text-white pb-4">
+        <span class="badge bg-light text-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-ambulance me-2"></i> Acción y Rescate
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Socorristas</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Grupo de respuesta inmediata ante emergencias. Siempre alerta, siempre dispuestos a salvar vidas.
+        </p>
+    </div>
+    
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 

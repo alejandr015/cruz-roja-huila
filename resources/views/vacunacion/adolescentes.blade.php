@@ -5,10 +5,91 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-vacuna" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-5 fw-bold">Vacunación para Adolescentes</h1>
-        <p class="lead">Protección esencial en la etapa de crecimiento (10-19 años)</p>
+<style>
+    .adolescentes-header-bg {
+        background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Abstract energetic particles (Sparks) */
+    .ado-spark {
+        position: absolute;
+        background: #ffffff;
+        border-radius: 50%;
+        box-shadow: 0 0 10px rgba(255,255,255,0.5);
+        animation: flySpark linear infinite;
+        z-index: 1;
+        opacity: 0;
+    }
+
+    /* Dynamic glowing speed lines */
+    .ado-line {
+        position: absolute;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+        animation: shootLine linear infinite;
+        z-index: 0;
+    }
+
+    @keyframes shootLine {
+        0% { transform: translateX(-100vw) rotate(-15deg); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateX(120vw) rotate(-15deg); opacity: 0; }
+    }
+
+    @keyframes flySpark {
+        0% { transform: translate(-50px, 0) scale(0); opacity: 0; }
+        50% { opacity: 0.8; transform: translate(50vw, -100px) scale(1); }
+        100% { transform: translate(110vw, -200px) scale(0); opacity: 0; }
+    }
+
+    /* Lines */
+    .ln-1 { top: 20%; width: 200px; animation-duration: 5s; animation-delay: 0s; }
+    .ln-2 { top: 50%; width: 350px; animation-duration: 7s; animation-delay: 2s; }
+    .ln-3 { top: 70%; width: 150px; animation-duration: 4s; animation-delay: 1s; }
+    .ln-4 { top: 30%; width: 400px; animation-duration: 8s; animation-delay: 4s; }
+
+    /* Sparks */
+    .sp-1 { top: 80%; width: 6px; height: 6px; animation-duration: 8s; animation-delay: 1s; }
+    .sp-2 { top: 40%; width: 4px; height: 4px; animation-duration: 6s; animation-delay: 3s; background: rgba(255,255,255,0.7); }
+    .sp-3 { top: 60%; width: 7px; height: 7px; animation-duration: 10s; animation-delay: 0s; }
+    .sp-4 { top: 20%; width: 3px; height: 3px; animation-duration: 7s; animation-delay: 5s; background: rgba(255,255,255,0.9); }
+    .sp-5 { top: 90%; width: 5px; height: 5px; animation-duration: 9s; animation-delay: 2s; }
+</style>
+
+<section class="page-header-vacuna adolescentes-header-bg text-center text-white">
+    <!-- Dynamic Growth Animation -->
+    <div class="ado-line ln-1"></div>
+    <div class="ado-line ln-2"></div>
+    <div class="ado-line ln-3"></div>
+    <div class="ado-line ln-4"></div>
+    
+    <div class="ado-spark sp-1"></div>
+    <div class="ado-spark sp-2"></div>
+    <div class="ado-spark sp-3"></div>
+    <div class="ado-spark sp-4"></div>
+    <div class="ado-spark sp-5"></div>
+    
+    <div class="container position-relative z-2 pb-4">
+        <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-bolt me-2"></i> Desarrollo y Vitalidad
+        </span>
+        <h1 class="display-5 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Vacunación para Adolescentes</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Protección esencial en la etapa de mayor crecimiento y cambio (10-19 años).
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 3;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 
