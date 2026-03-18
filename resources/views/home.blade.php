@@ -274,7 +274,7 @@
         </div>
 
         <div class="row g-4">
-            @forelse($noticias ?? [] as $noticia)
+            @forelse($noticias as $noticia)
             <div class="col-md-4">
                 <div class="news-card">
                     {{-- Imagen por defecto para TODAS las noticias de BD --}}
