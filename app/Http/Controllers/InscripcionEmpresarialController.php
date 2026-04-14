@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\InscripcionEmpresarial;
+use App\Services\Q10Service;
 use Illuminate\Http\Request;
 
 class InscripcionEmpresarialController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, Q10Service $q10Service)
     {
         $validated = $request->validate([
+            // ... (validaciones igual)
             'curso' => 'required|string|max:255',
             'duracion' => 'required|string',
             'modalidad' => 'required|string',
@@ -37,7 +39,17 @@ class InscripcionEmpresarialController extends Controller
         ]);
 
         try {
-            InscripcionEmpresarial::create($validated);
+            $inscripcion = InscripcionEmpresarial::create($validated);
+
+            // Preparar datos para Q10 (usando el nombre de contacto)
+            $q10Data = array_merge($validated, [
+                'nombre' => $validated['nombre_contacto'],
+                'documento' => $validated['nit'], // Usar NIT como documento o contacto
+                'comentarios' => "Empresa: {$validated['empresa']}. NIT: {$validated['nit']}. Participantes: {$validated['numero_participantes']}. " . ($validated['mensaje'] ?? '')
+            ]);
+
+            // Intentar sincronizar con Q10
+            $q10Service->createPreInscription($q10Data);
 
             return redirect()
                 ->back()

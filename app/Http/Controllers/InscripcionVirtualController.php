@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\InscripcionVirtual;
+use App\Services\Q10Service;
 use Illuminate\Http\Request;
 
 class InscripcionVirtualController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, Q10Service $q10Service)
     {
         $validated = $request->validate([
+            // ... (validaciones igual)
             'curso' => 'required|string|max:255',
             'duracion' => 'required|string',
             'modalidad' => 'required|string',
@@ -34,7 +36,10 @@ class InscripcionVirtualController extends Controller
         ]);
 
         try {
-            InscripcionVirtual::create($validated);
+            $inscripcion = InscripcionVirtual::create($validated);
+
+            // Intentar sincronizar con Q10
+            $q10Service->createPreInscription($validated);
 
             return redirect()
                 ->back()

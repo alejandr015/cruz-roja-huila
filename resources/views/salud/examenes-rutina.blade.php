@@ -5,10 +5,38 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-servicio" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Exámenes de Rutina</h1>
-        <p class="lead">Chequeos preventivos para cuidar tu salud</p>
+<section class="page-header-salud routine-header-sync position-relative">
+    <!-- Diagnostic Scan Effects -->
+    <div class="scan-container">
+        <div class="scan-line"></div>
+        <div class="data-node dn-1"></div>
+        <div class="data-node dn-2"></div>
+        <div class="data-node dn-3"></div>
+        <div class="data-node dn-4"></div>
+    </div>
+    
+    <!-- Floating Health Icons -->
+    <div class="health-icon hi-1">+</div>
+    <div class="health-icon hi-2">+</div>
+    <div class="health-icon hi-3">+</div>
+    
+    <div class="container position-relative z-1 text-center text-white pb-4">
+        <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-search-plus me-2"></i> Diagnóstico Preventivo
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow">Exámenes de Rutina</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Análisis precisos para un control integral de tu salud.
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 
@@ -215,8 +243,84 @@
 
 @section('styles')
 <style>
-    .page-header-servicio {
-        padding: 80px 0;
+    .page-header-salud {
+        background: linear-gradient(135deg, #12284C 0%, #1a365d 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Diagnostic Scan Animation */
+    .scan-container {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .scan-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, transparent, #ED1C24, transparent);
+        box-shadow: 0 0 15px #ED1C24, 0 0 30px rgba(237, 28, 36, 0.5);
+        animation: scanVertical 6s ease-in-out infinite;
+        opacity: 0.6;
+    }
+
+    @keyframes scanVertical {
+        0%, 100% { top: 10%; opacity: 0; }
+        50% { top: 90%; opacity: 0.8; }
+    }
+
+    /* Data Nodes (Representing exams) */
+    .data-node {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        background: white;
+        border-radius: 50%;
+        opacity: 0;
+        box-shadow: 0 0 10px white;
+        animation: pulseNode 3s infinite;
+    }
+
+    .dn-1 { top: 25%; left: 20%; animation-delay: 0s; }
+    .dn-2 { top: 45%; right: 15%; animation-delay: 1s; }
+    .dn-3 { top: 75%; left: 10%; animation-delay: 2s; }
+    .dn-4 { top: 35%; right: 30%; animation-delay: 1.5s; }
+
+    @keyframes pulseNode {
+        0%, 100% { opacity: 0; transform: scale(1); }
+        50% { opacity: 0.3; transform: scale(1.5); }
+    }
+
+    /* Floating Icons (Sync with Index) */
+    .health-icon {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.04);
+        font-size: 2rem;
+        font-weight: bold;
+        animation: floatPlus linear infinite;
+        z-index: 0;
+    }
+    
+    .hi-1 { left: 15%; top: 20%; animation-duration: 15s; }
+    .hi-2 { left: 50%; bottom: -50px; animation-duration: 20s; font-size: 1.5rem; animation-delay: 2s; }
+    .hi-3 { left: 85%; top: 30%; animation-duration: 18s; font-size: 2.5rem; animation-delay: 4s;}
+    
+    @keyframes floatPlus {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+        100% { transform: translateY(-500px) rotate(180deg); opacity: 0; }
+    }
+
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
 
     .section-title-servicio {

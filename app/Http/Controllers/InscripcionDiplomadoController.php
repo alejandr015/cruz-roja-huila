@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\InscripcionDiplomado;
+use App\Services\Q10Service;
 use Illuminate\Http\Request;
 
 class InscripcionDiplomadoController extends Controller
 {
-    public function store(Request $request)
+    public function store(Request $request, Q10Service $q10Service)
     {
         $validated = $request->validate([
+            // ... (validaciones iguales)
             'curso' => 'required|string|max:255',
             'duracion' => 'required|string',
             'inversion' => 'required|string',
@@ -33,7 +35,10 @@ class InscripcionDiplomadoController extends Controller
         ]);
 
         try {
-            InscripcionDiplomado::create($validated);
+            $inscripcion = InscripcionDiplomado::create($validated);
+
+            // Intentar sincronizar con Q10
+            $q10Service->createPreInscription($validated);
 
             return redirect()
                 ->back()

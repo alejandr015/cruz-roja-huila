@@ -1,10 +1,30 @@
 @extends('layouts.app')
 @section('title', 'Capacitaciones Empresariales - Cruz Roja Huila')
 @section('content')
-<section class="page-header-cursos">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Capacitaciones Empresariales</h1>
-        <p class="lead">Programas de formación a medida para empresas y organizaciones</p>
+<section class="page-header-cursos empresariales-header-bg text-center text-white">
+    <!-- Floating Shapes -->
+    <div class="edu-shape sq sh-1"></div>
+    <div class="edu-shape ci sh-2"></div>
+    <div class="edu-shape sq sh-3" style="width: 40px; height: 40px;"></div>
+    <div class="edu-shape ci sh-4" style="width: 50px; height: 50px;"></div>
+    <div class="edu-shape sq sh-5"></div>
+    <div class="edu-shape ci sh-6" style="width: 100px; height: 100px;"></div>
+
+    <div class="container position-relative z-2">
+        <span class="badge bg-light text-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-building me-2"></i> Soluciones Corporativas
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Capacitaciones Empresariales</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">Programas de formación a medida para empresas y organizaciones</p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 3;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 <section class="py-5">
@@ -298,7 +318,60 @@
 <style>
     .page-header-cursos {
         background: linear-gradient(135deg, #1a2332 0%, #2C3E50 100%);
-        padding: 80px 0
+        padding: 80px 0;
+        position: relative;
+    }
+
+    .empresariales-header-bg {
+        background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Floating Knowledge Blocks Animation */
+    .edu-shape {
+        position: absolute;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 0;
+        animation: floatShape 20s linear infinite;
+    }
+
+    /* Square */
+    .edu-shape.sq {
+        width: 60px;
+        height: 60px;
+        border-radius: 8px;
+    }
+
+    /* Circle */
+    .edu-shape.ci {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+    }
+
+    @keyframes floatShape {
+        0% { transform: translateY(120px) rotate(0deg); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-300px) rotate(360deg); opacity: 0; }
+    }
+
+    .sh-1 { left: 10%; animation-duration: 25s; animation-delay: 0s; }
+    .sh-2 { left: 30%; animation-duration: 20s; animation-delay: 5s; }
+    .sh-3 { left: 50%; animation-duration: 28s; animation-delay: 2s; }
+    .sh-4 { left: 70%; animation-duration: 22s; animation-delay: 8s; }
+    .sh-5 { left: 85%; animation-duration: 26s; animation-delay: 4s; }
+    .sh-6 { left: 20%; animation-duration: 24s; animation-delay: 10s; }
+
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .z-2 {
+        z-index: 2;
     }
 
     .section-title-cursos {

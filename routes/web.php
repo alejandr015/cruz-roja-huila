@@ -32,6 +32,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Conócenos
 Route::get('/conocenos', [HomeController::class, 'conocenos'])->name('conocenos');
+Route::get('/accion-humanitaria', [HomeController::class, 'accionHumanitaria'])->name('accion-humanitaria');
 
 // Sala de Prensa
 Route::get('/prensa', [HomeController::class, 'prensa'])->name('prensa');

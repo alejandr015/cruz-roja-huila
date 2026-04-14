@@ -35,4 +35,9 @@ return [
         ],
     ],
 
+    'q10' => [
+        'url' => env('Q10_API_URL', 'https://api.q10.com/v1/'),
+        'key' => env('Q10_API_KEY'),
+    ],
+
 ];

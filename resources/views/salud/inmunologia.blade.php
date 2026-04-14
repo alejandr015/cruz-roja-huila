@@ -5,10 +5,36 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-servicio" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Inmunología</h1>
-        <p class="lead">Estudio del sistema inmunológico y sus respuestas</p>
+<section class="page-header-salud immune-header-sync position-relative">
+    <!-- Orbital Defense Effects -->
+    <div class="immune-aura"></div>
+    <div class="defense-particle dp-1"></div>
+    <div class="defense-particle dp-2"></div>
+    <div class="defense-particle dp-3"></div>
+    <div class="defense-particle dp-4"></div>
+    
+    <!-- Floating Health Icons -->
+    <div class="health-icon hi-1">+</div>
+    <div class="health-icon hi-2">+</div>
+    <div class="health-icon hi-3">+</div>
+    
+    <div class="container position-relative z-1 text-center text-white pb-4">
+        <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-shield-halved me-2"></i> Defensa y Bienestar
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow">Inmunología</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Fortaleciendo tus defensas con diagnósticos precisos.
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 
@@ -234,8 +260,74 @@
 
 @section('styles')
 <style>
-    .page-header-servicio {
-        padding: 80px 0;
+    .page-header-salud {
+        background: linear-gradient(135deg, #12284C 0%, #1a365d 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Orbital Defense Animation */
+    .immune-aura {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle, rgba(237, 28, 36, 0.1) 0%, transparent 70%);
+        border-radius: 50%;
+        animation: auraPulse 6s infinite ease-in-out;
+        z-index: 0;
+    }
+
+    @keyframes auraPulse {
+        0%, 100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.2; }
+        50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.5; }
+    }
+
+    .defense-particle {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 0 10px white;
+        animation: orbit 10s infinite linear;
+    }
+
+    .dp-1 { top: 20%; left: 30%; animation-duration: 8s; }
+    .dp-2 { top: 60%; right: 25%; animation-duration: 12s; animation-delay: 1s; }
+    .dp-3 { bottom: 20%; left: 45%; animation-duration: 15s; }
+    .dp-4 { top: 40%; left: 15%; animation-duration: 10s; animation-delay: 2s; }
+
+    @keyframes orbit {
+        0% { transform: rotate(0deg) translateX(50px) rotate(0deg); opacity: 0; }
+        50% { opacity: 0.6; }
+        100% { transform: rotate(360deg) translateX(50px) rotate(-360deg); opacity: 0; }
+    }
+
+    /* Floating Icons (Sync with Index) */
+    .health-icon {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.04);
+        font-size: 2rem;
+        font-weight: bold;
+        animation: floatPlus linear infinite;
+        z-index: 0;
+    }
+    
+    .hi-1 { left: 10%; top: 20%; animation-duration: 15s; }
+    .hi-2 { left: 50%; bottom: -50px; animation-duration: 20s; font-size: 1.5rem; animation-delay: 2s; }
+    .hi-3 { left: 85%; top: 30%; animation-duration: 18s; font-size: 2.5rem; animation-delay: 4s;}
+    
+    @keyframes floatPlus {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+        100% { transform: translateY(-500px) rotate(180deg); opacity: 0; }
+    }
+
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
 
     .section-title-servicio {

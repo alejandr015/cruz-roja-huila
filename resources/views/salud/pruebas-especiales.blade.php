@@ -5,10 +5,39 @@
 @section('content')
 
 <!-- Banner Header -->
-<section class="page-header-servicio" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Pruebas Especiales</h1>
-        <p class="lead">Diagnóstico avanzado y especializado</p>
+<section class="page-header-salud special-header-sync position-relative">
+    <!-- Precision Focus Effects -->
+    <div class="focus-target">
+        <div class="focus-circle fc-1"></div>
+        <div class="focus-circle fc-2"></div>
+        <div class="focus-marker fm-tl"></div>
+        <div class="focus-marker fm-tr"></div>
+        <div class="focus-marker fm-bl"></div>
+        <div class="focus-marker fm-br"></div>
+    </div>
+    
+    <!-- Floating Health Icons -->
+    <div class="health-icon hi-1">+</div>
+    <div class="health-icon hi-2">+</div>
+    <div class="health-icon hi-3">+</div>
+    
+    <div class="container position-relative z-1 text-center text-white pb-4">
+        <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-crosshairs me-2"></i> Diagnóstico Especializado
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow">Pruebas Especiales</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+            Tecnología de vanguardia para diagnósticos de alta precisión.
+        </p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 
@@ -230,8 +259,77 @@
 
 @section('styles')
 <style>
-    .page-header-servicio {
-        padding: 80px 0;
+    .page-header-salud {
+        background: linear-gradient(135deg, #12284C 0%, #1a365d 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Precision Focus Animation */
+    .focus-target {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 300px;
+        height: 300px;
+        pointer-events: none;
+        z-index: 0;
+    }
+
+    .focus-circle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        animation: focusPulse 4s infinite ease-in-out;
+    }
+
+    .fc-1 { width: 100%; height: 100%; }
+    .fc-2 { width: 60%; height: 60%; animation-delay: 2s; }
+
+    @keyframes focusPulse {
+        0%, 100% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.1; }
+        50% { transform: translate(-50%, -50%) scale(1.1); opacity: 0.3; }
+    }
+
+    .focus-marker {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        border: 2px solid rgba(237, 28, 36, 0.4);
+        opacity: 0.6;
+    }
+
+    .fm-tl { top: 0; left: 0; border-right: none; border-bottom: none; }
+    .fm-tr { top: 0; right: 0; border-left: none; border-bottom: none; }
+    .fm-bl { bottom: 0; left: 0; border-right: none; border-top: none; }
+    .fm-br { bottom: 0; right: 0; border-left: none; border-top: none; }
+
+    /* Floating Icons (Sync with Index) */
+    .health-icon {
+        position: absolute;
+        color: rgba(255, 255, 255, 0.04);
+        font-size: 2rem;
+        font-weight: bold;
+        animation: floatPlus linear infinite;
+        z-index: 0;
+    }
+    
+    .hi-1 { left: 10%; bottom: -50px; animation-duration: 15s; }
+    .hi-2 { left: 40%; top: 10%; animation-duration: 20s; font-size: 1.5rem; animation-delay: 2s; }
+    .hi-3 { left: 80%; bottom: -50px; animation-duration: 18s; font-size: 2.5rem; animation-delay: 4s;}
+    
+    @keyframes floatPlus {
+        0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+        100% { transform: translateY(-500px) rotate(180deg); opacity: 0; }
+    }
+
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
     }
 
     .section-title-servicio {

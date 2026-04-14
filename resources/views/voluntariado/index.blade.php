@@ -93,36 +93,45 @@
 
             <!-- Juveniles -->
             <div class="col-md-4">
-                <a href="{{ route('voluntariado.juventudes') }}" class="modalidad-card">
-                    <div class="modalidad-imagen">
-                        <img src="{{ asset('img/Voluntariado_Juventud.jpg') }}" alt="Cruz Roja Juventud">
-                    </div>
-                    <div class="modalidad-titulo">
+                <a href="{{ route('voluntariado.juventudes') }}" class="modalidad-card has-bg" style="background-image: url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop');">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="modalidad-icon-badge">
+                            <i class="fas fa-users-line"></i>
+                        </div>
                         <h3>Juveniles</h3>
+                        <p>Formamos líderes del mañana a través de la educación y el servicio humanitario desde temprana edad.</p>
+                        <span class="btn-explore-light">Descubrir más <i class="fas fa-arrow-right ms-1"></i></span>
                     </div>
                 </a>
             </div>
 
             <!-- Damas Grises -->
             <div class="col-md-4">
-                <a href="{{ route('voluntariado.damas-grises') }}" class="modalidad-card">
-                    <div class="modalidad-imagen">
-                        <img src="{{ asset('img/damas_grises.jpg') }}" alt="Damas Grises Cruz Roja">
-                    </div>
-                    <div class="modalidad-titulo">
+                <a href="{{ route('voluntariado.damas-grises') }}" class="modalidad-card has-bg" style="background-image: url('https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=2070&auto=format&fit=crop');">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="modalidad-icon-badge">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
                         <h3>Damas Grises</h3>
+                        <p>Mujeres voluntarias dedicadas al servicio social, salud y bienestar de las comunidades vulnerables.</p>
+                        <span class="btn-explore-light">Descubrir más <i class="fas fa-arrow-right ms-1"></i></span>
                     </div>
                 </a>
             </div>
 
             <!-- Socorristas -->
             <div class="col-md-4">
-                <a href="{{ route('voluntariado.socorristas') }}" class="modalidad-card">
-                    <div class="modalidad-imagen">
-                        <img src="{{ asset('img/socorrismo.jpg') }}" alt="Socorristas Cruz Roja">
-                    </div>
-                    <div class="modalidad-titulo">
+                <a href="{{ route('voluntariado.socorristas') }}" class="modalidad-card has-bg" style="background-image: url('https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?q=80&w=2070&auto=format&fit=crop');">
+                    <div class="card-overlay"></div>
+                    <div class="card-content">
+                        <div class="modalidad-icon-badge">
+                            <i class="fas fa-first-aid"></i>
+                        </div>
                         <h3>Socorristas</h3>
+                        <p>Personal altamente capacitado en primera respuesta, rescates y atención de desastres.</p>
+                        <span class="btn-explore-light">Descubrir más <i class="fas fa-arrow-right ms-1"></i></span>
                     </div>
                 </a>
             </div>
@@ -329,70 +338,98 @@
     }
 
     /* ================================================
-       TARJETAS DE MODALIDADES - ARREGLADAS
+       TARJETAS DE MODALIDADES - REDISEÑO CON FOTO
        ================================================ */
-    .modalidad-card {
-        display: block;
-        background: white;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-        transition: all 0.3s ease;
-        text-decoration: none;
+    .modalidad-card.has-bg {
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        border: none;
+        padding: 0;
+        min-height: 400px;
+        color: white !important;
+    }
+
+    .card-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(26, 35, 50, 0.4) 0%, rgba(20, 20, 20, 0.9) 100%);
+        z-index: 1;
+        transition: all 0.4s ease;
+    }
+
+    .modalidad-card.has-bg:hover .card-overlay {
+        background: linear-gradient(to bottom, rgba(237, 28, 36, 0.6) 0%, rgba(139, 16, 20, 0.95) 100%);
+    }
+
+    .card-content {
+        position: relative;
+        z-index: 2;
+        padding: 40px 30px;
         height: 100%;
-        /* Flexbox para alinear contenido */
         display: flex;
         flex-direction: column;
-    }
-
-    .modalidad-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 10px 30px rgba(237, 28, 36, 0.2);
-    }
-
-    /* Contenedor de imagen ARREGLADO */
-    .modalidad-imagen {
-        height: 250px;
-        background: #f8f9fa;
-        overflow: hidden;
-        /* Flexbox para centrar imagen */
-        display: flex;
+        justify-content: flex-end;
         align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
-
-    /* Imagen ARREGLADA */
-    .modalidad-imagen img {
-        max-width: 100%;
-        max-height: 100%;
-        width: auto;
-        height: auto;
-        object-fit: contain;
-        /* Mantiene proporción sin cortar */
-        transition: transform 0.3s ease;
-    }
-
-    .modalidad-card:hover .modalidad-imagen img {
-        transform: scale(1.05);
-    }
-
-    /* Título */
-    .modalidad-titulo {
-        padding: 20px;
         text-align: center;
-        background: white;
-        flex-grow: 1;
+    }
+
+    .modalidad-icon-badge {
+        width: 70px;
+        height: 70px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 20px;
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 2rem;
+        margin-bottom: 20px;
+        transition: all 0.3s ease;
     }
 
-    .modalidad-titulo h3 {
-        margin: 0;
-        color: #1a2332;
-        font-size: 1.5rem;
+    .modalidad-card:hover .modalidad-icon-badge {
+        background: white;
+        color: #ED1C24;
+        transform: translateY(-5px);
+    }
+
+    .card-content h3 {
+        color: white;
+        font-size: 1.8rem;
+        font-weight: 800;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .card-content p {
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 20px;
+        max-width: 280px;
+    }
+
+    .btn-explore-light {
+        color: white;
         font-weight: 700;
+        text-transform: uppercase;
+        font-size: 0.8rem;
+        letter-spacing: 1px;
+        padding: 10px 20px;
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        transition: all 0.3s ease;
+    }
+
+    .modalidad-card:hover .btn-explore-light {
+        background: white;
+        color: #ED1C24;
+        border-color: white;
     }
 
     /* Requisitos Section */
@@ -575,13 +612,15 @@
             padding: 25px;
         }
 
-        .modalidad-imagen {
-            height: 200px;
-            padding: 15px;
+        .modalidad-icon-container {
+            width: 80px;
+            height: 80px;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
         }
 
-        .modalidad-titulo h3 {
-            font-size: 1.25rem;
+        .modalidad-info h3 {
+            font-size: 1.3rem;
         }
     }
 </style>

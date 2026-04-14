@@ -101,7 +101,7 @@
 
             <!-- Slide 5: Vacunación ⭐ NUEVO -->
             <div class="carousel-item">
-                <div class="hero-slide" style="background: linear-gradient(135deg, #27ae60 0%, #229954 100%);">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%);">
                     <div class="container">
                         <div class="row align-items-center" style="min-height: 500px;">
                             <div class="col-lg-6 text-white">
@@ -126,7 +126,7 @@
 
             <!-- Slide 6: Servicios Masivos ⭐ NUEVO -->
             <div class="carousel-item">
-                <div class="hero-slide" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #1a2332 0%, #2C3E50 100%);">
                     <div class="container">
                         <div class="row align-items-center" style="min-height: 500px;">
                             <div class="col-lg-6 text-white">
@@ -148,7 +148,7 @@
 
             <!-- Slide 7: Servicio Social ⭐ NUEVO -->
             <div class="carousel-item">
-                <div class="hero-slide" style="background: linear-gradient(135deg, #9b59b6 0%, #8e44ad 100%);">
+                <div class="hero-slide" style="background: linear-gradient(135deg, #C41419 0%, #8b1014 100%);">
                     <div class="container">
                         <div class="row align-items-center" style="min-height: 500px;">
                             <div class="col-lg-6 text-white">
@@ -197,8 +197,8 @@
                         <i class="fas fa-kit-medical"></i>
                     </div>
                     <h5>Acción Humanitaria</h5>
-                    <p>Brindamos asistencia humanitaria oportuna y neutral a las comunidades más vulnerables.</p>
-                    <a href="{{ route('conocenos') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
+                    <p>Ayudamos a las personas que más lo necesitan en momentos difíciles o desastres, entregando alimentos, salud y refugio.</p>
+                    <a href="{{ route('accion-humanitaria') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
                 </div>
             </div>
 
@@ -209,7 +209,7 @@
                         <i class="fas fa-graduation-cap"></i>
                     </div>
                     <h5>Educación</h5>
-                    <p>Cursos de primeros auxilios, técnicos laborales, diplomados y educación virtual.</p>
+                    <p>Te enseñamos técnicas para salvar vidas, como primeros auxilios, y te formamos con habilidades para que consigas un mejor empleo.</p>
                     <a href="{{ route('educacion') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
                 </div>
             </div>
@@ -221,7 +221,7 @@
                         <i class="fas fa-syringe"></i>
                     </div>
                     <h5>Vacunación</h5>
-                    <p>Punto de vacunación para niños, gestantes, adultos y esquemas de riesgos laborales.</p>
+                    <p>Mantenemos a tu familia protegida contra enfermedades. Aplicamos todas las vacunas necesarias para bebés, niños y adultos.</p>
                     <a href="{{ route('vacunacion') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
                 </div>
             </div>
@@ -233,7 +233,7 @@
                         <i class="fas fa-ambulance"></i>
                     </div>
                     <h5>Servicios Masivos</h5>
-                    <p>Atención médica pre-hospitalaria en eventos deportivos, culturales y sociales.</p>
+                    <p>Brindamos seguridad médica en tus eventos. Contamos con ambulancias y personal listo para atender cualquier emergencia al instante.</p>
                     <a href="{{ route('salud') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
                 </div>
             </div>
@@ -245,7 +245,7 @@
                         <i class="fas fa-hands-helping"></i>
                     </div>
                     <h5>Servicio Social</h5>
-                    <p>Programas de voluntariado, damas grises, juventudes y socorrismo comunitario.</p>
+                    <p>¡Únete y ayuda a los demás! Sé parte de nuestro equipo de voluntarios y participa en actividades que mejoran nuestra comunidad.</p>
                     <a href="{{ route('voluntariado') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
                 </div>
             </div>
@@ -257,7 +257,7 @@
                         <i class="fas fa-microscope"></i>
                     </div>
                     <h5>Laboratorio Clínico</h5>
-                    <p>Exámenes de rutina, pruebas especiales, inmunología y servicios empresariales.</p>
+                    <p>Conoce tu estado de salud. Realizamos exámenes de sangre y chequeos médicos con tecnología moderna y resultados rápidos.</p>
                     <a href="{{ route('salud.laboratorios-clinicos') }}" class="btn btn-sm btn-outline-danger">Ver más</a>
                 </div>
             </div>

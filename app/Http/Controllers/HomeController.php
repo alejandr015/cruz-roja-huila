@@ -34,7 +34,15 @@ class HomeController extends Controller
      */
     public function conocenos()
     {
-        return view('conocenos');
+        return redirect()->route('accion-humanitaria');
+    }
+
+    /**
+     * Acción Humanitaria
+     */
+    public function accionHumanitaria()
+    {
+        return view('accion-humanitaria');
     }
 
     /**
@@ -65,41 +73,55 @@ class HomeController extends Controller
      */
     private function getRssNoticias($limit = 6)
     {
-        $rssNoticias = [];
+        $noticias = [];
+        $uniqueLinks = [];
         try {
-            $rssUrl = 'https://news.google.com/rss/search?q=Cruz+Roja+Huila&hl=es-419&gl=CO&ceid=CO:es-419';
+            // Consulta más amplia para mayor variedad
+            $query = urlencode('(Cruz Roja Huila) OR (Cruz Roja Colombiana) OR (Salud Preventiva Colombia) OR (Acción Humanitaria)');
+            $rssUrl = "https://news.google.com/rss/search?q={$query}&hl=es-419&gl=CO&ceid=CO:es-419";
+            
             $response = Http::timeout(5)->get($rssUrl);
             
             if ($response->successful()) {
                 $rssData = simplexml_load_string($response->body());
                 if ($rssData && isset($rssData->channel->item)) {
-                    $count = 0;
                     foreach ($rssData->channel->item as $item) {
-                        if ($count >= $limit) break;
+                        $link = (string) $item->link;
+                        if (in_array($link, $uniqueLinks)) continue;
                         
                         $title = (string) $item->title;
                         $source = (string) $item->source;
                         
-                        // Limpiar el '- Fuente' del título si existe
+                        // Limpiar el '- Fuente' del título
                         if (str_ends_with($title, ' - ' . $source)) {
                             $title = substr($title, 0, -strlen(' - ' . $source));
                         }
                         
-                        $rssNoticias[] = [
+                        $noticias[] = [
                             'titulo' => $title,
-                            'enlace' => (string) $item->link,
+                            'enlace' => $link,
                             'fecha'  => date('d M Y', strtotime((string) $item->pubDate)),
                             'fuente' => $source
                         ];
-                        $count++;
+                        $uniqueLinks[] = $link;
+                        
+                        // Recopilamos un poco más para poder mezclar, luego cortamos al límite
+                        if (count($noticias) >= ($limit * 2)) break;
                     }
                 }
             }
+            
+            // Mezclamos para que la página sea dinámica
+            shuffle($noticias);
+            
+            // Retornamos solo el límite solicitado
+            return array_slice($noticias, 0, $limit);
+
         } catch (\Exception $e) {
             // Falla silenciosa
         }
         
-        return $rssNoticias;
+        return array_slice($noticias, 0, $limit);
     }
 
     /**

@@ -1,10 +1,31 @@
 @extends('layouts.app')
 @section('title', 'Educación Virtual - Cruz Roja Huila')
 @section('content')
-<section class="page-header-cursos">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Educación Virtual</h1>
-        <p class="lead">Aprende desde cualquier lugar con nuestros cursos online</p>
+<section class="page-header-cursos virtual-header-bg text-center text-white">
+    <!-- Digital Grid and Nodes -->
+    <div class="digital-grid"></div>
+    <div class="digital-node node-1"></div>
+    <div class="digital-node node-2"></div>
+    <div class="digital-node node-3"></div>
+    <div class="digital-node node-4"></div>
+    <div class="digital-node node-5"></div>
+    <div class="scan-line"></div>
+
+    <div class="container position-relative z-2">
+        <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
+            <i class="fas fa-globe me-2"></i> Campus Virtual
+        </span>
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Educación Virtual</h1>
+        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">Aprende desde cualquier lugar con nuestros cursos online</p>
+    </div>
+
+    <!-- Forma inferior (wave) -->
+    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 3;">
+        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
+            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
+            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
+            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+        </svg>
     </div>
 </section>
 <section class="py-5">
@@ -273,7 +294,77 @@
 <style>
     .page-header-cursos {
         background: linear-gradient(135deg, #1a2332 0%, #2C3E50 100%);
-        padding: 80px 0
+        padding: 80px 0;
+        position: relative;
+    }
+
+    .virtual-header-bg {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        padding: 100px 0;
+        position: relative;
+        overflow: hidden;
+    }
+
+    /* Digital Grid */
+    .digital-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: 
+            linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+        background-size: 50px 50px;
+        z-index: 0;
+    }
+
+    /* Digital Nodes */
+    .digital-node {
+        position: absolute;
+        width: 4px;
+        height: 4px;
+        background: #3498db;
+        border-radius: 50%;
+        box-shadow: 0 0 10px #3498db, 0 0 20px #3498db;
+        z-index: 1;
+        animation: pulseNode 3s infinite ease-in-out;
+    }
+
+    @keyframes pulseNode {
+        0%, 100% { transform: scale(1); opacity: 0.3; }
+        50% { transform: scale(2); opacity: 1; }
+    }
+
+    .node-1 { top: 20%; left: 15%; animation-delay: 0s; }
+    .node-2 { top: 60%; left: 25%; animation-delay: 1s; }
+    .node-3 { top: 40%; left: 50%; animation-delay: 0.5s; }
+    .node-4 { top: 75%; left: 80%; animation-delay: 1.5s; }
+    .node-5 { top: 30%; left: 70%; animation-delay: 2s; }
+
+    /* Scan Line */
+    .scan-line {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, rgba(52, 152, 219, 0.3), transparent);
+        z-index: 1;
+        animation: scanMove 8s infinite linear;
+    }
+
+    @keyframes scanMove {
+        0% { top: -100px; }
+        100% { top: 100%; }
+    }
+
+    .text-shadow {
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .z-2 {
+        z-index: 2;
     }
 
     .section-title-cursos {

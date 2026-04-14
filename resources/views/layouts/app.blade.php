@@ -25,18 +25,22 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            padding-top: 140px;
+            padding-top: 165px;
         }
 
         /* Header superior */
         .top-header {
             background: white;
-            padding: 10px 0;
+            height: 110px;
             border-bottom: 1px solid #e0e0e0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1031;
         }
 
         .logo-cruzroja {
-            height: 80px;
+            height: 110px;
         }
 
         .header-actions {
@@ -108,7 +112,7 @@
             background: white;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
-            top: 90px;
+            top: 110px;
             left: 0;
             right: 0;
             z-index: 1000;
@@ -250,6 +254,32 @@
                 align-items: stretch;
             }
         }
+
+        /* Botón WhatsApp Flotante */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+            color: white;
+        }
     </style>
 
     @yield('styles')
@@ -263,7 +293,7 @@
             <div class="row align-items-center">
                 <div class="col-md-4">
                     <a href="{{ url('/') }}">
-                        <img src="{{ asset('img/CruzRoja.jpg') }}" alt="Cruz Roja Huila" class="mb" style="width: 190px; height: 90px;">
+                        <img src="{{ asset('img/CruzRoja.jpg') }}" alt="Cruz Roja Huila" class="logo-cruzroja mb" style="width: 250px; height: 110px; object-fit: contain;">
                     </a>
                 </div> 
                 <div class="col-md-8">
@@ -315,7 +345,7 @@
                     <!-- Voluntariados -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="{{ route('voluntariado') }}" role="button" data-bs-toggle="dropdown">
-                            Voluntariados
+                            Voluntariado
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="{{ route('voluntariado.socorristas') }}">Socorristas</a></li>
@@ -433,6 +463,12 @@
         </div>
     </footer>
 
+    <!-- Botón WhatsApp -->
+    <a href="https://wa.me/573172971272" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script>
         // Smooth scroll
