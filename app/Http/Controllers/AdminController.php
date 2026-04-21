@@ -760,6 +760,55 @@ class AdminController extends Controller
     }
 
     // ==============================================
+    // MENSAJES DE CONTACTO
+    // ==============================================
+
+    public function getMensajes(Request $request)
+    {
+        $query = \App\Models\MensajeContacto::query()->orderBy('created_at', 'desc');
+
+        if ($request->filled('buscar')) {
+            $buscar = $request->buscar;
+            $query->where(function ($q) use ($buscar) {
+                $q->where('nombre', 'like', "%{$buscar}%")
+                    ->orWhere('email', 'like', "%{$buscar}%")
+                    ->orWhere('asunto', 'like', "%{$buscar}%");
+            });
+        }
+
+        $mensajes = $query->get();
+        return response()->json($mensajes);
+    }
+
+    public function getMensajeDetalle($id)
+    {
+        $mensaje = \App\Models\MensajeContacto::findOrFail($id);
+        
+        // Marcar como leído al ver el detalle
+        $mensaje->update(['leido' => true]);
+        
+        return response()->json($mensaje);
+    }
+
+    public function deleteMensaje($id)
+    {
+        try {
+            $mensaje = \App\Models\MensajeContacto::findOrFail($id);
+            $mensaje->delete();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Mensaje eliminado correctamente'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Error al eliminar el mensaje'
+            ], 500);
+        }
+    }
+
+    // ==============================================
     // EXPORTAR GENÉRICO (LEGACY)
     // ==============================================
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Noticia;
 use App\Models\Servicio;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 
 class HomeController extends Controller
 {
@@ -69,56 +70,68 @@ class HomeController extends Controller
     }
 
     /**
-     * Obtener noticias desde Google News RSS
+     * Obtener noticias desde Google News RSS con mayor precisión
      */
     private function getRssNoticias($limit = 6)
     {
         $noticias = [];
         $uniqueLinks = [];
+        
+        // Palabras clave específicas para Huila y Cruz Roja
+        $queries = [
+            'Cruz Roja Huila',
+            'Cruz Roja Neiva',
+            'Cruz Roja Colombiana',
+            'Salud Huila',
+            'Acción Humanitaria Colombia'
+        ];
+        
         try {
-            // Consulta más amplia para mayor variedad
-            $query = urlencode('(Cruz Roja Huila) OR (Cruz Roja Colombiana) OR (Salud Preventiva Colombia) OR (Acción Humanitaria)');
-            $rssUrl = "https://news.google.com/rss/search?q={$query}&hl=es-419&gl=CO&ceid=CO:es-419";
-            
-            $response = Http::timeout(5)->get($rssUrl);
-            
-            if ($response->successful()) {
-                $rssData = simplexml_load_string($response->body());
-                if ($rssData && isset($rssData->channel->item)) {
-                    foreach ($rssData->channel->item as $item) {
-                        $link = (string) $item->link;
-                        if (in_array($link, $uniqueLinks)) continue;
-                        
-                        $title = (string) $item->title;
-                        $source = (string) $item->source;
-                        
-                        // Limpiar el '- Fuente' del título
-                        if (str_ends_with($title, ' - ' . $source)) {
-                            $title = substr($title, 0, -strlen(' - ' . $source));
+            foreach ($queries as $q) {
+                $query = urlencode($q);
+                $rssUrl = "https://news.google.com/rss/search?q={$query}&hl=es-419&gl=CO&ceid=CO:es-419";
+                
+                $response = Http::timeout(4)->get($rssUrl);
+                
+                if ($response->successful()) {
+                    $rssData = simplexml_load_string($response->body());
+                    if ($rssData && isset($rssData->channel->item)) {
+                        foreach ($rssData->channel->item as $item) {
+                            $link = (string) $item->link;
+                            if (in_array($link, $uniqueLinks)) continue;
+                            
+                            $title = (string) $item->title;
+                            $source = (string) $item->source;
+                            
+                            // Limpiar fuente del título
+                            if (str_ends_with($title, ' - ' . $source)) {
+                                $title = substr($title, 0, -strlen(' - ' . $source));
+                            }
+                            
+                            $noticias[] = [
+                                'titulo' => $title,
+                                'enlace' => $link,
+                                'fecha'  => date('d M Y', strtotime((string) $item->pubDate)),
+                                'fuente' => $source,
+                                'descripcion' => (string) $item->description
+                            ];
+                            $uniqueLinks[] = $link;
+                            
+                            if (count($noticias) >= ($limit * 2)) break;
                         }
-                        
-                        $noticias[] = [
-                            'titulo' => $title,
-                            'enlace' => $link,
-                            'fecha'  => date('d M Y', strtotime((string) $item->pubDate)),
-                            'fuente' => $source
-                        ];
-                        $uniqueLinks[] = $link;
-                        
-                        // Recopilamos un poco más para poder mezclar, luego cortamos al límite
-                        if (count($noticias) >= ($limit * 2)) break;
                     }
                 }
+                
+                if (count($noticias) >= ($limit * 2)) break;
             }
             
-            // Mezclamos para que la página sea dinámica
+            // Mezclar para dinamismo
             shuffle($noticias);
             
-            // Retornamos solo el límite solicitado
             return array_slice($noticias, 0, $limit);
 
         } catch (\Exception $e) {
-            // Falla silenciosa
+            \Log::error('Error fetching RSS news: ' . $e->getMessage());
         }
         
         return array_slice($noticias, 0, $limit);
@@ -145,14 +158,92 @@ class HomeController extends Controller
     public function buscar(Request $request)
     {
         $query = $request->input('q');
+        $queryLower = strtolower($query);
         
+        if (!$query) {
+            return redirect()->route('home');
+        }
+
+        // 1. Busqueda en Base de Datos (Noticias)
         $noticias = Noticia::activas()
             ->where(function($q) use ($query) {
                 $q->where('titulo', 'LIKE', "%{$query}%")
                   ->orWhere('contenido', 'LIKE', "%{$query}%");
             })
-            ->paginate(10);
-        
-        return view('buscar', compact('noticias', 'query'));
+            ->paginate(10, ['*'], 'noticias_page');
+
+        // 2. Busqueda en Base de Datos (Servicios Manuales)
+        $serviciosBase = Servicio::where('activo', true)
+            ->where(function($q) use ($query) {
+                $q->where('nombre', 'LIKE', "%{$query}%")
+                  ->orWhere('descripcion', 'LIKE', "%{$query}%");
+            })
+            ->get()->toArray();
+
+        // 3. Resultados de Secciones Estáticas (Smarter Search)
+        $seccionesEstaticas = [
+            [
+                'nombre' => 'Oferta Educativa (Cursos, Técnicos y Diplomados)',
+                'descripcion' => 'Conoce nuestra variedad de cursos, técnicos laborales y formación virtual.',
+                'ruta' => 'educacion',
+                'keywords' => ['cursos', 'educacion', 'tecnicos', 'diplomados', 'estudiar', 'clases', 'capacitacion', 'sse', 'servicio social'],
+                'icono' => 'fas fa-graduation-cap'
+            ],
+            [
+                'nombre' => 'Servicios de Salud (Citas y Vacunación)',
+                'descripcion' => 'Agendamiento de citas médicas, vacunación y laboratorio clínico.',
+                'ruta' => 'salud',
+                'keywords' => ['salud', 'citas', 'medica', 'vacuna', 'laboratorio', 'medico', 'enfermeria'],
+                'icono' => 'fas fa-heartbeat'
+            ],
+            [
+                'nombre' => 'Voluntariado',
+                'descripcion' => 'Únete a nuestra misión humanitaria y haz parte del equipo de voluntarios.',
+                'ruta' => 'voluntariado',
+                'keywords' => ['voluntario', 'unirse', 'ayudar', 'mision', 'humanitaria', 'ser voluntario'],
+                'icono' => 'fas fa-hands-helping'
+            ],
+            [
+                'nombre' => 'Sala de Prensa y Noticias',
+                'descripcion' => 'Últimas noticias y comunicados oficiales de la Cruz Roja Huila.',
+                'ruta' => 'prensa',
+                'keywords' => ['noticias', 'prensa', 'comunicados', 'actualidad', 'blog'],
+                'icono' => 'fas fa-newspaper'
+            ],
+            [
+                'nombre' => 'Contacto y Ubicación',
+                'descripcion' => 'Nuestra sede en Neiva, teléfonos y canales de atención.',
+                'ruta' => 'contacto',
+                'keywords' => ['contacto', 'ubicacion', 'telefono', 'donde estan', 'oficina', 'mapa', 'neiva'],
+                'icono' => 'fas fa-map-marker-alt'
+            ]
+        ];
+
+        $serviciosEstaticos = [];
+        foreach ($seccionesEstaticas as $seccion) {
+            foreach ($seccion['keywords'] as $keyword) {
+                if (str_contains($queryLower, $keyword)) {
+                    $serviciosEstaticos[] = (object)[
+                        'nombre' => $seccion['nombre'],
+                        'descripcion' => $seccion['descripcion'],
+                        'ruta_nombre' => $seccion['ruta'],
+                        'icono' => $seccion['icono']
+                    ];
+                    break; // Evitar duplicados para la misma sección
+                }
+            }
+        }
+
+        // Combinar resultados (Servicios DB + Secciones Estáticas)
+        $servicios = collect($serviciosBase)->map(function($s) {
+            return (object)[
+                'nombre' => $s['nombre'],
+                'descripcion' => $s['descripcion'],
+                'ruta_nombre' => 'salud', // Por defecto a salud si es un servicio
+                'icono' => $s['icono'] ?? 'fas fa-concierge-bell'
+            ];
+        })->merge($serviciosEstaticos);
+
+        return view('buscar', compact('noticias', 'servicios', 'query'));
     }
 }

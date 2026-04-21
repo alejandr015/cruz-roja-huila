@@ -152,6 +152,11 @@
                     <i class="fas fa-hands-helping me-2"></i>Voluntarios
                 </button>
             </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="mensajes-tab" data-bs-toggle="tab" data-bs-target="#mensajes" type="button">
+                    <i class="fas fa-envelope me-2"></i>Mensajes
+                </button>
+            </li>
         </ul>
     </div>
 </section>
@@ -427,6 +432,36 @@
                             <tbody id="tabla-voluntarios">
                                 <tr>
                                     <td colspan="8" class="text-center text-muted py-4">
+                                        <i class="fas fa-spinner fa-spin me-2"></i>Cargando...
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <div class="tab-pane fade" id="mensajes" role="tabpanel">
+                <div class="admin-panel-card">
+                    <div class="panel-header">
+                        <h4><i class="fas fa-envelope me-2"></i>Mensajes de Contacto</h4>
+                        <div class="panel-actions">
+                            <input type="text" id="search-mensajes" class="form-control form-control-sm" placeholder="Buscar...">
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table admin-table">
+                            <thead>
+                                <tr>
+                                    <th>Estado</th>
+                                    <th>Fecha</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Asunto</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tabla-mensajes">
+                                <tr>
+                                    <td colspan="6" class="text-center text-muted py-4">
                                         <i class="fas fa-spinner fa-spin me-2"></i>Cargando...
                                     </td>
                                 </tr>
@@ -720,8 +755,103 @@
         setupBusquedaEmpresariales();
         setupBusquedaVirtuales();
         setupBusquedaVoluntarios();
+        setupBusquedaMensajes();
         setupFiltrosInscritos();
     });
+
+    // =======================
+    // MENSAJES DE CONTACTO
+    // =======================
+    function cargarMensajes(filtros = {}) {
+        const tbody = document.getElementById('tabla-mensajes');
+        tbody.innerHTML = '<tr><td colspan="6" class="text-center"><i class="fas fa-spinner fa-spin"></i> Cargando...</td></tr>';
+
+        const params = new URLSearchParams(filtros);
+
+        fetch(`/admin/api/mensajes?${params}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="6" class="text-center text-muted py-4">No hay mensajes de contacto disponibles</td></tr>';
+                    return;
+                }
+
+                tbody.innerHTML = data.map(mensaje => `
+                    <tr class="${mensaje.leido ? '' : 'fw-bold bg-light'}">
+                        <td>
+                            <span class="badge bg-${mensaje.leido ? 'secondary' : 'primary'}">
+                                ${mensaje.leido ? 'Leído' : 'Nuevo'}
+                            </span>
+                        </td>
+                        <td>${new Date(mensaje.created_at).toLocaleDateString()}</td>
+                        <td>${mensaje.nombre}</td>
+                        <td>${mensaje.email}</td>
+                        <td>${mensaje.asunto}</td>
+                        <td>
+                            <button class="btn btn-sm btn-info btn-action" onclick="verDetalleMensaje(${mensaje.id})" title="Ver mensaje">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="btn btn-sm btn-danger btn-action" onclick="confirmarEliminar('mensaje', ${mensaje.id})" title="Eliminar">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `).join('');
+            });
+    }
+
+    function setupBusquedaMensajes() {
+        const input = document.getElementById('search-mensajes');
+        input.addEventListener('input', debounce(function() {
+            cargarMensajes({ buscar: this.value });
+        }, 500));
+    }
+
+    function verDetalleMensaje(id) {
+        fetch(`/admin/api/mensajes/${id}`)
+            .then(response => response.json())
+            .then(mensaje => {
+                const modalBody = document.getElementById('detalleModalBody');
+                modalBody.innerHTML = `
+                    <div class="p-3">
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <p class="text-muted small mb-1">Nombre</p>
+                                <p class="fw-bold fs-5">${mensaje.nombre}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-muted small mb-1">Fecha</p>
+                                <p class="fw-bold fs-5">${new Date(mensaje.created_at).toLocaleString()}</p>
+                            </div>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <p class="text-muted small mb-1">Email</p>
+                                <p class="fw-bold">${mensaje.email}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p class="text-muted small mb-1">Teléfono</p>
+                                <p class="fw-bold">${mensaje.telefono || 'N/A'}</p>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="mt-4">
+                            <p class="text-muted small mb-2">Asunto</p>
+                            <h4 class="fw-bold text-danger mb-3">${mensaje.asunto}</h4>
+                            <div class="p-4 bg-light rounded-3 shadow-sm border">
+                                <p class="mb-0" style="white-space: pre-wrap; line-height: 1.6;">${mensaje.mensaje}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                document.getElementById('detalleModalLabel').textContent = 'Detalle de Mensaje';
+                new bootstrap.Modal(document.getElementById('detalleModal')).show();
+                
+                // Recargar lista para actualizar el estado de "Leído"
+                cargarMensajes();
+            });
+    }
+
 
     // =======================
     // TODOS LOS INSCRITOS

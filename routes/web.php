@@ -209,6 +209,11 @@ Route::prefix('admin')->name('admin.')->middleware('admin.auth')->group(function
         Route::get('/voluntarios/{id}', [AdminController::class, 'getVoluntarioDetalle'])->name('voluntarios.detalle');
         Route::delete('/voluntarios/{id}', [AdminController::class, 'deleteVoluntario'])->name('voluntarios.delete');
 
+        // === MENSAJES DE CONTACTO ===
+        Route::get('/mensajes', [AdminController::class, 'getMensajes'])->name('mensajes');
+        Route::get('/mensajes/{id}', [AdminController::class, 'getMensajeDetalle'])->name('mensajes.detalle');
+        Route::delete('/mensajes/{id}', [AdminController::class, 'deleteMensaje'])->name('mensajes.delete');
+
         // === TODOS LOS INSCRITOS ===
         Route::get('/inscritos', [AdminController::class, 'getTodosInscritos'])->name('inscritos');
         Route::get('/inscritos/programas', [AdminController::class, 'getProgramasPorCategoria'])->name('inscritos.programas');

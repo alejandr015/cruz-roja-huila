@@ -4,67 +4,71 @@
 
 @section('content')
 
-<!-- Banner Sala de Prensa (Animado CSS) -->
-<section class="page-header position-relative overflow-hidden d-flex align-items-center justify-content-center" style="min-height: 45vh;">
-    <!-- Fondo Animado -->
-    <div class="animated-bg-gradient position-absolute w-100 h-100 top-0 start-0"></div>
-    
-    <!-- Patrón de Puntos Sutil -->
-    <div class="bg-pattern-overlay position-absolute w-100 h-100 top-0 start-0"></div>
-
-    <div class="container text-center text-white position-relative" style="z-index: 2;">
-        <div class="badge bg-white text-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-weight: 600; letter-spacing: 1px; font-size: 0.85rem;">
-            <i class="fas fa-bullhorn me-1"></i> CENTRO DE COMUNICACIONES
+<!-- Hero Section Prensa Premium -->
+<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 500px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('{{ asset('img/hero-prensa.png') }}'); background-size: cover; background-position: center; border-radius: 0 0 50px 50px;">
+    <div class="container py-5 position-relative z-1">
+        <div class="row align-items-center min-vh-50">
+            <div class="col-lg-8 animate-fade-up">
+                <span class="badge bg-danger mb-4 px-4 py-2 rounded-pill shadow-lg" style="letter-spacing: 2px; font-weight: 700; text-transform: uppercase;">
+                    <i class="fas fa-bullhorn me-2"></i> Sala de Prensa Digital
+                </span>
+                <h1 class="display-3 fw-bold mb-4">Comunicación <span class="text-danger">Humanitaria</span></h1>
+                <p class="lead mb-5 fs-4 opacity-100" style="max-width: 750px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">
+                    Informando sobre nuestras acciones, campañas y el impacto positivo en el Huila y toda Colombia.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#noticias-externas" class="btn btn-danger btn-lg rounded-pill px-5 shadow-lg fw-bold">Ver Novedades</a>
+                    <a href="{{ route('contacto') }}" class="btn btn-outline-light btn-lg rounded-pill px-5 fw-bold glass-button">Contacto Prensa</a>
+                </div>
+            </div>
         </div>
-        <h1 class="display-3 fw-bolder mb-3" style="text-shadow: 0 4px 15px rgba(0,0,0,0.2);">Sala De Prensa</h1>
-        <p class="lead fw-normal mx-auto" style="max-width: 650px; text-shadow: 0 2px 10px rgba(0,0,0,0.2); font-size: 1.25rem;">
-            Manténgase informado sobre nuestras últimas noticias, campañas humanitarias y boletines oficiales.
-        </p>
     </div>
+    <!-- Decoración -->
+    <div class="position-absolute bottom-0 start-0 w-100 h-25" style="background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);"></div>
 </section>
 
-<div class="container my-5">
+<div class="container py-5">
     
-    <!-- Esta Semana -->
-    <section class="mb-5">
-        <h2 class="section-heading mb-4">Esta Semana</h2>
+    <!-- Noticias Destacadas e Internas -->
+    <section class="mb-5 pb-5">
+        <div class="text-center mb-5 mt-4">
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--azul-institucional);">Lo Último en <span class="text-danger">Huila</span></h2>
+            <div class="divider-center border-danger"></div>
+            <p class="text-muted lead mt-3">Crónicas y reportajes de nuestra acción en el territorio.</p>
+        </div>
         
         <div class="row g-4">
             @php
-            // Obtiene noticias del config y rota según la semana del año
             $todasSemanales = config('noticias.semanales');
             $semanaAño = now()->weekOfYear;
-            
-            // Rota las noticias cada semana (muestra 2 diferentes cada semana)
             $inicio = ($semanaAño * 2) % count($todasSemanales);
-            $noticiasSemanales = array_slice($todasSemanales, $inicio, 2);
-            
-            // Si no hay suficientes, agrega desde el inicio
-            if (count($noticiasSemanales) < 2) {
-                $noticiasSemanales = array_merge(
-                    $noticiasSemanales, 
-                    array_slice($todasSemanales, 0, 2 - count($noticiasSemanales))
-                );
+            $noticiasSemanales = array_slice($todasSemanales, $inicio, 3);
+            if (count($noticiasSemanales) < 3) {
+                $noticiasSemanales = array_merge($noticiasSemanales, array_slice($todasSemanales, 0, 3 - count($noticiasSemanales)));
             }
             @endphp
 
             @foreach($noticiasSemanales as $index => $noticia)
-            <div class="col-md-6">
-                <div class="noticia-card">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <div class="noticia-imagen" style="background-image: url('{{ asset($noticia['imagen']) }}');"></div>
+            <div class="col-lg-4">
+                <div class="card h-100 border-0 shadow-sm overflow-hidden news-card-premium">
+                    <div class="news-img-wrap">
+                        <img src="{{ asset($noticia['imagen']) }}" alt="{{ $noticia['titulo'] }}" class="img-fluid" onerror="this.src='{{ asset('img/CruzRoja.jpg') }}'">
+                        <div class="news-overlay">
+                            <span class="badge bg-danger rounded-pill px-3">Institucional</span>
                         </div>
-                        <div class="col-md-7">
-                            <div class="noticia-contenido">
-                                <h3 class="noticia-titulo">{{ $noticia['titulo'] }}</h3>
-                                <p class="noticia-descripcion">{{ $noticia['descripcion'] }}</p>
-                                <p class="noticia-fecha">
-                                    <i class="far fa-calendar-alt me-2"></i>
-                                    Fecha: {{ now()->subDays(($index + 1) * 2)->format('d/m/Y H:i') }}
-                                </p>
-                            </div>
+                    </div>
+                    <div class="card-body p-4 bg-white">
+                        <div class="d-flex align-items-center mb-3">
+                            <i class="far fa-calendar-alt text-danger me-2"></i>
+                            <small class="text-muted fw-bold">{{ now()->subDays(($index + 1) * 3)->format('d M, Y') }}</small>
                         </div>
+                        <h4 class="card-title fw-bold h5 mb-3">{{ $noticia['titulo'] }}</h4>
+                        <p class="card-text text-muted small">{{ Str::limit($noticia['descripcion'], 130) }}</p>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-4 pt-0">
+                        <a href="#" class="btn btn-link text-danger p-0 fw-bold text-decoration-none">
+                            LEER MÁS <i class="fas fa-arrow-right ms-2"></i>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -72,85 +76,49 @@
         </div>
     </section>
 
-    <!-- Este Mes -->
-    <section class="mb-5">
-        <h2 class="section-heading mb-4">Este Mes</h2>
-        
-        <div class="row g-4">
-            @php
-            // Obtiene noticias del config y rota según el mes
-            $todasMensuales = config('noticias.mensuales');
-            $mes = now()->month;
-            
-            // Rota las noticias cada mes (muestra 2 diferentes cada mes)
-            $inicio = ($mes * 2) % count($todasMensuales);
-            $noticiasMensuales = array_slice($todasMensuales, $inicio, 2);
-            
-            // Si no hay suficientes, agrega desde el inicio
-            if (count($noticiasMensuales) < 2) {
-                $noticiasMensuales = array_merge(
-                    $noticiasMensuales, 
-                    array_slice($todasMensuales, 0, 2 - count($noticiasMensuales))
-                );
-            }
-            @endphp
-
-            @foreach($noticiasMensuales as $index => $noticia)
-            <div class="col-md-6">
-                <div class="noticia-card">
-                    <div class="row g-0">
-                        <div class="col-md-5">
-                            <div class="noticia-imagen" style="background-image: url('{{ asset($noticia['imagen']) }}');"></div>
-                        </div>
-                        <div class="col-md-7">
-                            <div class="noticia-contenido">
-                                <h3 class="noticia-titulo">{{ $noticia['titulo'] }}</h3>
-                                <p class="noticia-descripcion">{{ $noticia['descripcion'] }}</p>
-                                <p class="noticia-fecha">
-                                    <i class="far fa-calendar-alt me-2"></i>
-                                    Fecha: {{ now()->subDays(($index + 1) * 7)->format('d/m/Y H:i') }}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <!-- Menciones en Medios RSS (API Noticias de Google) -->
+    <section id="noticias-externas" class="py-5 bg-light rounded-5 px-4 px-md-5 my-5 shadow-sm border border-white">
+        <div class="d-flex flex-column flex-md-row justify-content-between align-items-end mb-5">
+            <div class="mb-3 mb-md-0">
+                <h2 class="display-6 fw-bold mb-2" style="color: var(--azul-institucional);">Presencia en <span class="text-danger">Medios</span></h2>
+                <p class="text-muted mb-0">Lo que otros dicen de nosotros en la actualidad nacional y regional.</p>
             </div>
-            @endforeach
+            <a href="https://news.google.com/search?q=Cruz+Roja+Colombiana" target="_blank" class="btn btn-outline-dark rounded-pill px-4 fw-bold mb-1">
+                Ver todo en Google News <i class="fas fa-external-link-alt ms-2"></i>
+            </a>
         </div>
-    </section>
-
-    <!-- Menciones en Medios -->
-    <section class="mb-5 mt-5">
-        <h2 class="section-heading mb-4">Menciones en Medios</h2>
         
         <div class="row g-4">
             @if(isset($rssNoticias) && count($rssNoticias) > 0)
                 @foreach($rssNoticias as $news)
                 <div class="col-md-6 col-lg-4">
-                    <div class="card h-100 news-card shadow-sm border-0" style="transition: transform 0.3s; border-radius: 12px; overflow: hidden;">
-                        <div class="card-body d-flex flex-column p-4">
-                            <div class="d-flex justify-content-between align-items-center mb-3">
-                                <span class="badge bg-danger" style="font-size: 0.75rem; letter-spacing: 0.5px;">
-                                    <i class="far fa-newspaper me-1"></i> {{ $news['fuente'] }}
-                                </span>
+                    <div class="news-api-card">
+                        <div class="card-inner">
+                            <div class="source-badge">
+                                <i class="fas fa-rss-square me-2"></i>{{ $news['fuente'] }}
                             </div>
-                            <h5 class="card-title fw-bold mb-3" style="line-height: 1.4; color: #333;">{{ $news['titulo'] }}</h5>
-                            
-                            <p class="card-text text-muted mb-4 mt-auto" style="font-size: 0.9rem;">
-                                <i class="far fa-calendar-alt me-2 text-danger"></i> Fecha: {{ $news['fecha'] }}
-                            </p>
-                            
-                            <a href="{{ $news['enlace'] }}" target="_blank" class="btn btn-outline-danger w-100 mt-auto" style="border-radius: 8px;">
-                                Leer artículo completo <i class="fas fa-external-link-alt ms-1"></i>
-                            </a>
+                            <h5 class="fw-bold mb-3 title-link">{{ $news['titulo'] }}</h5>
+                            <div class="desc-box mb-4">
+                                <p class="text-muted small mb-0">{{ Str::limit(strip_tags($news['descripcion']), 140) }}</p>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center mt-auto">
+                                <span class="text-muted xsmall"><i class="far fa-calendar-alt me-2"></i>{{ $news['fecha'] }}</span>
+                                <a href="{{ $news['enlace'] }}" target="_blank" class="btn btn-sm btn-link text-danger fw-bold p-0 text-decoration-none border-bottom border-danger border-2 mb-1">
+                                    IR A LA NOTICIA
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
                 @endforeach
             @else
-                <div class="col-12 text-center text-muted my-4 py-5 bg-white rounded-3 shadow-sm border">
-                    <i class="fas fa-rss fa-3x mb-3 text-secondary" style="opacity: 0.5;"></i>
-                    <p class="fs-5">No hay noticias en medios disponibles en este momento.</p>
+                <div class="col-12">
+                    <div class="text-center py-5">
+                        <div class="spinner-border text-danger mb-3" role="status">
+                            <span class="visually-hidden">Cargando...</span>
+                        </div>
+                        <p class="text-muted">No se pudieron cargar las noticias externas en este momento.</p>
+                    </div>
                 </div>
             @endif
         </div>
@@ -162,126 +130,103 @@
 
 @section('styles')
 <style>
-    .section-heading {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #1a2332;
-        position: relative;
-        padding-bottom: 10px;
+    :root {
+        --cruz-roja: #ED1C24;
+        --azul-institucional: #1a2332;
     }
 
-    .section-heading::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
+    .animate-fade-up { animation: fadeUp 1s ease-out forwards; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+
+    .divider-center {
         width: 80px;
         height: 4px;
-        background: #ED1C24;
+        background: var(--cruz-roja);
+        margin: 0 auto;
+        border-radius: 2px;
     }
 
-    .noticia-card {
-        background: white;
-        border-radius: 15px;
-        overflow: hidden;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-        transition: all 0.3s ease;
-        height: 100%;
-        cursor: pointer;
+    .glass-button {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.3);
+    }
+    
+    .news-card-premium {
+        border-radius: 20px;
+        transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        border: 1px solid #eee !important;
     }
 
-    .noticia-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 8px 25px rgba(237, 28, 36, 0.15);
+    .news-card-premium:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.1) !important;
     }
 
-    .noticia-imagen {
+    .news-img-wrap {
+        position: relative;
         height: 220px;
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
+        overflow: hidden;
     }
 
-    .noticia-imagen-placeholder {
-        background: linear-gradient(135deg, #1a2332 0%, #2C3E50 100%);
+    .news-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 1.5s ease;
     }
 
-    .noticia-contenido {
-        padding: 25px;
+    .news-card-premium:hover .news-img-wrap img {
+        transform: scale(1.15);
+    }
+
+    .news-overlay {
+        position: absolute;
+        top: 15px;
+        left: 15px;
+    }
+
+    .news-api-card {
+        background: white;
+        border-radius: 24px;
+        padding: 30px;
+        height: 100%;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+        border: 1px solid rgba(0,0,0,0.05);
+        transition: border-color 0.3s;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
     }
 
-    .noticia-titulo {
-        font-size: 1.25rem;
-        font-weight: 700;
-        color: #1a2332;
-        margin-bottom: 10px;
-        line-height: 1.3;
+    .news-api-card:hover {
+        border-color: var(--cruz-roja);
     }
 
-    .noticia-descripcion {
-        color: #666;
-        font-size: 0.95rem;
-        margin-bottom: 15px;
-        flex-grow: 1;
-    }
-
-    .noticia-fecha {
-        color: #999;
-        font-size: 0.85rem;
-        margin-bottom: 0;
+    .source-badge {
+        font-size: 0.7rem;
+        font-weight: 800;
+        color: var(--cruz-roja);
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+        margin-bottom: 20px;
         display: flex;
         align-items: center;
     }
 
-    .noticia-fecha i {
-        color: #ED1C24;
+    .title-link {
+        color: var(--azul-institucional);
+        line-height: 1.4;
+        transition: color 0.2s;
     }
 
-    @media (max-width: 768px) {
-        .noticia-imagen {
-            height: 180px;
-        }
-
-        .noticia-contenido {
-            padding: 20px;
-        }
-
-        .section-heading {
-            font-size: 1.5rem;
-        }
-        
-        .page-header h1 {
-            font-size: 2.5rem;
-        }
+    .news-api-card:hover .title-link {
+        color: var(--cruz-roja);
     }
 
-    /* Estilos Premium Background Animado */
-    .animated-bg-gradient {
-        /* Gradiente animado en tonos rojos institucionales */
-        background: linear-gradient(-45deg, #8B0000, #ED1C24, #C41419, #660000);
-        background-size: 400% 400%;
-        animation: gradientBG 12s ease infinite;
-    }
-
-    @keyframes gradientBG {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    .bg-pattern-overlay {
-        background-image: radial-gradient(rgba(255, 255, 255, 0.15) 2px, transparent 2px);
-        background-size: 30px 30px;
-        opacity: 0.6;
-    }
-
-    .page-header {
-        border-bottom: 5px solid #ED1C24;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    .xsmall { font-size: 0.75rem; }
+    
+    #noticias-externas {
+        border-radius: 40px !important;
     }
 </style>
 @endsection

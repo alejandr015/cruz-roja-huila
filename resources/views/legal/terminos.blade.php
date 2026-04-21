@@ -4,175 +4,104 @@
 
 @section('content')
 
-<!-- Banner -->
-<section class="page-header" style="background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%); padding: 80px 0;">
-    <div class="container text-center text-white">
-        <h1 class="display-4 fw-bold">Términos y Condiciones</h1>
-        <p class="lead">Condiciones de uso del sitio web de Cruz Roja Colombiana Seccional Huila</p>
+<!-- Banner Documental Premium -->
+<section class="legal-hero" style="background: linear-gradient(135deg, var(--azul-institucional) 0%, #0a0f18 100%); padding: 120px 0 80px; color: white; border-radius: 0 0 50px 50px;">
+    <div class="container text-center">
+        <div class="animate-fade-up">
+            <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.8rem; letter-spacing: 2px;">DOCUMENTACIÓN LEGAL</span>
+            <h1 class="display-4 fw-bold">Términos y <span class="text-danger">Condiciones</span></h1>
+            <p class="lead opacity-75 mx-auto" style="max-width: 700px;">Marco normativo y condiciones de uso del portal web oficial de la Cruz Roja Colombiana Seccional Huila.</p>
+        </div>
     </div>
 </section>
 
-<div class="container my-5">
+<div class="container my-5 pb-5">
     <div class="row justify-content-center">
-        <div class="col-lg-10">
+        <div class="col-lg-9">
             
-            <div class="card border-0 shadow-sm">
-                <div class="card-body p-5">
+            <div class="card border-0 shadow-lg legal-document" style="border-radius: 25px; margin-top: -40px; overflow: hidden;">
+                <div class="card-header bg-white p-4 border-light d-flex justify-content-between align-items-center">
+                    <span class="text-muted"><i class="fas fa-file-alt me-2 text-danger"></i> Versión 2.0</span>
+                    <span class="badge bg-light text-dark border"><i class="far fa-calendar-alt me-2"></i>Actualizado: Abr 2026</span>
+                </div>
+                <div class="card-body p-4 p-md-5">
                     
-                    <!-- Última actualización -->
-                    <div class="alert alert-info">
-                        <i class="fas fa-info-circle me-2"></i>
-                        <strong>Última actualización:</strong> Febrero 2026
+                    <div class="toc-box bg-light rounded-4 p-4 mb-5 border-start border-danger border-4">
+                        <h5 class="fw-bold mb-3"><i class="fas fa-list-ul me-2"></i> Tabla de Contenido</h5>
+                        <div class="row row-cols-1 row-cols-md-2 g-2">
+                            <a href="#introduccion" class="text-decoration-none text-dark small hover-red">1. Introducción</a>
+                            <a href="#aceptacion" class="text-decoration-none text-dark small hover-red">2. Aceptación de los Términos</a>
+                            <a href="#uso-web" class="text-decoration-none text-dark small hover-red">3. Uso del portal web</a>
+                            <a href="#propiedad" class="text-decoration-none text-dark small hover-red">4. Propiedad Intelectual</a>
+                            <a href="#datos" class="text-decoration-none text-dark small hover-red">5. Privacidad y Datos</a>
+                            <a href="#contacto" class="text-decoration-none text-dark small hover-red">6. Soporte y Contacto</a>
+                        </div>
                     </div>
 
-                    <!-- Introducción -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">Introducción</h3>
-                        <p>Bienvenido al sitio web de la Cruz Roja Colombiana Seccional Huila. Al acceder y utilizar este sitio web, usted acepta cumplir y estar sujeto a los siguientes términos y condiciones de uso. Si no está de acuerdo con alguno de estos términos, por favor no utilice nuestro sitio.</p>
-                    </section>
+                    <!-- Contenido -->
+                    <article class="legal-content">
+                        <section id="introduccion" class="mb-5">
+                            <h3 class="fw-bold mb-4">1. Introducción</h3>
+                            <p>Bienvenido al sitio web oficial de la <strong>Cruz Roja Colombiana Seccional Huila</strong>. Este portal está diseñado para proporcionar información institucional, servicios de salud, oferta educativa y canales de acción humanitaria. Al hacer uso de este sitio, usted garantiza que cuenta con la capacidad legal necesaria para aceptar estos términos.</p>
+                        </section>
 
-                    <!-- 1. Aceptación de los Términos -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">1. Aceptación de los Términos</h3>
-                        <p>Al acceder y utilizar este sitio web, usted acepta estar sujeto a estos términos y condiciones de uso, todas las leyes y regulaciones aplicables, y acepta que es responsable del cumplimiento de todas las leyes locales aplicables.</p>
-                        <p>Si no está de acuerdo con alguno de estos términos, tiene prohibido usar o acceder a este sitio.</p>
-                    </section>
+                        <section id="aceptacion" class="mb-5">
+                            <h3 class="fw-bold mb-4">2. Aceptación de los Términos</h3>
+                            <p>El acceso y navegación por este sitio web le atribuye la condición de usuario e implica la aceptación plena y sin reservas de todas y cada una de las disposiciones incluidas en este Aviso Legal, las cuales pueden sufrir modificaciones. La Cruz Roja Huila se reserva el derecho de actualizar, modificar o eliminar la información contenida en su página web sin previo aviso.</p>
+                        </section>
 
-                    <!-- 2. Uso del Sitio -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">2. Uso del Sitio Web</h3>
-                        <p>Este sitio web es operado por la Cruz Roja Colombiana Seccional Huila. El contenido de este sitio es solo para su información general y uso. Está sujeto a cambios sin previo aviso.</p>
-                        
-                        <h5 class="mt-4 mb-3">Usos Permitidos:</h5>
-                        <ul>
-                            <li>Consultar información sobre nuestros programas y servicios</li>
-                            <li>Inscribirse en cursos y capacitaciones</li>
-                            <li>Registrarse como voluntario</li>
-                            <li>Solicitar información sobre nuestros servicios de salud</li>
-                            <li>Contactarnos a través de los formularios disponibles</li>
-                        </ul>
+                        <section id="uso-web" class="mb-5">
+                            <h3 class="fw-bold mb-4">3. Uso del Portal Web</h3>
+                            <p>El usuario se compromete a usar el portal web de forma lícita y adecuada. Queda expresamente prohibido:</p>
+                            <div class="row g-4 mt-2">
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded-4 bg-light h-100 border">
+                                        <h6 class="fw-bold text-danger"><i class="fas fa-ban me-2"></i> Usos Prohibidos</h6>
+                                        <ul class="small mb-0 mt-2">
+                                            <li>Alterar el funcionamiento técnico del portal.</li>
+                                            <li>Interferir en el acceso de otros usuarios.</li>
+                                            <li>Uso fraudulento de formularios de inscripción.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="p-3 rounded-4 bg-light h-100 border">
+                                        <h6 class="fw-bold text-success"><i class="fas fa-check-circle me-2"></i> Usos Permitidos</h6>
+                                        <ul class="small mb-0 mt-2">
+                                            <li>Inscripción en programas educativos.</li>
+                                            <li>Consulta de servicios institucionales.</li>
+                                            <li>Registro como voluntario.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
 
-                        <h5 class="mt-4 mb-3">Usos Prohibidos:</h5>
-                        <ul>
-                            <li>Utilizar el sitio para cualquier propósito ilegal</li>
-                            <li>Intentar obtener acceso no autorizado a cualquier parte del sitio</li>
-                            <li>Interferir o interrumpir el funcionamiento del sitio</li>
-                            <li>Transmitir virus, malware o código malicioso</li>
-                            <li>Recolectar información de otros usuarios sin su consentimiento</li>
-                        </ul>
-                    </section>
+                        <section id="propiedad" class="mb-5">
+                            <h3 class="fw-bold mb-4">4. Propiedad Intelectual</h3>
+                            <p>Todos los nombres comerciales, logotipos, emblemas de la Cruz Roja y demás signos distintivos de cualquier clase que aparecen en el portal son propiedad de la Institución o de terceros, sin que pueda entenderse que el uso o acceso al portal web atribuya al usuario derecho alguno sobre ellos.</p>
+                            <blockquote class="bg-danger-subtle p-4 rounded-4 border-start border-danger border-4 mt-4">
+                                <p class="mb-0 italic small text-dark"><strong>Nota:</strong> El emblema de la Cruz Roja es un símbolo protegido internacionalmente por los Convenios de Ginebra. Su uso indebido está sancionado por la ley colombiana.</p>
+                            </blockquote>
+                        </section>
 
-                    <!-- 3. Propiedad Intelectual -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">3. Propiedad Intelectual</h3>
-                        <p>Este sitio web y todo su contenido, características y funcionalidad (incluyendo pero no limitado a toda la información, software, texto, pantallas, imágenes, video, audio, el diseño, selección y organización del mismo) son propiedad de Cruz Roja Colombiana Seccional Huila, sus licenciantes u otros proveedores de dicho material y están protegidos por leyes de derechos de autor, marcas registradas y otras leyes de propiedad intelectual.</p>
-                        
-                        <p class="mt-3">El logo de la Cruz Roja y otros símbolos distintivos están protegidos internacionalmente y su uso está regulado por las Convenciones de Ginebra.</p>
-                    </section>
+                        <hr class="my-5 opacity-25">
 
-                    <!-- 4. Registro y Cuenta de Usuario -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">4. Registro y Cuenta de Usuario</h3>
-                        <p>Para acceder a ciertas funciones del sitio, como inscripción en cursos o registro como voluntario, puede ser necesario crear una cuenta.</p>
-                        
-                        <h5 class="mt-4 mb-3">Responsabilidades del Usuario:</h5>
-                        <ul>
-                            <li>Proporcionar información verdadera, precisa y completa</li>
-                            <li>Mantener actualizada su información de cuenta</li>
-                            <li>Mantener la confidencialidad de su contraseña</li>
-                            <li>Notificar inmediatamente cualquier uso no autorizado de su cuenta</li>
-                            <li>Ser responsable de todas las actividades que ocurran bajo su cuenta</li>
-                        </ul>
-                    </section>
-
-                    <!-- 5. Inscripciones y Pagos -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">5. Inscripciones y Pagos</h3>
-                        <p>Al inscribirse en nuestros cursos, capacitaciones o programas:</p>
-                        <ul>
-                            <li>Acepta proporcionar información de pago válida y actual</li>
-                            <li>Autoriza a Cruz Roja Huila a cobrar los montos correspondientes</li>
-                            <li>Comprende que los pagos están sujetos a nuestras políticas de reembolso</li>
-                            <li>Acepta que los precios pueden cambiar sin previo aviso</li>
-                        </ul>
-
-                        <h5 class="mt-4 mb-3">Política de Cancelación:</h5>
-                        <p>Las cancelaciones deben realizarse con al menos 48 horas de anticipación para ser elegibles para reembolso. Para más información, contacte nuestro departamento de educación.</p>
-                    </section>
-
-                    <!-- 6. Privacidad y Protección de Datos -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">6. Privacidad y Protección de Datos</h3>
-                        <p>Su privacidad es importante para nosotros. El uso de su información personal se rige por nuestra <a href="{{ route('privacidad') }}" class="text-danger">Política de Privacidad</a> y nuestra política de <a href="{{ route('habeas-data') }}" class="text-danger">Habeas Data</a>.</p>
-                        
-                        <p class="mt-3">Al utilizar este sitio, usted consiente la recopilación y uso de su información de acuerdo con estas políticas.</p>
-                    </section>
-
-                    <!-- 7. Enlaces a Terceros -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">7. Enlaces a Sitios de Terceros</h3>
-                        <p>Este sitio puede contener enlaces a sitios web de terceros. Cruz Roja Colombiana Seccional Huila no tiene control sobre, y no asume responsabilidad por, el contenido, políticas de privacidad o prácticas de cualquier sitio web de terceros.</p>
-                        
-                        <p class="mt-3">Usted reconoce y acepta que Cruz Roja Huila no será responsable, directa o indirectamente, por cualquier daño o pérdida causada o presuntamente causada por o en conexión con el uso de cualquier contenido, bienes o servicios disponibles en o a través de cualquier sitio web de terceros.</p>
-                    </section>
-
-                    <!-- 8. Limitación de Responsabilidad -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">8. Limitación de Responsabilidad</h3>
-                        <p>En ningún caso Cruz Roja Colombiana Seccional Huila o sus proveedores serán responsables de:</p>
-                        <ul>
-                            <li>Daños indirectos, incidentales, especiales o consecuentes</li>
-                            <li>Pérdida de beneficios, ingresos o datos</li>
-                            <li>Interrupción del negocio</li>
-                            <li>Daños que surjan del uso o la imposibilidad de usar el sitio</li>
-                        </ul>
-
-                        <p class="mt-3"><strong>Nota importante:</strong> Esta limitación no aplica en casos de negligencia grave o conducta dolosa.</p>
-                    </section>
-
-                    <!-- 9. Indemnización -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">9. Indemnización</h3>
-                        <p>Usted acepta defender, indemnizar y mantener indemne a Cruz Roja Colombiana Seccional Huila, sus afiliados, licenciantes y proveedores de servicios, y sus respectivos oficiales, directores, empleados, contratistas, agentes, licenciantes, proveedores, sucesores y cesionarios de y contra cualquier reclamo, responsabilidad, daños, sentencias, premios, pérdidas, costos, gastos o honorarios (incluyendo honorarios razonables de abogados) que surjan de o se relacionen con su violación de estos Términos y Condiciones o su uso del sitio web.</p>
-                    </section>
-
-                    <!-- 10. Modificaciones -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">10. Modificaciones de los Términos</h3>
-                        <p>Cruz Roja Colombiana Seccional Huila se reserva el derecho de revisar y modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el sitio web.</p>
-                        
-                        <p class="mt-3">Es su responsabilidad revisar periódicamente estos términos. Su uso continuado del sitio después de la publicación de cualquier modificación constituye su aceptación de dichas modificaciones.</p>
-                    </section>
-
-                    <!-- 11. Ley Aplicable -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">11. Ley Aplicable y Jurisdicción</h3>
-                        <p>Estos términos y condiciones se regirán e interpretarán de acuerdo con las leyes de la República de Colombia, sin dar efecto a ningún principio de conflictos de leyes.</p>
-                        
-                        <p class="mt-3">Cualquier disputa relacionada con estos términos estará sujeta a la jurisdicción exclusiva de los tribunales competentes de Neiva, Huila, Colombia.</p>
-                    </section>
-
-                    <!-- 12. Contacto -->
-                    <section class="mb-5">
-                        <h3 class="text-danger mb-3">12. Contacto</h3>
-                        <p>Si tiene alguna pregunta sobre estos Términos y Condiciones, puede contactarnos:</p>
-                        
-                        <div class="card bg-light mt-3">
-                            <div class="card-body">
-                                <p class="mb-2"><strong>Cruz Roja Colombiana Seccional Huila</strong></p>
-                                <p class="mb-2"><i class="fas fa-map-marker-alt me-2 text-danger"></i>Calle 26 &, Cra 5a - A, Comuna 2, Neiva, Huila</p>
-                                <p class="mb-2"><i class="fas fa-phone me-2 text-danger"></i>WhatsApp: +57 317 297 1272</p>
-                                <p class="mb-2"><i class="fas fa-envelope me-2 text-danger"></i>info@cruzrojahuila.org</p>
+                        <div class="alert alert-warning rounded-4 border-0 p-4 shadow-sm">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-shield-alt fs-2 me-4 text-warning"></i>
+                                <div>
+                                    <h5 class="fw-bold mb-1">Protección Total</h5>
+                                    <p class="mb-0 small text-dark opacity-75">Nuestras políticas de privacidad se alinean con la Ley 1581 de 2012 para garantizar la seguridad de su información.</p>
+                                </div>
                             </div>
                         </div>
-                    </section>
 
-                    <!-- Aceptación -->
-                    <div class="alert alert-warning mt-5">
-                        <h5 class="alert-heading"><i class="fas fa-exclamation-triangle me-2"></i>Aceptación de los Términos</h5>
-                        <p class="mb-0">Al utilizar este sitio web, usted reconoce que ha leído, entendido y acepta estar sujeto a estos Términos y Condiciones.</p>
-                    </div>
+                    </article>
 
+                </div>
+                <div class="card-footer bg-light p-4 text-center">
+                    <p class="mb-0 text-muted small">© 2026 Cruz Roja Colombiana Seccional Huila - Todos los derechos reservados.</p>
                 </div>
             </div>
 
@@ -184,33 +113,46 @@
 
 @section('styles')
 <style>
-    .page-header {
+    .legal-hero {
         margin-top: -40px;
     }
 
-    h3.text-danger {
-        font-weight: 700;
-        border-bottom: 3px solid #ED1C24;
-        padding-bottom: 10px;
-        margin-bottom: 20px;
+    .legal-document {
+        transition: transform 0.3s;
     }
 
-    h5 {
-        font-weight: 600;
-        color: #1a2332;
-    }
-
-    ul {
+    .legal-content p {
         line-height: 1.8;
-    }
-
-    .card {
-        border-radius: 15px;
-    }
-
-    p {
+        color: #444;
         text-align: justify;
-        line-height: 1.8;
+    }
+
+    .hover-red:hover {
+        color: var(--cruz-roja) !important;
+        padding-left: 5px;
+        transition: all 0.2s;
+    }
+
+    .legal-content h3 {
+        color: var(--azul-institucional);
+        position: relative;
+        display: inline-block;
+    }
+
+    .legal-content h3::after {
+        content: '';
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--cruz-roja);
+    }
+
+    @media (max-width: 768px) {
+        .legal-hero {
+            padding: 80px 0 60px;
+        }
     }
 </style>
 @endsection

@@ -3,59 +3,54 @@
 @section('title', 'Acción Humanitaria - Cruz Roja Huila')
 
 @section('content')
-<!-- Hero Section -->
-<section class="py-5 text-white position-relative overflow-hidden" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%);">
+<!-- Hero Section Premium -->
+<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 500px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ asset('img/hero-accion.png') }}'); background-size: cover; background-position: center;">
     <div class="container py-5 position-relative z-1">
         <div class="row align-items-center">
-            <div class="col-lg-6">
-                <nav aria-label="breadcrumb animate__animated animate__fadeIn">
+            <div class="col-lg-8 anime-fade-up">
+                <nav aria-label="breadcrumb">
                     <ol class="breadcrumb mb-4">
                         <li class="breadcrumb-item"><a href="{{ route('home') }}" class="text-white opacity-75 text-decoration-none">Inicio</a></li>
                         <li class="breadcrumb-item active text-white fw-bold" aria-current="page">Acción Humanitaria</li>
                     </ol>
                 </nav>
-                <h1 class="display-3 fw-bold mb-4 animate__animated animate__fadeInUp">Acción Humanitaria</h1>
-                <p class="lead mb-0 animate__animated animate__fadeInUp animate__delay-1s">Protegiendo la vida y la dignidad en los momentos más difíciles. Nuestra misión es aliviar el sufrimiento humano con imparcialidad y neutralidad.</p>
-                <div class="mt-4 animate__animated animate__fadeInUp animate__delay-2s">
-                    <a href="#principios" class="btn btn-light btn-lg rounded-pill px-4 shadow-sm me-3">Nuestros Principios</a>
-                    <a href="#proceso" class="btn btn-outline-light btn-lg rounded-pill px-4">Cómo Ayudamos</a>
+                <h1 class="display-3 fw-bold mb-4">Acción Humanitaria</h1>
+                <p class="lead mb-0 fs-4 opacity-90">Protegiendo la vida y la dignidad en los momentos más difíciles. Nuestra misión es aliviar el sufrimiento humano con imparcialidad, neutralidad e independencia absoluta.</p>
+                <div class="mt-5">
+                    <a href="#principios" class="btn btn-danger btn-lg rounded-pill px-5 py-3 shadow-lg me-3 fw-bold">Nuestros Principios</a>
+                    <a href="#proceso" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fw-bold">Cómo Ayudamos</a>
                 </div>
-            </div>
-            <div class="col-lg-6 text-center d-none d-lg-block animate__animated animate__zoomIn">
-                <i class="fas fa-hand-holding-heart" style="font-size: 18rem; opacity: 0.15;"></i>
             </div>
         </div>
     </div>
-    <!-- Elementos decorativos -->
-    <div class="position-absolute top-50 start-0 translate-middle-y opacity-10" style="font-size: 30rem;">+</div>
 </section>
 
 <!-- Stats Impact Section -->
-<section class="py-5 bg-white shadow-sm position-relative" style="margin-top: -50px; border-radius: 50px 50px 0 0; z-index: 10;">
-    <div class="container">
+<section class="py-5 bg-white position-relative" style="margin-top: -60px; border-radius: 60px 60px 0 0; z-index: 10; box-shadow: 0 -20px 40px rgba(0,0,0,0.05);">
+    <div class="container py-4">
         <div class="row g-4 text-center">
             <div class="col-6 col-lg-3">
                 <div class="p-3">
                     <h2 class="display-4 fw-bold text-danger mb-0">37</h2>
-                    <p class="text-muted fw-bold">Municipios Atendidos</p>
+                    <p class="text-muted fw-bold text-uppercase small" style="letter-spacing: 1px;">Municipios Atendidos</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div class="p-3">
                     <h2 class="display-4 fw-bold text-danger mb-0">1.2k+</h2>
-                    <p class="text-muted fw-bold">Voluntarios Activos</p>
+                    <p class="text-muted fw-bold text-uppercase small" style="letter-spacing: 1px;">Voluntarios Activos</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div class="p-3">
                     <h2 class="display-4 fw-bold text-danger mb-0">50k</h2>
-                    <p class="text-muted fw-bold">Personas Ayudadas</p>
+                    <p class="text-muted fw-bold text-uppercase small" style="letter-spacing: 1px;">Personas Ayudadas</p>
                 </div>
             </div>
             <div class="col-6 col-lg-3">
                 <div class="p-3">
                     <h2 class="display-4 fw-bold text-danger mb-0">24/7</h2>
-                    <p class="text-muted fw-bold">Disponibilidad</p>
+                    <p class="text-muted fw-bold text-uppercase small" style="letter-spacing: 1px;">Disponibilidad</p>
                 </div>
             </div>
         </div>
@@ -64,74 +59,62 @@
 
 <!-- Main Info Section -->
 <section class="py-5">
-    <div class="container">
+    <div class="container py-5">
         <div class="row g-5 align-items-center mb-5">
             <div class="col-lg-6">
-                <h2 class="fw-bold mb-4" style="color: var(--cruz-roja);">Salvando Vidas en el Huila</h2>
-                <p class="fs-5 text-muted mb-4">La Acción Humanitaria de la Cruz Roja Colombiana Seccional Huila es el conjunto de actividades destinadas a salvar vidas, aliviar el sufrimiento y mantener la dignidad humana durante y después de crisis y desastres.</p>
-                <div class="d-flex align-items-start mb-4">
-                    <div class="bg-danger-subtle p-3 rounded-circle me-3">
-                        <i class="fas fa-shield-alt text-danger"></i>
+                <h6 class="text-danger fw-bold text-uppercase mb-3" style="letter-spacing: 2px;">Compromiso Vital</h6>
+                <h2 class="display-5 fw-bold mb-4" style="color: var(--azul-institucional);">Salvando Vidas en el Huila</h2>
+                <p class="fs-5 text-muted mb-5">La Acción Humanitaria de la Cruz Roja Colombiana Seccional Huila es el conjunto de actividades destinadas a salvar vidas, aliviar el sufrimiento y mantener la dignidad humana durante y después de crisis y desastres.</p>
+                
+                <div class="d-flex align-items-start mb-5 hover-up p-3 rounded-4 bg-light">
+                    <div class="bg-danger text-white p-3 rounded-circle me-4 shadow-sm">
+                        <i class="fas fa-shield-alt fa-lg"></i>
                     </div>
                     <div>
-                        <h5 class="fw-bold">Protección y Auxilio</h5>
-                        <p class="text-muted mb-0">No solo entregamos ayuda material, también protegemos el derecho a la vida y la integridad física de las personas.</p>
+                        <h5 class="fw-bold">Protección y Auxilio Institucional</h5>
+                        <p class="text-muted mb-0">No solo entregamos ayuda material, también protegemos el derecho a la vida y la integridad física mediante el respeto al DIH.</p>
                     </div>
                 </div>
-                <div class="d-flex align-items-start">
-                    <div class="bg-danger-subtle p-3 rounded-circle me-3">
-                        <i class="fas fa-balance-scale text-danger"></i>
+                
+                <div class="d-flex align-items-start hover-up p-3 rounded-4 bg-light">
+                    <div class="bg-danger text-white p-3 rounded-circle me-4 shadow-sm">
+                        <i class="fas fa-balance-scale fa-lg"></i>
                     </div>
                     <div>
-                        <h5 class="fw-bold">Neutralidad Absoluta</h5>
-                        <p class="text-muted mb-0">Ayudamos a todos por igual, sin importar creencias políticas, religiosas o sociales.</p>
+                        <h5 class="fw-bold">Neutralidad e Imparcialidad</h5>
+                        <p class="text-muted mb-0">Ayudamos a todos por igual, garantizando que la ayuda llegue a quien más la necesita sin discriminación alguna.</p>
                     </div>
                 </div>
             </div>
+            
             <div class="col-lg-6">
                 <div class="row g-4">
                     <div class="col-md-6">
-                        <div class="card h-100 border-0 shadow-sm p-4 text-center hover-up" style="border-radius: 25px;">
-                            <i class="fas fa-house-damage fa-3x text-danger mb-3"></i>
-                            <h5 class="fw-bold">Gestión del Riesgo</h5>
-                            <p class="small text-muted mb-0">Prevención y respuesta rápida ante desastres naturales.</p>
+                        <div class="card-action hover-up">
+                            <i class="fas fa-house-damage fa-3x mb-3 text-danger"></i>
+                            <h5>Gestión del Riesgo</h5>
+                            <p class="small text-muted mb-0">Prevención, preparación y respuesta rápida ante desastres naturales en territorio.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card h-100 border-0 shadow-sm p-4 text-center hover-up" style="border-radius: 25px;">
-                            <i class="fas fa-medkit fa-3x text-danger mb-3"></i>
-                            <h5 class="fw-bold">Salud Médica</h5>
-                            <p class="small text-muted mb-0">Brigadas de salud en zonas aisladas y de conflicto.</p>
+                        <div class="card-action hover-up">
+                            <i class="fas fa-medkit fa-3x mb-3 text-danger"></i>
+                            <h5>Salud Médica</h5>
+                            <p class="small text-muted mb-0">Brigadas de salud primaria en zonas de difícil acceso y contextos de conflicto.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card h-100 border-0 shadow-sm p-4 text-center hover-up" style="border-radius: 25px;">
-                            <i class="fas fa-box-open fa-3x text-danger mb-3"></i>
-                            <h5 class="fw-bold">Alimentación</h5>
-                            <p class="small text-muted mb-0">Kits nutricionales para familias en crisis extrema.</p>
+                        <div class="card-action hover-up">
+                            <i class="fas fa-box-open fa-3x mb-3 text-danger"></i>
+                            <h5>Asistencia Nutricional</h5>
+                            <p class="small text-muted mb-0">Entrega de kits alimentarios y apoyo nutricional a poblaciones vulnerables.</p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card h-100 border-0 shadow-sm p-4 text-center hover-up" style="border-radius: 25px;">
-                            <i class="fas fa-faucet fa-3x text-danger mb-3"></i>
-                            <h5 class="fw-bold">Agua Segura</h5>
-                            <p class="small text-muted mb-0">Acceso a agua potable y sistemas de saneamiento.</p>
-                        </div>
-                    </div>
-                    <!-- Card 5: Conflicto -->
-                    <div class="col-md-6">
-                        <div class="card h-100 border-0 shadow-sm p-4 text-center hover-up" style="border-radius: 25px;">
-                            <i class="fas fa-dove fa-3x text-danger mb-3"></i>
-                            <h5 class="fw-bold">Víctimas del Conflicto</h5>
-                            <p class="small text-muted mb-0">Apoyo integral a personas afectadas por el conflicto armado.</p>
-                        </div>
-                    </div>
-                    <!-- Card 6: RCF -->
-                    <div class="col-md-6">
-                        <div class="card h-100 border-0 shadow-sm p-4 text-center hover-up" style="border-radius: 25px;">
-                            <i class="fas fa-search-location fa-3x text-danger mb-3"></i>
-                            <h5 class="fw-bold">RCF</h5>
-                            <p class="small text-muted mb-0">Restablecimiento de Contactos Familiares para personas separadas.</p>
+                        <div class="card-action hover-up">
+                            <i class="fas fa-faucet fa-3x mb-3 text-danger"></i>
+                            <h5>Agua y Saneamiento</h5>
+                            <p class="small text-muted mb-0">Garantizamos el acceso a agua segura y condiciones dignas de higiene.</p>
                         </div>
                     </div>
                 </div>
@@ -142,32 +125,31 @@
 
 <!-- Principles Section -->
 <section id="principios" class="py-5 bg-light">
-    <div class="container">
+    <div class="container py-5">
         <div class="text-center mb-5">
-            <h2 class="fw-bold fs-1" style="color: var(--cruz-roja);">Nuestros 7 Principios</h2>
-            <p class="lead text-muted">La base de todo lo que hacemos, en cualquier parte del mundo.</p>
+            <h2 class="display-5 fw-bold mb-3" style="color: var(--azul-institucional);">Nuestros 7 Principios Fundamentales</h2>
+            <p class="lead text-muted max-w-700 mx-auto">La base ética de nuestro movimiento internacional, garantizando la confianza y la efectividad de nuestra labor.</p>
         </div>
         <div class="row g-4 justify-content-center">
             @php
                 $principios = [
-                    ['icon' => 'fa-hands', 'title' => 'Humanidad', 'text' => 'Buscamos prevenir y aliviar el sufrimiento en todas las circunstancias.'],
-                    ['icon' => 'fa-balance-scale', 'title' => 'Imparcialidad', 'text' => 'Ayudamos sin distinción de nacionalidad, raza o religión.'],
-                    ['icon' => 'fa-user-shield', 'title' => 'Neutralidad', 'text' => 'No tomamos parte en las hostilidades ni en las controversias.'],
-                    ['icon' => 'fa-certificate', 'title' => 'Independencia', 'text' => 'Mantenemos nuestra autonomía para actuar según nuestros principios.'],
-                    ['icon' => 'fa-heart', 'title' => 'Voluntariado', 'text' => 'Nuestra labor es desinteresada y nace de la voluntad de ayudar.'],
-                    ['icon' => 'fa-users', 'title' => 'Unidad', 'text' => 'Solo existe una Cruz Roja en cada país, abierta a todos.'],
-                    ['icon' => 'fa-globe', 'title' => 'Universalidad', 'text' => 'Todas las sociedades tienen los mismos derechos y deber de ayudarse.'],
+                    ['icon' => 'fa-hands', 'title' => 'Humanidad', 'color' => 'danger'],
+                    ['icon' => 'fa-balance-scale', 'title' => 'Imparcialidad', 'color' => 'danger'],
+                    ['icon' => 'fa-user-shield', 'title' => 'Neutralidad', 'color' => 'danger'],
+                    ['icon' => 'fa-certificate', 'title' => 'Independencia', 'color' => 'danger'],
+                    ['icon' => 'fa-heart', 'title' => 'Voluntariado', 'color' => 'danger'],
+                    ['icon' => 'fa-users', 'title' => 'Unidad', 'color' => 'danger'],
+                    ['icon' => 'fa-globe', 'title' => 'Universalidad', 'color' => 'danger'],
                 ];
             @endphp
 
             @foreach($principios as $p)
             <div class="col-md-4 col-lg-3">
-                <div class="card h-100 border-0 shadow-sm p-4 text-center principle-card">
-                    <div class="principle-icon mb-3">
-                        <i class="fas {{ $p['icon'] }} fa-2x"></i>
+                <div class="principle-card-premium hover-up">
+                    <div class="principle-icon-circle shadow-sm">
+                        <i class="fas {{ $p['icon'] }}"></i>
                     </div>
-                    <h5 class="fw-bold">{{ $p['title'] }}</h5>
-                    <p class="small text-muted mb-0">{{ $p['text'] }}</p>
+                    <h5 class="fw-bold mb-0">{{ $p['title'] }}</h5>
                 </div>
             </div>
             @endforeach
@@ -175,88 +157,16 @@
     </div>
 </section>
 
-<!-- Process Flow Section -->
-<section id="proceso" class="py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-5 order-2 order-lg-1">
-                <div class="timeline">
-                    <!-- Step 1 -->
-                    <div class="d-flex mb-5">
-                        <div class="step-num me-4">1</div>
-                        <div>
-                            <h5 class="fw-bold">Evaluación Inmediata</h5>
-                            <p class="text-muted">Nuestros equipos se desplazan al lugar para entender exactamente qué ayuda se necesita.</p>
-                        </div>
-                    </div>
-                    <!-- Step 2 -->
-                    <div class="d-flex mb-5">
-                        <div class="step-num me-4">2</div>
-                        <div>
-                            <h5 class="fw-bold">Movilización de Ayuda</h5>
-                            <p class="text-muted">Activamos nuestros centros de acopio y voluntarios especializados.</p>
-                        </div>
-                    </div>
-                    <!-- Step 3 -->
-                    <div class="d-flex mb-5">
-                        <div class="step-num me-4">3</div>
-                        <div>
-                            <h5 class="fw-bold">Intervención en Terreno</h5>
-                            <p class="text-muted">Entregamos alimentos, salud, agua y apoyo psicosocial a los afectados.</p>
-                        </div>
-                    </div>
-                    <!-- Step 4 -->
-                    <div class="d-flex">
-                        <div class="step-num me-4">4</div>
-                        <div>
-                            <h5 class="fw-bold">Recuperación</h5>
-                            <p class="text-muted">Acompañamos a la comunidad para que pueda volver a la normalidad lo antes posible.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 offset-lg-1 order-1 order-lg-2 mb-5 mb-lg-0">
-                <div class="p-5 rounded-5 shadow-lg position-relative overflow-hidden" style="background: var(--gris-oscuro); color: white;">
-                    <h2 class="fw-bold mb-4">¿Cómo llega tu ayuda?</h2>
-                    <p class="opacity-75 mb-4 fs-5">Cuando ocurre una emergencia en el Huila, nuestra respuesta es coordinada y eficiente gracias a una red de miles de voluntarios preparados para actuar.</p>
-                    <a href="{{ route('voluntariado') }}" class="btn btn-outline-light rounded-pill px-4">Ver Voluntariado</a>
-                    <i class="fas fa-truck-loading position-absolute" style="bottom: -10px; right: -10px; font-size: 10rem; opacity: 0.1;"></i>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Did you know Section -->
-<section class="py-5 bg-danger text-white overflow-hidden position-relative">
-    <div class="container position-relative z-1 py-4">
-        <div class="row align-items-center">
-            <div class="col-lg-2 text-center mb-4 mb-lg-0">
-                <i class="fas fa-lightbulb fa-5x opacity-50"></i>
-            </div>
-            <div class="col-lg-10">
-                <h3 class="fw-bold mb-3">¿Sabías que?</h3>
-                <p class="fs-4 mb-0">El emblema de la Cruz Roja fue adoptado en 1863 como símbolo de protección neutral para quienes ayudan a los heridos en batalla. Hoy es uno de los símbolos más respetados del mundo.</p>
-            </div>
-        </div>
-    </div>
-    <div class="position-absolute top-0 end-0 opacity-10" style="font-size: 20rem; transform: rotate(15deg);">+</div>
-</section>
-
 <!-- Call to Action -->
-<section class="py-5">
-    <div class="container py-5">
-        <div class="card border-0 rounded-5 shadow-2xl p-5 text-center bg-white overflow-hidden position-relative border">
-            <div class="position-relative z-1 py-4">
-                <h2 class="display-3 fw-bold mb-4" style="color: var(--cruz-roja);">Sé el Héroe que Alguien Necesita</h2>
-                <p class="lead text-muted mb-5 max-w-2xl mx-auto">La Acción Humanitaria no solo es nuestra labor, es la tuya también. Cada aporte cuenta para salvar una vida.</p>
-                <div class="d-flex gap-3 justify-content-center flex-wrap">
-                    <a href="{{ route('voluntariado') }}" class="btn btn-danger btn-lg rounded-pill px-5 shadow-lg" style="background: var(--cruz-roja);">Inscribirme Como Voluntario</a>
-                    <a href="{{ route('home') }}" class="btn btn-outline-dark btn-lg rounded-pill px-5">Regresar al Inicio</a>
-                </div>
+<section class="py-5 mb-5">
+    <div class="container py-5 text-center">
+        <div class="bg-danger text-white rounded-5 p-5 shadow-lg position-relative overflow-hidden">
+            <h2 class="display-3 fw-bold mb-4">Sé el Héroe que Alguien Necesita</h2>
+            <p class="lead mb-5 px-lg-5">Cada minuto cuenta cuando se trata de salvar vidas. Tu apoyo como voluntario es el motor de nuestra acción humanitaria en el Huila.</p>
+            <div class="d-flex gap-3 justify-content-center flex-wrap">
+                <a href="{{ route('voluntariado') }}" class="btn btn-light btn-lg rounded-pill px-5 py-3 fw-bold text-danger transition-scale">Inscribirme Ahora</a>
+                <a href="{{ route('home') }}" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fw-bold">Volver al Inicio</a>
             </div>
-            <div class="decoration bg-danger-subtle position-absolute" style="width: 300px; height: 300px; border-radius: 50%; top: -150px; right: -150px; opacity: 0.5;"></div>
-            <div class="decoration bg-danger-subtle position-absolute" style="width: 200px; height: 200px; border-radius: 50%; bottom: -100px; left: -100px; opacity: 0.3;"></div>
         </div>
     </div>
 </section>
@@ -265,71 +175,70 @@
 
 @section('styles')
 <style>
+    .anime-fade-up {
+        animation: fadeUp 1s ease-out forwards;
+    }
+
+    @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(40px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
     .hover-up {
-        transition: all 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .hover-up:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 35px rgba(237, 28, 36, 0.1) !important;
+        transform: translateY(-8px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1) !important;
     }
 
-    .principle-card {
-        transition: all 0.3s ease;
-        cursor: default;
-        border: 1px solid transparent !important;
+    .card-action {
+        background: white;
+        padding: 40px 30px;
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        height: 100%;
+        text-align: center;
+        border: 1px solid #f0f0f0;
     }
-    .principle-card:hover {
-        background: #ED1C24 !important;
-        color: white !important;
-        transform: scale(1.05);
+    .card-action h5 { margin-top: 15px; font-weight: 700; }
+
+    .principle-card-premium {
+        background: white;
+        padding: 25px;
+        border-radius: 20px;
+        text-align: center;
+        border: 2px solid transparent;
+        transition: all 0.3s;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.02);
     }
-    .principle-card:hover p, .principle-card:hover h5 {
-        color: white !important;
-    }
-    .principle-icon {
-        color: #ED1C24;
-        transition: all 0.3s ease;
-    }
-    .principle-card:hover .principle-icon {
-        color: white;
+    .principle-card-premium:hover {
+        border-color: var(--cruz-roja);
+        background: white;
     }
 
-    .step-num {
-        width: 50px;
-        height: 50px;
-        background: #ED1C24;
-        color: white;
+    .principle-icon-circle {
+        width: 60px;
+        height: 60px;
+        background: var(--gris-fondo);
+        color: var(--cruz-roja);
         border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-weight: bold;
-        font-size: 1.2rem;
-        flex-shrink: 0;
-        box-shadow: 0 5px 15px rgba(237, 28, 36, 0.3);
+        font-size: 1.5rem;
+        margin: 0 auto 15px;
+        transition: all 0.3s;
+    }
+    .principle-card-premium:hover .principle-icon-circle {
+        background: var(--cruz-roja);
+        color: white;
     }
 
-    .timeline {
-        position: relative;
-    }
-    .timeline::before {
-        content: '';
-        position: absolute;
-        left: 24px;
-        top: 0;
-        bottom: 0;
-        width: 2px;
-        background: #dee2e6;
-        z-index: 0;
+    .transition-scale:hover {
+        transform: scale(1.05);
     }
 
-    .shadow-2xl {
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-    }
-
-    .max-w-2xl {
-        max-width: 700px;
-    }
+    .max-w-700 { max-width: 700px; }
 </style>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 @endsection

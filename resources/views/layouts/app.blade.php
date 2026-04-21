@@ -12,6 +12,11 @@
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('img/cruz-roja-logo.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('img/cruz-roja-logo.png') }}">
 
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -19,28 +24,45 @@
         :root {
             --cruz-roja: #ED1C24;
             --cruz-roja-dark: #C41419;
-            --gris-oscuro: #1a2332;
-            --gris-medio: #2C3E50;
+            --azul-institucional: #002D72; /* Azul profundo nacional */
+            --gris-fondo: #F4F7F9;
+            --gris-oscuro: #1A2332;
+            --texto-principal: #333333;
+            --shadow-premium: 0 10px 30px rgba(0, 0, 0, 0.08);
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
+            color: var(--texto-principal);
+            background-color: white;
             padding-top: 165px;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5, h6, .navbar-brand {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
 
         /* Header superior */
         .top-header {
             background: white;
             height: 110px;
-            border-bottom: 1px solid #e0e0e0;
+            border-bottom: 2px solid var(--gris-fondo);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1031;
+            transition: all 0.3s;
         }
 
         .logo-cruzroja {
-            height: 110px;
+            height: 80px;
+            transition: transform 0.3s;
+        }
+
+        .logo-cruzroja:hover {
+            transform: scale(1.02);
         }
 
         .header-actions {
@@ -49,92 +71,76 @@
             gap: 25px;
         }
 
-        .btn-donar {
-            background: var(--cruz-roja);
+        .btn-voluntario {
+            background: var(--azul-institucional);
             color: white;
             border: none;
-            padding: 10px 25px;
-            border-radius: 25px;
+            padding: 12px 28px;
+            border-radius: 50px;
             font-weight: 600;
-            transition: all 0.3s;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .btn-donar:hover {
-            background: var(--cruz-roja-dark);
-            color: white;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(237, 28, 36, 0.3);
-        }
-
-        .btn-voluntario {
-            background: white;
-            color: var(--gris-oscuro);
-            border: 2px solid var(--gris-oscuro);
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0, 45, 114, 0.2);
         }
 
         .btn-voluntario:hover {
-            background: var(--gris-oscuro);
+            background: var(--cruz-roja);
             color: white;
-        }
-
-        .search-box {
-            position: relative;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(237, 28, 36, 0.3);
         }
 
         .search-box input {
-            border: 1px solid #ddd;
-            border-radius: 25px;
-            padding: 8px 40px 8px 20px;
-            width: 250px;
+            border: 2px solid var(--gris-fondo);
+            border-radius: 50px;
+            padding: 10px 45px 10px 25px;
+            width: 280px;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+
+        .search-box input:focus {
+            border-color: var(--cruz-roja);
+            box-shadow: none;
+            width: 320px;
         }
 
         .search-box button {
             position: absolute;
-            right: 5px;
+            right: 15px;
             top: 50%;
             transform: translateY(-50%);
             background: none;
             border: none;
             color: var(--cruz-roja);
+            font-size: 1.1rem;
         }
 
         /* Navegación principal */
         .main-navbar {
             background: white;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             position: fixed;
             top: 110px;
             left: 0;
             right: 0;
             z-index: 1000;
-        }
-
-        .navbar-fixed-top {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1001;
+            padding: 0;
         }
 
         .nav-link {
             color: var(--gris-oscuro) !important;
-            font-weight: 500;
-            padding: 15px 10px !important;
+            font-weight: 600;
+            font-size: 0.95rem;
+            padding: 22px 15px !important;
             transition: all 0.3s;
             position: relative;
         }
 
-        .nav-link:hover {
+        .nav-link:hover, .nav-link.active {
             color: var(--cruz-roja) !important;
         }
 
@@ -142,30 +148,33 @@
             content: '';
             position: absolute;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
             width: 0;
-            height: 3px;
+            height: 4px;
             background: var(--cruz-roja);
             transition: width 0.3s;
         }
 
         .nav-link:hover::after {
-            width: 80%;
+            width: 100%;
         }
 
-        /* Dropdown menus - HOVER activado */
+        /* Dropdown menus - Estilo Moderno */
         .dropdown-menu {
             border: none;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            border-radius: 10px;
+            box-shadow: var(--shadow-premium);
+            border-radius: 12px;
             padding: 15px 0;
             margin-top: 0;
-            min-width: 250px;
-            display: none;
+            min-width: 280px;
+            animation: fadeIn 0.3s ease;
         }
 
-        /* Mostrar dropdown al pasar el cursor (SOLO EN DESKTOP) */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         @media (min-width: 992px) {
             .nav-item.dropdown:hover .dropdown-menu {
                 display: block;
@@ -173,113 +182,99 @@
         }
 
         .dropdown-item {
-            padding: 10px 25px;
-            transition: all 0.3s;
+            padding: 12px 25px;
+            font-weight: 500;
+            font-size: 0.9rem;
             color: var(--gris-oscuro);
+            transition: all 0.2s;
         }
 
         .dropdown-item:hover {
-            background: #f8f9fa;
+            background: var(--gris-fondo);
             color: var(--cruz-roja);
             padding-left: 30px;
         }
 
-        .dropdown-toggle::after {
-            margin-left: 5px;
-        }
-
-        /* Mega menu para dropdowns grandes */
-        .mega-menu {
-            width: 100%;
-            max-width: 900px;
-            padding: 20px;
-        }
-
-        .mega-menu-column {
-            padding: 15px;
-        }
-
-        .mega-menu-title {
-            font-weight: 700;
-            color: var(--cruz-roja);
-            margin-bottom: 15px;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-        }
-
-        /* Footer */
+        /* Footer Moderno */
         footer {
-            background: var(--gris-oscuro);
+            background: #0B111A;
+            color: #E0E0E0;
+            padding: 80px 0 40px;
+            margin-top: 100px;
+            position: relative;
+        }
+
+        footer h5 {
             color: white;
-            padding: 40px 0 20px;
-            margin-top: 60px;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 12px;
+        }
+
+        footer h5::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 3px;
+            background: var(--cruz-roja);
         }
 
         .footer-links a {
-            color: white;
+            color: #E0E0E0;
             text-decoration: none;
             display: block;
-            margin-bottom: 10px;
-            transition: color 0.3s;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+            font-size: 0.95rem;
         }
 
         .footer-links a:hover {
             color: var(--cruz-roja);
+            transform: translateX(5px);
         }
 
         .footer-contact p {
-            margin-bottom: 10px;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.95rem;
         }
 
         .footer-contact i {
-            width: 20px;
             color: var(--cruz-roja);
+            margin-top: 4px;
         }
 
-        @media (max-width: 991px) {
-            body {
-                padding-top: 120px;
-            }
-
-            .main-navbar {
-                top: 70px;
-            }
-
-            .search-box input {
-                width: 100%;
-            }
-
-            .header-actions {
-                flex-direction: column;
-                align-items: stretch;
-            }
-        }
-
-        /* Botón WhatsApp Flotante */
+        /* Botón WhatsApp Premium */
         .whatsapp-float {
             position: fixed;
-            width: 60px;
-            height: 60px;
+            width: 65px;
+            height: 65px;
             bottom: 40px;
             right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 1000;
+            background: #25D366;
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 32px;
+            box-shadow: 0 10px 25px rgba(37, 211, 102, 0.3);
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             text-decoration: none;
-            transition: transform 0.3s;
         }
 
         .whatsapp-float:hover {
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(10deg);
             color: white;
+            box-shadow: 0 15px 30px rgba(37, 211, 102, 0.4);
         }
+
     </style>
 
     @yield('styles')
@@ -311,7 +306,7 @@
                                     placeholder="Buscar..."
                                     aria-label="Buscar"
                                     minlength="3">
-                                <button id="search-button" class="btn btn-outline-light" type="submit">
+                                <button id="search-button" class="btn text-danger" type="submit">
                                     <i class="fas fa-search"></i>
                                 </button>
                             </form>
@@ -334,7 +329,7 @@
 
                     <!-- Conócenos -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('home') }}">Conócenos</a>
+                        <a class="nav-link" href="{{ route('conocenos') }}">Conócenos</a>
                     </li>
 
                     <!-- Sala de Prensa -->

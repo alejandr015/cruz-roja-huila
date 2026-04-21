@@ -4,151 +4,93 @@
 
 @section('content')
 
-<!-- Banner Header -->
-<style>
-    .page-header-salud {
-        background: linear-gradient(135deg, #12284C 0%, #1a365d 100%);
-        padding: 100px 0;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .ekg-line {
-        position: absolute;
-        bottom: 15%;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><polyline points="0,50 15,50 20,35 25,65 30,10 35,90 40,35 45,50 100,50" fill="none" stroke="%23ED1C24" stroke-width="2" opacity="0.6" stroke-linecap="round" stroke-linejoin="round"/></svg>') repeat-x;
-        background-size: 250px 100%;
-        animation: slideEKG 4s linear infinite;
-        z-index: 1;
-    }
-    
-    .ekg-glow {
-        position: absolute;
-        bottom: 15%;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg"><polyline points="0,50 15,50 20,35 25,65 30,10 35,90 40,35 45,50 100,50" fill="none" stroke="%23ffffff" stroke-width="4" opacity="0.1" stroke-linecap="round" stroke-linejoin="round"/></svg>') repeat-x;
-        background-size: 250px 100%;
-        animation: slideEKG 4s linear infinite;
-        filter: blur(4px);
-        z-index: 0;
-    }
-
-    @keyframes slideEKG {
-        0% { background-position-x: 0; }
-        100% { background-position-x: -250px; }
-    }
-
-    /* Additional floating subtle elements */
-    .health-icon {
-        position: absolute;
-        color: rgba(255, 255, 255, 0.04);
-        font-size: 2rem;
-        font-weight: bold;
-        animation: floatPlus linear infinite;
-        z-index: 0;
-    }
-    
-    .hi-1 { left: 10%; bottom: -50px; animation-duration: 15s; }
-    .hi-2 { left: 30%; bottom: -50px; animation-duration: 20s; font-size: 1.5rem; animation-delay: 2s; }
-    .hi-3 { left: 60%; bottom: -50px; animation-duration: 18s; font-size: 3rem; animation-delay: 5s;}
-    .hi-4 { left: 85%; bottom: -50px; animation-duration: 22s; font-size: 2.5rem; animation-delay: 1s;}
-    
-    @keyframes floatPlus {
-        0% { transform: translateY(0) rotate(0deg); opacity: 1; }
-        100% { transform: translateY(-500px) rotate(180deg); opacity: 0; }
-    }
-</style>
-
-<section class="page-header-salud position-relative">
-    <!-- EKG Animation Data -->
-    <div class="ekg-glow"></div>
-    <div class="ekg-line"></div>
-    <div class="health-icon hi-1">+</div>
-    <div class="health-icon hi-2">+</div>
-    <div class="health-icon hi-3">+</div>
-    <div class="health-icon hi-4">+</div>
-
-    <div class="container position-relative z-1 text-center text-white pb-4">
-        <span class="badge bg-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
-            <i class="fas fa-user-md me-2"></i> Bienestar y Prevención
-        </span>
-        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Servicios De Salud</h1>
-        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
-            Atención médica de calidad y servicios especializados para tu bienestar.
-        </p>
-    </div>
-    
-    <!-- Forma inferior (wave) -->
-    <div class="position-absolute bottom-0 start-0 w-100 overflow-hidden" style="line-height: 0; z-index: 2;">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none" style="position: relative; display: block; width: calc(100% + 1.3px); height: 40px; transform: translateY(1px);">
-            <path d="M1200,80 C900,10 300,10 0,80 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.5"></path>
-            <path d="M1200,90 C900,30 300,30 0,90 L0,120 L1200,120 Z" fill="#ffffff" opacity="0.3"></path>
-            <path d="M1200,100 C900,50 300,50 0,100 L0,120 L1200,120 Z" fill="#ffffff"></path>
+<!-- Hero Section Salud Premium -->
+<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 520px; background-image: linear-gradient(rgba(0,45,114,0.8), rgba(0,45,114,0.6)), url('{{ asset('img/hero-salud.png') }}'); background-size: cover; background-position: center;">
+    <!-- Animación EKG Estilizada -->
+    <div class="ekg-container">
+        <svg class="ekg-svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
+            <path class="ekg-path" d="M0,50 L200,50 L210,40 L220,60 L230,20 L240,80 L250,40 L260,50 L500,50 L510,40 L520,60 L530,20 L540,80 L550,40 L560,50 L800,50 L810,40 L820,60 L830,20 L840,80 L850,40 L860,50 L1000,50" />
         </svg>
+    </div>
+
+    <div class="container py-5 position-relative z-1">
+        <div class="row align-items-center">
+            <div class="col-lg-8 animate-fade-up">
+                <span class="badge bg-danger mb-4 px-4 py-2 rounded-pill shadow-lg" style="letter-spacing: 2px; font-weight: 700;">
+                    <i class="fas fa-heartbeat me-2"></i> SALUD Y BIENESTAR
+                </span>
+                <h1 class="display-3 fw-bold mb-4">Servicios Médicos de Confianza</h1>
+                <p class="lead mb-5 fs-4 opacity-90" style="max-width: 800px;">
+                    Cuidamos lo que más te importa con tecnología avanzada y la calidez humana que nos caracteriza. Tu salud está en las mejores manos.
+                </p>
+                <div class="d-flex gap-3 flex-wrap">
+                    <a href="https://wa.me/573172971272" target="_blank" class="btn btn-danger btn-lg rounded-pill px-5 py-3 shadow-lg fw-bold transition-scale text-decoration-none d-inline-flex align-items-center">
+                        Agendar Cita Médica <i class="fab fa-whatsapp ms-2 fs-4"></i>
+                    </a>
+                    <a href="#servicios" class="btn btn-outline-light btn-lg rounded-pill px-5 py-3 fw-bold">Conocer Servicios</a>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Servicios -->
-<section class="py-5">
-    <div class="container">
-
-        <div class="text-center mb-5">
-            <h2 class="section-title-salud">Nuestros Servicios</h2>
-            <p class="lead text-muted">Servicios médicos profesionales y especializados</p>
+<!-- Servicios de Salud -->
+<section id="servicios" class="py-5 bg-white shadow-top" style="margin-top: -60px; border-radius: 60px 60px 0 0; position: relative; z-index: 10;">
+    <div class="container py-5">
+        
+        <div class="text-center mb-5 pb-3">
+            <h6 class="text-danger fw-bold text-uppercase mb-2" style="letter-spacing: 3px;">Nuestra Oferta</h6>
+            <h2 class="display-5 fw-bold" style="color: var(--azul-institucional);">Especialidades Médicas</h2>
+            <div class="mx-auto bg-danger mt-3" style="width: 60px; height: 4px; border-radius: 2px;"></div>
         </div>
 
         <div class="row g-4 justify-content-center">
 
             <!-- Vacunación -->
             <div class="col-md-6 col-lg-3">
-                <a href="{{ route('salud.vacunaciones') }}" class="servicio-salud-card">
-                    <div class="servicio-salud-imagen">
+                <a href="{{ route('salud.vacunaciones') }}" class="salud-card-premium hover-up">
+                    <div class="salud-card-icon">
                         <i class="fas fa-syringe"></i>
                     </div>
-                    <div class="servicio-salud-contenido">
-                        <h3>Vacunación</h3>
-                    </div>
+                    <h3>Vacunación</h3>
+                    <p class="text-muted small">Esquema completo y vacunas especiales con los más altos estándares.</p>
+                    <span class="text-danger fw-bold fs-xs text-uppercase">Ver más <i class="fas fa-arrow-right ms-1"></i></span>
                 </a>
             </div>
 
             <!-- Laboratorio Clínico -->
             <div class="col-md-6 col-lg-3">
-                <a href="{{ route('salud.laboratorios-clinicos') }}" class="servicio-salud-card">
-                    <div class="servicio-salud-imagen">
+                <a href="{{ route('salud.laboratorios-clinicos') }}" class="salud-card-premium hover-up">
+                    <div class="salud-card-icon">
                         <i class="fas fa-flask"></i>
                     </div>
-                    <div class="servicio-salud-contenido">
-                        <h3>Laboratorio Clínico</h3>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Citas Médicas -->
-            <div class="col-md-6 col-lg-3">
-                <a href="#agendarCita" class="servicio-salud-card" data-bs-toggle="modal" data-bs-target="#modalAgendarCita">
-                    <div class="servicio-salud-imagen">
-                        <i class="fas fa-calendar-check"></i>
-                    </div>
-                    <div class="servicio-salud-contenido">
-                        <h3>citas medicas</h3>
-                    </div>
+                    <h3>Laboratorio</h3>
+                    <p class="text-muted small">Resultados precisos y rápidos con tecnología de última generación.</p>
+                    <span class="text-danger fw-bold fs-xs text-uppercase">Ver más <i class="fas fa-arrow-right ms-1"></i></span>
                 </a>
             </div>
 
             <!-- Electrocardiogramas -->
             <div class="col-md-6 col-lg-3">
-                <a href="{{ route('salud.pruebas-especiales') }}" class="servicio-salud-card">
-                    <div class="servicio-salud-imagen">
+                <a href="{{ route('salud.pruebas-especiales') }}" class="salud-card-premium hover-up">
+                    <div class="salud-card-icon">
                         <i class="fas fa-heartbeat"></i>
                     </div>
-                    <div class="servicio-salud-contenido">
-                        <h3>Electrocardiogramas</h3>
+                    <h3>Diagnóstico</h3>
+                    <p class="text-muted small">Electrocardiogramas y pruebas especiales para el cuidado de tu corazón.</p>
+                    <span class="text-danger fw-bold fs-xs text-uppercase">Ver más <i class="fas fa-arrow-right ms-1"></i></span>
+                </a>
+            </div>
+
+            <!-- Consulta General -->
+            <div class="col-md-6 col-lg-3">
+                <a href="https://wa.me/573172971272" target="_blank" class="salud-card-premium hover-up text-decoration-none">
+                    <div class="salud-card-icon">
+                        <i class="fas fa-user-md"></i>
                     </div>
+                    <h3>Consultas</h3>
+                    <p class="text-muted small">Atención médica general con profesionales comprometidos con tu salud.</p>
+                    <span class="text-danger fw-bold fs-xs text-uppercase">Agendar vía WhatsApp <i class="fab fa-whatsapp ms-1"></i></span>
                 </a>
             </div>
 
@@ -156,110 +98,129 @@
     </div>
 </section>
 
-<!-- Modal Agendar Cita -->
-<div class="modal fade" id="modalAgendarCita" tabindex="-1" aria-labelledby="modalAgendarCitaLabel" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalAgendarCitaLabel">
-                    <i class="fas fa-calendar-check me-2"></i>Agendar Cita Médica
-                </h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+<!-- Beneficios Salud -->
+<section class="py-5 bg-light position-relative overflow-hidden">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <div class="bg-white p-4 rounded-5 shadow-lg mb-4 hover-up">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-danger-subtle p-3 rounded-circle me-3">
+                                <i class="fas fa-clock text-danger fa-lg"></i>
+                            </div>
+                            <h5 class="fw-bold mb-0">Atención Oportuna</h5>
+                        </div>
+                        <p class="text-muted mb-0">Minimizamos los tiempos de espera para que recibas tu atención cuando más la necesitas.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-5 shadow-lg mb-4 hover-up">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-primary-subtle p-3 rounded-circle me-3">
+                                <i class="fas fa-hand-holding-heart text-primary fa-lg" style="color: var(--azul-institucional) !important;"></i>
+                            </div>
+                            <h5 class="fw-bold mb-0">Calidez Humana</h5>
+                        </div>
+                        <p class="text-muted mb-0">No eres un paciente más, eres parte de nuestra comunidad y te tratamos con el respeto que mereces.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-5 shadow-lg hover-up">
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="bg-success-subtle p-3 rounded-circle me-3">
+                                <i class="fas fa-shield-virus text-success fa-lg"></i>
+                            </div>
+                            <h5 class="fw-bold mb-0">Seguridad Biológica</h5>
+                        </div>
+                        <p class="text-muted mb-0">Rigurosos protocolos de desinfección y seguridad para tu tranquilidad y la de tu familia.</p>
+                    </div>
+                </div>
             </div>
-            <div class="modal-body">
-                @if(session('success'))
-                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                    <i class="fas fa-check-circle me-2"></i>{{ session('success') }}
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                </div>
-                @endif
+            <div class="col-lg-6 ps-lg-5">
+                <h2 class="display-5 fw-bold mb-4" style="color: var(--azul-institucional);">Tecnología al Servicio de la Vida</h2>
+                <p class="lead text-muted mb-5">Nuestros servicios de salud integran la experiencia de profesionales destacados con equipos biomédicos modernos, garantizando diagnósticos certeros.</p>
+                <ul class="list-unstyled mb-5">
+                    <li class="mb-3 d-flex align-items-center fw-bold text-dark">
+                        <i class="fas fa-check-circle text-danger me-3"></i> Convenios con las principales EPS y empresas.
+                    </li>
+                    <li class="mb-3 d-flex align-items-center fw-bold text-dark">
+                        <i class="fas fa-check-circle text-danger me-3"></i> Resultados de laboratorio disponibles en línea.
+                    </li>
+                    <li class="mb-3 d-flex align-items-center fw-bold text-dark">
+                        <i class="fas fa-check-circle text-danger me-3"></i> Personal altamente capacitado y certificado.
+                    </li>
+                </ul>
+                <a href="{{ route('contacto') }}" class="btn btn-outline-danger btn-lg rounded-pill px-5 fw-bold">Contactar con un Asesor</a>
+            </div>
+        </div>
+    </div>
+</section>
 
-                @if($errors->any())
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <i class="fas fa-exclamation-circle me-2"></i>
-                    <strong>Por favor corrige los siguientes errores:</strong>
-                    <ul class="mb-0 mt-2">
-                        @foreach($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+<!-- Modal Agendar Cita Modernizado -->
+<div class="modal fade" id="modalAgendarCita" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 rounded-5 shadow-2xl">
+            <div class="modal-header bg-dark text-white border-0 py-4 px-5" style="background: linear-gradient(135deg, var(--azul-institucional) 0%, #1A2332 100%) !important;">
+                <div>
+                    <h4 class="modal-title fw-bold mb-1"><i class="fas fa-calendar-medical me-2"></i>Agendar Cita</h4>
+                    <p class="text-white-50 small mb-0">Completa tus datos para coordinar tu atención médica.</p>
                 </div>
-                @endif
-
-                <form action="{{ route('salud.agendar-cita') }}" method="POST" id="formAgendarCita">
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body p-5">
+                <form action="{{ route('salud.agendar-cita') }}" method="POST">
                     @csrf
-
-                    <div class="row g-3">
+                    <div class="row g-4">
                         <div class="col-md-6">
-                            <label class="form-label">Nombre Completo <span class="text-danger">*</span></label>
-                            <input type="text" name="nombre" class="form-control @error('nombre') is-invalid @enderror" value="{{ old('nombre') }}" required>
-                            @error('nombre')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <div class="form-floating mb-3">
+                                <input type="text" name="nombre" class="form-control rounded-4 border-light bg-light" id="floatNombre" placeholder="Nombre Completo" required>
+                                <label for="floatNombre">Nombre Completo</label>
+                            </div>
                         </div>
-
                         <div class="col-md-6">
-                            <label class="form-label">Correo Electrónico <span class="text-danger">*</span></label>
-                            <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
-                            @error('email')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <div class="form-floating mb-3">
+                                <input type="email" name="email" class="form-control rounded-4 border-light bg-light" id="floatEmail" placeholder="Correo Electrónico" required>
+                                <label for="floatEmail">Correo Electrónico</label>
+                            </div>
                         </div>
-
                         <div class="col-md-6">
-                            <label class="form-label">Teléfono / WhatsApp <span class="text-danger">*</span></label>
-                            <input type="tel" name="telefono" class="form-control @error('telefono') is-invalid @enderror" value="{{ old('telefono') }}" required>
-                            @error('telefono')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <div class="form-floating mb-3">
+                                <input type="tel" name="telefono" class="form-control rounded-4 border-light bg-light" id="floatTel" placeholder="Teléfono" required>
+                                <label for="floatTel">Teléfono / WhatsApp</label>
+                            </div>
                         </div>
-
                         <div class="col-md-6">
-                            <label class="form-label">Servicio <span class="text-danger">*</span></label>
-                            <select name="servicio" class="form-select @error('servicio') is-invalid @enderror" required>
-                                <option value="">Seleccione un servicio...</option>
-                                <option value="vacunacion" {{ old('servicio') == 'vacunacion' ? 'selected' : '' }}>Vacunación</option>
-                                <option value="laboratorio" {{ old('servicio') == 'laboratorio' ? 'selected' : '' }}>Laboratorio Clínico</option>
-                                <option value="electrocardiograma" {{ old('servicio') == 'electrocardiograma' ? 'selected' : '' }}>Electrocardiograma</option>
-                                <option value="examenes-rutina" {{ old('servicio') == 'examenes-rutina' ? 'selected' : '' }}>Exámenes de Rutina</option>
-                                <option value="inmunologia" {{ old('servicio') == 'inmunologia' ? 'selected' : '' }}>Inmunología</option>
-                                <option value="otro" {{ old('servicio') == 'otro' ? 'selected' : '' }}>Otro</option>
-                            </select>
-                            @error('servicio')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <div class="form-floating mb-3">
+                                <select name="servicio" class="form-select rounded-4 border-light bg-light" id="floatServicio" required>
+                                    <option value="" selected disabled>Selecciona un servicio</option>
+                                    <option value="vacunacion">Vacunación</option>
+                                    <option value="laboratorio">Laboratorio Clínico</option>
+                                    <option value="electrocardiograma">Electrocardiograma</option>
+                                    <option value="examenes-rutina">Exámenes de Rutina</option>
+                                </select>
+                                <label for="floatServicio">Servicio de Interés</label>
+                            </div>
                         </div>
-
                         <div class="col-md-6">
-                            <label class="form-label">Fecha Preferida <span class="text-danger">*</span></label>
-                            <input type="date" name="fecha_preferida" class="form-control @error('fecha_preferida') is-invalid @enderror" value="{{ old('fecha_preferida') }}" min="{{ date('Y-m-d') }}" required>
-                            @error('fecha_preferida')
-                            <div class="invalid-feedback">{{ $message }}</div>
-                            @enderror
+                            <div class="form-floating mb-3">
+                                <input type="date" name="fecha_preferida" class="form-control rounded-4 border-light bg-light" id="floatFecha" min="{{ date('Y-m-d') }}" required>
+                                <label for="floatFecha">Fecha Tentativa</label>
+                            </div>
                         </div>
-
                         <div class="col-md-6">
-                            <label class="form-label">Hora Preferida</label>
-                            <select name="hora_preferida" class="form-select">
-                                <option value="">Seleccione...</option>
-                                <option value="manana" {{ old('hora_preferida') == 'manana' ? 'selected' : '' }}>Mañana (7:00 AM - 12:00 PM)</option>
-                                <option value="tarde" {{ old('hora_preferida') == 'tarde' ? 'selected' : '' }}>Tarde (2:00 PM - 5:00 PM)</option>
-                            </select>
+                            <div class="form-floating mb-3">
+                                <select name="hora_preferida" class="form-select rounded-4 border-light bg-light" id="floatHora">
+                                    <option value="manana">Mañana (7:00 AM - 12:00 PM)</option>
+                                    <option value="tarde">Tarde (2:00 PM - 5:00 PM)</option>
+                                </select>
+                                <label for="floatHora">Jornada Preferida</label>
+                            </div>
                         </div>
-
-                        <div class="col-12">
-                            <label class="form-label">Motivo de la Consulta (Opcional)</label>
-                            <textarea name="motivo" class="form-control" rows="3" placeholder="Describe brevemente el motivo de tu consulta...">{{ old('motivo') }}</textarea>
+                        <div class="col-12 text-center mt-4">
+                            <button type="submit" class="btn btn-danger btn-lg rounded-pill px-5 py-3 fw-bold shadow-lg w-100 mb-3">
+                                Confirmar Solicitud de Cita
+                            </button>
+                            <p class="text-muted small mb-0">Un asesor te contactará en breve para confirmar la disponibilidad exacta.</p>
                         </div>
                     </div>
                 </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                <button type="submit" form="formAgendarCita" class="btn btn-primary-salud">
-                    <i class="fas fa-calendar-plus me-2"></i>Agendar Cita
-                </button>
             </div>
         </div>
     </div>
@@ -269,168 +230,80 @@
 
 @section('styles')
 <style>
-    :root {
-        --salud-primary: #1a2332;
-        --salud-secondary: #2C3E50;
-        --cruz-roja: #ED1C24;
-    }
+    .animate-fade-up { animation: fadeUp 1s ease-out forwards; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
 
-    .page-header-salud {
-        background: linear-gradient(135deg, var(--salud-primary) 0%, var(--salud-secondary) 100%);
-        padding: 80px 0;
-    }
-
-    .section-title-salud {
-        color: var(--salud-primary);
-        font-weight: 700;
-        font-size: 2.5rem;
-        position: relative;
-        padding-bottom: 15px;
-        margin-bottom: 20px;
-    }
-
-    .section-title-salud::after {
-        content: '';
+    /* EKG Animation Animation */
+    .ekg-container {
         position: absolute;
         bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 80px;
-        height: 4px;
-        background: var(--cruz-roja);
+        left: 0;
+        width: 100%;
+        height: 150px;
+        z-index: 0;
+        opacity: 0.2;
     }
+    .ekg-svg { width: 200%; height: 100%; animation: slideEKG 10s linear infinite; }
+    .ekg-path {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 2;
+        stroke-dasharray: 1000;
+        stroke-dashoffset: 1000;
+        animation: dashEKG 4s linear infinite;
+    }
+    @keyframes slideEKG { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes dashEKG { to { stroke-dashoffset: 0; } }
 
-    /* Tarjetas de Servicios - Diseño según la imagen */
-    .servicio-salud-card {
-        display: block;
+    .salud-card-premium {
         background: white;
-        border-radius: 20px;
-        overflow: hidden;
-        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        transition: all 0.3s ease;
+        padding: 40px 30px;
+        border-radius: 30px;
+        text-align: center;
         text-decoration: none;
+        color: inherit;
+        display: block;
         height: 100%;
-        min-height: 280px;
-        border: 2px solid #f0f0f0;
+        border: 1px solid #f0f0f0;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        transition: all 0.4s;
     }
-
-    .servicio-salud-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 40px rgba(26, 35, 50, 0.2);
-        border-color: var(--salud-primary);
+    .salud-card-premium:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0,0,0,0.08);
+        border-color: var(--cruz-roja);
     }
-
-    .servicio-salud-imagen {
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        padding: 60px 20px;
-        text-align: center;
-        transition: all 0.3s;
-    }
-
-    .servicio-salud-card:hover .servicio-salud-imagen {
-        background: linear-gradient(135deg, var(--salud-primary) 0%, var(--salud-secondary) 100%);
-    }
-
-    .servicio-salud-imagen i {
-        font-size: 4rem;
-        color: var(--salud-primary);
-        transition: all 0.3s;
-    }
-
-    .servicio-salud-card:hover .servicio-salud-imagen i {
-        color: white;
-        transform: scale(1.1);
-    }
-
-    .servicio-salud-contenido {
-        padding: 30px 20px;
-        text-align: center;
-        background: white;
-    }
-
-    .servicio-salud-contenido h3 {
-        color: var(--salud-primary);
-        font-size: 1.4rem;
-        font-weight: 700;
-        margin: 0;
-        transition: all 0.3s;
-    }
-
-    .servicio-salud-card:hover .servicio-salud-contenido h3 {
+    .salud-card-icon {
+        width: 65px;
+        height: 65px;
+        background: var(--gris-fondo);
         color: var(--cruz-roja);
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin: 0 auto 25px;
+        transition: all 0.3s;
     }
-
-    /* Modal */
-    .modal-header {
-        background: linear-gradient(135deg, var(--salud-primary) 0%, var(--salud-secondary) 100%);
+    .salud-card-premium:hover .salud-card-icon {
+        background: var(--cruz-roja);
         color: white;
+        transform: scale(1.1) rotate(10deg);
     }
+    .salud-card-premium h3 { font-weight: 800; font-size: 1.3rem; margin-bottom: 12px; color: var(--azul-institucional); }
+    
+    .cursor-pointer { cursor: pointer; }
+    .shadow-top { box-shadow: 0 -15px 40px rgba(0,0,0,0.05); }
+    .shadow-2xl { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
 
-    .modal-title {
-        font-weight: 700;
-        font-size: 1.3rem;
-    }
+    .hover-up { transition: all 0.3s ease; }
+    .hover-up:hover { transform: translateY(-8px); }
+    .transition-scale:hover { transform: scale(1.05); }
 
-    .btn-primary-salud {
-        background: linear-gradient(135deg, var(--cruz-roja) 0%, #C41419 100%);
-        border: none;
-        padding: 10px 25px;
-        border-radius: 10px;
-        font-weight: 600;
-        color: white;
-    }
-
-    .btn-primary-salud:hover {
-        background: linear-gradient(135deg, #C41419 0%, var(--cruz-roja) 100%);
-    }
-
-    @media (max-width: 768px) {
-        .section-title-salud {
-            font-size: 2rem;
-        }
-
-        .servicio-salud-card {
-            min-height: 240px;
-        }
-
-        .servicio-salud-imagen {
-            padding: 40px 20px;
-        }
-
-        .servicio-salud-imagen i {
-            font-size: 3rem;
-        }
-
-        .servicio-salud-contenido {
-            padding: 20px 15px;
-        }
-
-        .servicio-salud-contenido h3 {
-            font-size: 1.2rem;
-        }
-
-        .page-header-salud {
-            padding: 60px 0;
-        }
+    .form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown) {
+        border-color: var(--cruz-roja) !important;
+        box-shadow: none !important;
     }
 </style>
-@endsection
-
-@section('scripts')
-<script>
-    // Si hay errores, abrir el modal automáticamente
-    @if($errors->any())
-        var modalAgendarCita = new bootstrap.Modal(document.getElementById('modalAgendarCita'));
-        modalAgendarCita.show();
-    @endif
-
-    // Si hay mensaje de éxito, mostrar modal y cerrar después de 3 segundos
-    @if(session('success'))
-        var modalAgendarCita = new bootstrap.Modal(document.getElementById('modalAgendarCita'));
-        modalAgendarCita.show();
-        setTimeout(function() {
-            modalAgendarCita.hide();
-        }, 3000);
-    @endif
-</script>
-@endsection
+@endsection
