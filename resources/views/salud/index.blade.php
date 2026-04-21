@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Hero Section Salud Premium -->
-<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 520px; background-image: linear-gradient(rgba(0,45,114,0.8), rgba(0,45,114,0.6)), url('{{ asset('img/hero-salud.png') }}'); background-size: cover; background-position: center;">
+<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 520px; background-image: linear-gradient(rgba(0,45,114,0.8), rgba(0,45,114,0.6)), url('https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&q=80&w=1600'); background-size: cover; background-position: center;">
     <!-- Animación EKG Estilizada -->
     <div class="ekg-container">
         <svg class="ekg-svg" viewBox="0 0 1000 100" preserveAspectRatio="none">

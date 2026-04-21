@@ -7,7 +7,9 @@
 <!-- Banner Header -->
 <style>
     .ninos-header-bg {
-        background: linear-gradient(135deg, #12284C 0%, #1a4a5e 100%);
+        background: linear-gradient(135deg, rgba(18, 40, 76, 0.8) 0%, rgba(26, 74, 94, 0.6) 100%), url('{{ asset('img/campaña_vacunacion.png') }}');
+        background-size: cover;
+        background-position: center;
         padding: 100px 0;
         position: relative;
         overflow: hidden;

@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Hero Section Educativo Premium -->
-<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 480px; background-image: linear-gradient(rgba(0,45,114,0.7), rgba(0,45,114,0.7)), url('{{ asset('img/hero-educacion.png') }}'); background-size: cover; background-position: center;">
+<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 480px; background-image: linear-gradient(rgba(0,45,114,0.7), rgba(0,45,114,0.7)), url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&q=80&w=1600'); background-size: cover; background-position: center;">
     <div class="container py-5 position-relative z-1">
         <div class="row align-items-center">
             <div class="col-lg-8 animate-fade-up">
