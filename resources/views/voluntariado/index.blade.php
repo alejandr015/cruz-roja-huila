@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Hero Section Voluntariado Premium -->
-<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 520px; background-image: linear-gradient(rgba(0,45,114,0.6), rgba(0,45,114,0.4)), url('{{ asset('img/hero-voluntariado.png') }}'); background-size: cover; background-position: center;">
+<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 520px; background-image: linear-gradient(rgba(0,45,114,0.6), rgba(0,45,114,0.4)), url('{{ asset('reales/real-20.jpeg') }}'); background-size: cover; background-position: center;">
     <div class="container py-5 position-relative z-1">
         <div class="row align-items-center">
             <div class="col-lg-8 animate-fade-up">
@@ -43,7 +43,7 @@
             <div class="col-md-4">
                 <a href="{{ route('voluntariado.juventudes') }}" class="modalidad-premium-card hover-up">
                     <div class="modalidad-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?q=80&w=2070&auto=format&fit=crop" alt="Juventud Cruz Roja">
+                        <img src="{{ asset('img/Voluntariado_Juventud.jpg') }}" alt="Juventud Cruz Roja">
                         <div class="modalidad-icon-circle">
                             <i class="fas fa-child-reaching"></i>
                         </div>
@@ -60,7 +60,7 @@
             <div class="col-md-4">
                 <a href="{{ route('voluntariado.damas-grises') }}" class="modalidad-premium-card hover-up">
                     <div class="modalidad-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=2070&auto=format&fit=crop" alt="Damas Grises">
+                        <img src="{{ asset('img/damas_grises.jpg') }}" alt="Damas Grises">
                         <div class="modalidad-icon-circle">
                             <i class="fas fa-female"></i>
                         </div>
@@ -77,7 +77,7 @@
             <div class="col-md-4">
                 <a href="{{ route('voluntariado.socorristas') }}" class="modalidad-premium-card hover-up">
                     <div class="modalidad-image-wrapper">
-                        <img src="https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?q=80&w=2070&auto=format&fit=crop" alt="Socorristas">
+                        <img src="{{ asset('img/socorrismo.jpg') }}" alt="Socorristas">
                         <div class="modalidad-icon-circle">
                             <i class="fas fa-life-ring"></i>
                         </div>

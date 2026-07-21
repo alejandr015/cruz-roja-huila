@@ -35,7 +35,47 @@ class HomeController extends Controller
      */
     public function conocenos()
     {
-        return redirect()->route('accion-humanitaria');
+        return redirect()->route('conocenos.principios');
+    }
+
+    /**
+     * Principios
+     */
+    public function principios()
+    {
+        return view('conocenos.principios');
+    }
+
+    /**
+     * Historia
+     */
+    public function historia()
+    {
+        return view('conocenos.historia');
+    }
+
+    /**
+     * Misión y Visión
+     */
+    public function misionVision()
+    {
+        return view('conocenos.mision-vision');
+    }
+
+    /**
+     * Dónde estamos
+     */
+    public function dondeEstamos()
+    {
+        return view('conocenos.donde-estamos');
+    }
+
+    /**
+     * Atención al usuario
+     */
+    public function atencionUsuario()
+    {
+        return view('conocenos.atencion-usuario');
     }
 
     /**

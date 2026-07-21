@@ -32,6 +32,13 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Conócenos
 Route::get('/conocenos', [HomeController::class, 'conocenos'])->name('conocenos');
+Route::prefix('conocenos')->group(function () {
+    Route::get('/principios', [HomeController::class, 'principios'])->name('conocenos.principios');
+    Route::get('/historia', [HomeController::class, 'historia'])->name('conocenos.historia');
+    Route::get('/mision-vision', [HomeController::class, 'misionVision'])->name('conocenos.mision-vision');
+    Route::get('/donde-estamos', [HomeController::class, 'dondeEstamos'])->name('conocenos.donde-estamos');
+    Route::get('/atencion-usuario', [HomeController::class, 'atencionUsuario'])->name('conocenos.atencion-usuario');
+});
 Route::get('/accion-humanitaria', [HomeController::class, 'accionHumanitaria'])->name('accion-humanitaria');
 
 // Sala de Prensa

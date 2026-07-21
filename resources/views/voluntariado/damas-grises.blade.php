@@ -7,7 +7,7 @@
 <!-- Banner Header -->
 <style>
     .damas-header-bg {
-        background: linear-gradient(135deg, #7f8c8d 0%, #bdc3c7 100%);
+        background: linear-gradient(135deg, rgba(127, 140, 141, 0.5) 0%, rgba(189, 195, 199, 0.65) 100%), url('{{ asset('reales/real-36.jpeg') }}') center/cover;
         padding: 100px 0;
         position: relative;
         overflow: hidden;
@@ -90,8 +90,8 @@
         <span class="badge bg-light text-secondary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
             <i class="fas fa-heart me-2"></i> Vocación y Ternura
         </span>
-        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.2);">Damas Grises</h1>
-        <p class="lead text-white mx-auto mb-0" style="max-width: 700px; font-weight: 400; font-size: 1.2rem; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Damas Grises</h1>
+        <p class="lead text-white mx-auto mb-0" style="max-width: 700px; font-weight: 400; font-size: 1.2rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             Mujeres voluntarias al servicio de la comunidad, llevando esperanza, compañía y solidaridad a quienes más lo necesitan.
         </p>
     </div>

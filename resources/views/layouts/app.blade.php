@@ -327,14 +327,23 @@
             <div class="collapse navbar-collapse" id="mainNav">
                 <ul class="navbar-nav mx-auto">
 
-                    <!-- Conócenos -->
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('conocenos') }}">Conócenos</a>
-                    </li>
-
                     <!-- Sala de Prensa -->
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('prensa') }}">Sala De Prensa</a>
+                    </li>
+
+                    <!-- Conózcanos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Conózcanos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('conocenos.principios') }}">Principios</a></li>
+                            <li><a class="dropdown-item" href="{{ route('conocenos.historia') }}">Historia</a></li>
+                            <li><a class="dropdown-item" href="{{ route('conocenos.mision-vision') }}">Misión y Visión</a></li>
+                            <li><a class="dropdown-item" href="{{ route('conocenos.donde-estamos') }}">Dónde estamos</a></li>
+                            <li><a class="dropdown-item" href="{{ route('conocenos.atencion-usuario') }}">Atención al usuario</a></li>
+                        </ul>
                     </li>
 
                     <!-- Voluntariados -->

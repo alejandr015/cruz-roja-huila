@@ -7,7 +7,7 @@
 <!-- Banner Header -->
 <style>
     .laboral-header-bg {
-        background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%);
+        background: linear-gradient(135deg, rgba(18, 40, 76, 0.5) 0%, rgba(44, 62, 80, 0.6) 100%), url('{{ asset('reales/real-39.jpeg') }}') center/cover;
         padding: 100px 0;
         position: relative;
         overflow: hidden;
@@ -60,8 +60,8 @@
         <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
             <i class="fas fa-hard-hat me-2"></i> Seguridad y Salud en el Trabajo
         </span>
-        <h1 class="display-5 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Vacunación de Riesgos Laborales</h1>
-        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+        <h1 class="display-5 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Vacunación de Riesgos Laborales</h1>
+        <p class="lead text-white mx-auto mb-0" style="max-width: 700px; font-weight: 400; font-size: 1.15rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             Protección ocupacional e inmunización para trabajadores expuestos.
         </p>
     </div>

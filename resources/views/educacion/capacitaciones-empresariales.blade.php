@@ -36,7 +36,7 @@
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('primeros-auxilios')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(237,28,36,0.75) 0%, rgba(196,20,25,0.75) 100%), url('{{ asset('reales/real-46.jpeg') }}') center/cover;">
                         <i class="fas fa-first-aid"></i>
                     </div>
                     <div class="curso-contenido">
@@ -53,7 +53,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('brigadistas')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #1a2332 0%, #2C3E50 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(26,35,50,0.75) 0%, rgba(44,62,80,0.75) 100%), url('{{ asset('reales/real-39.jpeg') }}') center/cover;">
                         <i class="fas fa-fire-extinguisher"></i>
                     </div>
                     <div class="curso-contenido">
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('rcp')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(231,76,60,0.75) 0%, rgba(192,57,43,0.75) 100%), url('{{ asset('reales/real-52.jpeg') }}') center/cover;">
                         <i class="fas fa-heartbeat"></i>
                     </div>
                     <div class="curso-contenido">
@@ -87,7 +87,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('sst')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #C41419 0%, #9a1014 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(196,20,25,0.75) 0%, rgba(154,16,20,0.75) 100%), url('{{ asset('reales/real-31.jpeg') }}') center/cover;">
                         <i class="fas fa-hard-hat"></i>
                     </div>
                     <div class="curso-contenido">
@@ -104,7 +104,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('alturas')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(52,152,219,0.75) 0%, rgba(41,128,185,0.75) 100%), url('{{ asset('reales/real-13.jpeg') }}') center/cover;">
                         <i class="fas fa-person-falling"></i>
                     </div>
                     <div class="curso-contenido">
@@ -323,7 +323,7 @@
     }
 
     .empresariales-header-bg {
-        background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%);
+        background: linear-gradient(135deg, rgba(18,40,76,0.6) 0%, rgba(44,62,80,0.6) 100%), url('{{ asset('reales/real-3.jpeg') }}') center/cover;
         padding: 100px 0;
         position: relative;
         overflow: hidden;

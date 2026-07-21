@@ -4,7 +4,7 @@
 
 @section('content')
 <!-- Hero Section Premium -->
-<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 500px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ asset('img/hero-accion.png') }}'); background-size: cover; background-position: center;">
+<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 500px; background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('{{ asset('reales/real-20.jpeg') }}'); background-size: cover; background-position: center;">
     <div class="container py-5 position-relative z-1">
         <div class="row align-items-center">
             <div class="col-lg-8 anime-fade-up">
@@ -242,3 +242,4 @@
     .max-w-700 { max-width: 700px; }
 </style>
 @endsection
+

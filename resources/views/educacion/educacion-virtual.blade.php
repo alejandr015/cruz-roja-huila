@@ -37,7 +37,7 @@
         <div class="row g-4">
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('pa-virtual')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(237,28,36,0.75) 0%, rgba(196,20,25,0.75) 100%), url('{{ asset('reales/real-46.jpeg') }}') center/cover;">
                         <i class="fas fa-laptop-medical"></i>
                     </div>
                     <div class="curso-contenido">
@@ -54,7 +54,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('rcp-virtual')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(231,76,60,0.75) 0%, rgba(192,57,43,0.75) 100%), url('{{ asset('reales/real-52.jpeg') }}') center/cover;">
                         <i class="fas fa-heart-pulse"></i>
                     </div>
                     <div class="curso-contenido">
@@ -71,7 +71,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('dih-virtual')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(52,152,219,0.75) 0%, rgba(41,128,185,0.75) 100%), url('{{ asset('reales/real-13.jpeg') }}') center/cover;">
                         <i class="fas fa-book-open"></i>
                     </div>
                     <div class="curso-contenido">
@@ -88,7 +88,7 @@
             </div>
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('salud-mental')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(41,128,185,0.75) 0%, rgba(33,97,140,0.75) 100%), url('{{ asset('reales/real-31.jpeg') }}') center/cover;">
                         <i class="fas fa-brain"></i>
                     </div>
                     <div class="curso-contenido">
@@ -299,7 +299,7 @@
     }
 
     .virtual-header-bg {
-        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        background: linear-gradient(135deg, rgba(15,23,42,0.65) 0%, rgba(30,41,59,0.65) 100%), url('{{ asset('reales/real-22.jpeg') }}') center/cover;
         padding: 100px 0;
         position: relative;
         overflow: hidden;

@@ -7,7 +7,7 @@
 <!-- Banner Header -->
 <style>
     .ninos-header-bg {
-        background: linear-gradient(135deg, rgba(18, 40, 76, 0.8) 0%, rgba(26, 74, 94, 0.6) 100%), url('{{ asset('img/campaña_vacunacion.png') }}');
+        background: linear-gradient(135deg, rgba(18, 40, 76, 0.5) 0%, rgba(26, 74, 94, 0.4) 100%), url('{{ asset('reales/real-5.jpeg') }}');
         background-size: cover;
         background-position: center;
         padding: 100px 0;
@@ -78,8 +78,8 @@
         <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
             <i class="fas fa-baby me-2"></i> Cuidado y Protección
         </span>
-        <h1 class="display-5 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Vacunación para Gestantes y Niños</h1>
-        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+        <h1 class="display-5 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Vacunación para Gestantes y Niños</h1>
+        <p class="lead text-white mx-auto mb-0" style="max-width: 700px; font-weight: 400; font-size: 1.15rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             Protegiendo a los más vulnerables desde el inicio de la vida.
         </p>
     </div>

@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Hero Section Vacunación Premium -->
-<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 520px; background-image: linear-gradient(rgba(0,45,114,0.65), rgba(0,45,114,0.45)), url('{{ asset('img/hero-vacunacion.png') }}'); background-size: cover; background-position: center;">
+<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 520px; background-image: linear-gradient(rgba(0,45,114,0.65), rgba(0,45,114,0.45)), url('{{ asset('reales/real-16.jpeg') }}'); background-size: cover; background-position: center;">
     <div class="container py-5 position-relative z-1">
         <div class="row align-items-center">
             <div class="col-lg-8 animate-fade-up">
@@ -170,7 +170,7 @@
                         </li>
                     </ul>
                     <div class="mt-5 text-center">
-                        <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" class="img-fluid rounded-4 shadow" alt="Médico revisando carné">
+                        <img src="{{ asset('reales/real-31.jpeg') }}" class="img-fluid rounded-4 shadow" alt="Médico revisando carné">
                     </div>
                 </div>
             </div>

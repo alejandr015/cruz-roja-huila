@@ -16,7 +16,7 @@
         <div class="carousel-inner">
             <!-- Slide 1: Acción Humanitaria -->
             <div class="carousel-item active">
-                <div class="hero-slide-premium" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ asset('img/hero-accion.png') }}');">
+                <div class="hero-slide-premium" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ asset('reales/real-1.jpeg') }}');">
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
                             <div class="col-lg-8 text-white anime-fade-up">
@@ -35,7 +35,7 @@
 
             <!-- Slide 2: Educación -->
             <div class="carousel-item">
-                <div class="hero-slide-premium" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ asset('img/hero-educacion.png') }}');">
+                <div class="hero-slide-premium" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ asset('reales/real-2.jpeg') }}');">
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
                             <div class="col-lg-8 text-white anime-fade-up">
@@ -53,7 +53,7 @@
 
             <!-- Slide 3: Salud -->
             <div class="carousel-item">
-                <div class="hero-slide-premium" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ asset('img/hero-salud.png') }}');">
+                <div class="hero-slide-premium" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('{{ asset('reales/real-12.jpeg') }}');">
                     <div class="container h-100">
                         <div class="row align-items-center h-100">
                             <div class="col-lg-8 text-white anime-fade-up">
@@ -170,7 +170,7 @@
     <div class="container py-5">
         <div class="row align-items-center">
             <div class="col-lg-6 mb-5 mb-lg-0">
-                <img src="{{ asset('img/hero-accion.png') }}" class="img-fluid rounded-4 shadow-lg" alt="Misión Cruz Roja">
+                <img src="{{ asset('reales/real-4.jpeg') }}" class="img-fluid rounded-4 shadow-lg" alt="Misión Cruz Roja">
             </div>
             <div class="col-lg-6 ps-lg-5">
                 <h2 class="display-6 fw-bold mb-4">Nuestra Misión en el Huila</h2>
@@ -219,7 +219,7 @@
             <div class="col-md-4">
                 <div class="news-card-premium">
                     <div class="news-img-box">
-                        <img src="{{ asset('img/placeholder-noticia.jpg') }}" alt="{{ $noticia->titulo }}">
+                        <img src="{{ asset('reales/real-5.jpeg') }}" alt="{{ $noticia->titulo }}">
                         <span class="news-badge">{{ ucfirst($noticia->categoria) }}</span>
                     </div>
                     <div class="news-content">

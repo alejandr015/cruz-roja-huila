@@ -7,7 +7,7 @@
 <!-- Banner Header -->
 <style>
     .page-header-socorristas {
-        background: linear-gradient(135deg, #a71115 0%, #5a0000 100%);
+        background: linear-gradient(135deg, rgba(167, 17, 21, 0.5) 0%, rgba(90, 0, 0, 0.65) 100%), url('{{ asset('reales/real-46.jpeg') }}') center/cover;
         padding: 100px 0;
         position: relative;
         overflow: hidden;
@@ -58,8 +58,8 @@
         <span class="badge bg-light text-danger mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
             <i class="fas fa-ambulance me-2"></i> Acción y Rescate
         </span>
-        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">Socorristas</h1>
-        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Socorristas</h1>
+        <p class="lead text-white mx-auto mb-0" style="max-width: 700px; font-weight: 400; font-size: 1.15rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             Grupo de respuesta inmediata ante emergencias. Siempre alerta, siempre dispuestos a salvar vidas.
         </p>
     </div>

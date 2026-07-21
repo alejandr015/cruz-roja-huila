@@ -117,7 +117,7 @@
             <!-- Técnico en Atención Prehospitalaria -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('aph')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(237,28,36,0.75) 0%, rgba(196,20,25,0.75) 100%), url('{{ asset('reales/real-46.jpeg') }}') center/cover;">
                         <i class="fas fa-ambulance"></i>
                     </div>
                     <div class="curso-contenido">
@@ -149,7 +149,7 @@
             <!-- Técnico en Auxiliar de Enfermería -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('enfermeria')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(52,152,219,0.75) 0%, rgba(41,128,185,0.75) 100%), url('{{ asset('reales/real-31.jpeg') }}') center/cover;">
                         <i class="fas fa-user-nurse"></i>
                     </div>
                     <div class="curso-contenido">
@@ -181,7 +181,7 @@
             <!-- Técnico en Salud Ocupacional -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('salud-ocupacional')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #1a2332 0%, #2C3E50 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(26,35,50,0.75) 0%, rgba(44,62,80,0.75) 100%), url('{{ asset('reales/real-39.jpeg') }}') center/cover;">
                         <i class="fas fa-hard-hat"></i>
                     </div>
                     <div class="curso-contenido">
@@ -213,7 +213,7 @@
             <!-- Sastre de confección sobre medida -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('sastre')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(243,156,18,0.75) 0%, rgba(230,126,34,0.75) 100%), url('{{ asset('reales/real-14.jpeg') }}') center/cover;">
                         <i class="fas fa-cut"></i>
                     </div>
                     <div class="curso-contenido">
@@ -245,7 +245,7 @@
             <!-- Auxiliar en Farmacia -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('farmacia')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(26,188,156,0.75) 0%, rgba(22,160,133,0.75) 100%), url('{{ asset('reales/real-30.jpeg') }}') center/cover;">
                         <i class="fas fa-pills"></i>
                     </div>
                     <div class="curso-contenido">

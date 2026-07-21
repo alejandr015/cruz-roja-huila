@@ -7,7 +7,7 @@
 <!-- Banner Header -->
 <style>
     .juv-header-bg {
-        background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+        background: linear-gradient(135deg, rgba(52, 152, 219, 0.5) 0%, rgba(41, 128, 185, 0.65) 100%), url('{{ asset('reales/real-13.jpeg') }}') center/cover;
         padding: 100px 0;
         position: relative;
         overflow: hidden;
@@ -74,8 +74,8 @@
         <span class="badge bg-light text-primary mb-3 px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.9rem; letter-spacing: 1px; text-transform: uppercase;">
             <i class="fas fa-hands-helping me-2"></i> Juventud y Acción Social
         </span>
-        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">Servicio social Cruz Roja</h1>
-        <p class="lead text-white-50 mx-auto mb-0" style="max-width: 700px; font-weight: 300; font-size: 1.15rem;">
+        <h1 class="display-4 fw-bold mb-3 text-shadow" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Servicio social Cruz Roja</h1>
+        <p class="lead text-white mx-auto mb-0" style="max-width: 700px; font-weight: 400; font-size: 1.15rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.8);">
             Jóvenes comprometidos con la acción humanitaria y el desarrollo de la comunidad.
         </p>
     </div>

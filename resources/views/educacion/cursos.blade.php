@@ -7,7 +7,7 @@
 <!-- Banner Header -->
 <style>
     .cursos-header-bg {
-        background: linear-gradient(135deg, #12284C 0%, #2C3E50 100%);
+        background: linear-gradient(135deg, rgba(18,40,76,0.6) 0%, rgba(44,62,80,0.6) 100%), url('{{ asset('reales/real-53.jpeg') }}') center/cover;
         padding: 100px 0;
         position: relative;
         overflow: hidden;
@@ -94,7 +94,7 @@
             <!-- Primeros Auxilios -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('primeros-auxilios')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #ED1C24 0%, #C41419 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(237,28,36,0.75) 0%, rgba(196,20,25,0.75) 100%), url('{{ asset('reales/real-46.jpeg') }}') center/cover;">
                         <i class="fas fa-first-aid"></i>
                     </div>
                     <div class="curso-contenido">
@@ -126,7 +126,7 @@
             <!-- Inyectología -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('inyectologia')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(52,152,219,0.75) 0%, rgba(41,128,185,0.75) 100%), url('{{ asset('reales/real-31.jpeg') }}') center/cover;">
                         <i class="fas fa-syringe"></i>
                     </div>
                     <div class="curso-contenido">
@@ -158,7 +158,7 @@
             <!-- Belleza Integral -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('belleza')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #e91e63 0%, #c2185b 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(233,30,99,0.75) 0%, rgba(194,24,91,0.75) 100%), url('{{ asset('reales/real-14.jpeg') }}') center/cover;">
                         <i class="fas fa-spa"></i>
                     </div>
                     <div class="curso-contenido">
@@ -190,7 +190,7 @@
             <!-- Barbería -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('barberia')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #2c3e50 0%, #000000 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(44,62,80,0.75) 0%, rgba(0,0,0,0.75) 100%), url('{{ asset('reales/real-52.jpeg') }}') center/cover;">
                         <i class="fas fa-user-tie"></i>
                     </div>
                     <div class="curso-contenido">
@@ -223,7 +223,7 @@
             <div class="col-md-6 col-lg-4">
                 <div class="col-md-6 col-lg-12"> <!-- Wrapper para mantener proporciones si es necesario -->
                 <div class="curso-card" onclick="mostrarDetalleCurso('marketing')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #f1c40f 0%, #f39c12 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(241,196,15,0.75) 0%, rgba(243,156,18,0.75) 100%), url('{{ asset('reales/real-13.jpeg') }}') center/cover;">
                         <i class="fas fa-bullhorn"></i>
                     </div>
                     <div class="curso-contenido">
@@ -256,7 +256,7 @@
             <!-- Masajes Estéticos y Técnicos de SPA -->
             <div class="col-md-6 col-lg-4">
                 <div class="curso-card" onclick="mostrarDetalleCurso('masajes')">
-                    <div class="curso-imagen" style="background: linear-gradient(135deg, #1abc9c 0%, #16a085 100%);">
+                    <div class="curso-imagen" style="background: linear-gradient(135deg, rgba(26,188,156,0.75) 0%, rgba(22,160,133,0.75) 100%), url('{{ asset('reales/real-5.jpeg') }}') center/cover;">
                         <i class="fas fa-spa"></i>
                     </div>
                     <div class="curso-contenido">

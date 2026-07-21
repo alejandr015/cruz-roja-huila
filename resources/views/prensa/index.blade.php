@@ -5,7 +5,7 @@
 @section('content')
 
 <!-- Hero Section Prensa Premium -->
-<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 500px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('{{ asset('img/hero-prensa.png') }}'); background-size: cover; background-position: center; border-radius: 0 0 50px 50px;">
+<section class="py-5 text-white position-relative overflow-hidden" style="min-height: 500px; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('{{ asset('reales/real-20.jpeg') }}'); background-size: cover; background-position: center; border-radius: 0 0 50px 50px;">
     <div class="container py-5 position-relative z-1">
         <div class="row align-items-center min-vh-50">
             <div class="col-lg-8 animate-fade-up">

@@ -72,9 +72,9 @@
                                 <div class="row g-0">
                                     <div class="col-md-4">
                                         @if($noticia->imagen)
-                                            <img src="{{ asset('storage/' . $noticia->imagen) }}" class="img-fluid h-100 object-fit-cover" alt="{{ $noticia->titulo }}" onerror="this.src='{{ asset('img/placeholder-noticia.jpg') }}'">
+                                            <img src="{{ asset('storage/' . $noticia->imagen) }}" class="img-fluid h-100 object-fit-cover" alt="{{ $noticia->titulo }}" onerror="this.src='{{ asset('reales/real-20.jpeg') }}'">
                                         @else
-                                            <img src="{{ asset('img/placeholder-noticia.jpg') }}" class="img-fluid h-100 object-fit-cover" alt="placeholder">
+                                            <img src="{{ asset('reales/real-20.jpeg') }}" class="img-fluid h-100 object-fit-cover" alt="placeholder">
                                         @endif
                                     </div>
                                     <div class="col-md-8">
@@ -192,3 +192,4 @@
     }
 </style>
 @endsection
+
