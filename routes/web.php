@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\QueHacemosController;
 use App\Http\Controllers\VoluntariadoController;
 use App\Http\Controllers\VacunacionController;
 use App\Http\Controllers\EducacionController;
@@ -41,6 +42,14 @@ Route::prefix('conocenos')->group(function () {
 });
 Route::get('/accion-humanitaria', [HomeController::class, 'accionHumanitaria'])->name('accion-humanitaria');
 
+// Qué Hacemos
+Route::prefix('que-hacemos')->group(function () {
+    Route::get('/gestion-riesgo', [QueHacemosController::class, 'gestionRiesgo'])->name('que-hacemos.gestion-riesgo');
+    Route::get('/construccion-paz', [QueHacemosController::class, 'construccionPaz'])->name('que-hacemos.construccion-paz');
+    Route::get('/atencion-emergencias', [QueHacemosController::class, 'atencionEmergencias'])->name('que-hacemos.atencion-emergencias');
+    Route::get('/eventos-masivos', [QueHacemosController::class, 'eventosMasivos'])->name('que-hacemos.eventos-masivos');
+});
+
 // Sala de Prensa
 Route::get('/prensa', [HomeController::class, 'prensa'])->name('prensa');
 Route::get('/prensa/{id}', [HomeController::class, 'noticiaDetalle'])->name('prensa.detalle');
@@ -57,6 +66,7 @@ Route::prefix('voluntariado')->group(function () {
     Route::get('/ninos-gestantes', [VoluntariadoController::class, 'ninosGestantes'])->name('voluntariado.ninos-gestantes');
     Route::get('/adultos', [VoluntariadoController::class, 'adultos'])->name('voluntariado.adultos');
     Route::get('/adolescentes', [VoluntariadoController::class, 'adolescentes'])->name('voluntariado.adolescentes');
+    Route::get('/como-ser-voluntario', [VoluntariadoController::class, 'comoSerVoluntario'])->name('voluntariado.como-ser-voluntario');
 
     // Inscripción
     Route::post('/inscribirse', [VoluntariadoController::class, 'inscribirse'])->name('voluntariado.inscribirse');

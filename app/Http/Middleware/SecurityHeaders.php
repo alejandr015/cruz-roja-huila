@@ -47,6 +47,7 @@ class SecurityHeaders
             "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; " .
             "img-src 'self' data: https:; " .
             "connect-src 'self'; " .
+            "frame-src 'self' https://www.google.com https://maps.google.com; " .
             "frame-ancestors 'self';"
         );
 

@@ -65,6 +65,14 @@ class VoluntariadoController extends Controller
     }
 
     /**
+     * Cómo ser voluntario
+     */
+    public function comoSerVoluntario()
+    {
+        return view('voluntariado.como-ser-voluntario');
+    }
+
+    /**
      * Procesar inscripción de voluntario
      */
     public function inscribirse(Request $request)

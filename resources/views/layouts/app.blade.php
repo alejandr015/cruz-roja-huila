@@ -346,6 +346,19 @@
                         </ul>
                     </li>
 
+                    <!-- Qué Hacemos -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Qué Hacemos
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="{{ route('que-hacemos.gestion-riesgo') }}">Gestión del Riesgo</a></li>
+                            <li><a class="dropdown-item" href="{{ route('que-hacemos.construccion-paz') }}">Construcción de Paz</a></li>
+                            <li><a class="dropdown-item" href="{{ route('que-hacemos.atencion-emergencias') }}">Atención de Emergencias</a></li>
+                            <li><a class="dropdown-item" href="{{ route('que-hacemos.eventos-masivos') }}">Atención Eventos Masivos</a></li>
+                        </ul>
+                    </li>
+
                     <!-- Voluntariados -->
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="{{ route('voluntariado') }}" role="button" data-bs-toggle="dropdown">
@@ -355,6 +368,8 @@
                             <li><a class="dropdown-item" href="{{ route('voluntariado.socorristas') }}">Socorristas</a></li>
                             <li><a class="dropdown-item" href="{{ route('voluntariado.juventudes') }}">Servicio social</a></li>
                             <li><a class="dropdown-item" href="{{ route('voluntariado.damas-grises') }}">Damas Grises</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{ route('voluntariado.como-ser-voluntario') }}">Cómo ser Voluntario</a></li>
                         </ul>
                     </li>
 
