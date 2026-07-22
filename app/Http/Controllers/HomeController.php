@@ -87,6 +87,14 @@ class HomeController extends Controller
     }
 
     /**
+     * Informes de Gestión
+     */
+    public function informesGestion()
+    {
+        return view('informes-gestion');
+    }
+
+    /**
      * Sala de Prensa
      */
     public function prensa()

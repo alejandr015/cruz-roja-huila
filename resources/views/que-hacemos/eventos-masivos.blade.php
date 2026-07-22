@@ -110,36 +110,6 @@
 </section>
 
 
-{{-- ============================================================ --}}
-{{-- SOLICITAR AHORA --}}
-{{-- ============================================================ --}}
-<section class="py-5 bg-white">
-    <div class="container py-3">
-        <div class="evm-request-banner rounded-5 overflow-hidden anime-fade-up">
-            <div class="row g-0 align-items-stretch">
-                <div class="col-lg-7 p-5 text-white d-flex flex-column justify-content-center">
-                    <h3 class="fw-black mb-2">¿Vas a organizar un evento?</h3>
-                    <p class="opacity-85 mb-0">Solicita tu dispositivo de atención con anticipación en nuestra oficina de Neiva.</p>
-                </div>
-                <div class="col-lg-5 p-5 bg-white d-flex flex-column justify-content-center gap-3">
-                    <a href="tel:+576088713008" class="evm-request-item">
-                        <i class="fas fa-phone"></i>
-                        <div><span class="d-block fw-bold">(608) 871 3008</span><span class="d-block text-muted small">Ext. 101</span></div>
-                    </a>
-                    <a href="https://wa.me/573133917112" target="_blank" rel="noopener" class="evm-request-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <div><span class="d-block fw-bold">313 391 7112</span><span class="d-block text-muted small">WhatsApp</span></div>
-                    </a>
-                    <a href="mailto:mercadeohuila@cruzrojacolombiana.org" class="evm-request-item">
-                        <i class="fas fa-envelope"></i>
-                        <div><span class="d-block fw-bold text-truncate">mercadeohuila@cruzrojacolombiana.org</span></div>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 @endsection
 
 @section('styles')

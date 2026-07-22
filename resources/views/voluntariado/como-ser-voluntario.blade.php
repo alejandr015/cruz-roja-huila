@@ -107,8 +107,8 @@
                     <h3 class="fw-bold mb-2">¿Listo para dar el primer paso?</h3>
                     <p class="opacity-85 mb-4">Escríbenos y un coordinador de voluntariado te contactará con los siguientes pasos.</p>
                     <div class="d-flex gap-3 justify-content-center flex-wrap mb-3">
-                        <a href="https://wa.me/573133917112" target="_blank" rel="noopener" class="csv-btn-primary">
-                            <i class="fab fa-whatsapp me-2"></i>313 391 7112
+                        <a href="https://wa.me/57 313 393 7225" target="_blank" rel="noopener" class="csv-btn-primary">
+                            <i class="fab fa-whatsapp me-2"></i>3133937225
                         </a>
                         <a href="mailto:voluntariadohuila@cruzrojacolombiana.org" class="csv-btn-outline">
                             <i class="fas fa-envelope me-2"></i>voluntariadohuila@cruzrojacolombiana.org

@@ -453,6 +453,7 @@
                         <a href="{{ route('voluntariado') }}">Voluntariado</a>
                         <a href="{{ route('educacion') }}">Oferta Educativa</a>
                         <a href="{{ route('salud') }}">Servicios de Salud</a>
+                        <a href="{{ route('informes-gestion') }}">Informes de Gestión</a>
                         <a href="{{ route('login') }}" class="opacity-75"><i class="fas fa-lock me-2" style="font-size: 0.8rem;"></i>Portal Administrativo</a>
                     </div>
                 </div>

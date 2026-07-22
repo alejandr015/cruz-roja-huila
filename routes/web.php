@@ -41,6 +41,7 @@ Route::prefix('conocenos')->group(function () {
     Route::get('/atencion-usuario', [HomeController::class, 'atencionUsuario'])->name('conocenos.atencion-usuario');
 });
 Route::get('/accion-humanitaria', [HomeController::class, 'accionHumanitaria'])->name('accion-humanitaria');
+Route::get('/informes-de-gestion', [HomeController::class, 'informesGestion'])->name('informes-gestion');
 
 // Qué Hacemos
 Route::prefix('que-hacemos')->group(function () {
